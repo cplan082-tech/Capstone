@@ -1,0 +1,3 @@
+[submodule "Hardware/tool_circuit/Project_library/digikey-kicad-library"]
+	path = Hardware/tool_circuit/Project_library/digikey-kicad-library
+	url = https://github.com/Digi-Key/digikey-kicad-library.git
