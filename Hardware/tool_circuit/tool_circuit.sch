@@ -64,4 +64,24 @@ F 12 "Active" H 8250 4450 60  0001 L CNN "Status"
 	1    8050 3250
 	1    0    0    -1  
 $EndComp
+$Comp
+L dk_Balun:ETC1-1-13TR T?
+U 1 1 60EA3E8C
+P 3200 4900
+F 0 "T?" H 3200 5287 60  0000 C CNN
+F 1 "ETC1-1-13TR" H 3200 5181 60  0000 C CNN
+F 2 "digikey-footprints:SMD-5-6_R_3.83x2.79mm" H 3400 5100 60  0001 L CNN
+F 3 "http://cdn.macom.com/datasheets/ETC1-1-13.pdf" H 3400 5200 60  0001 L CNN
+F 4 "1465-1217-1-ND" H 3400 5300 60  0001 L CNN "Digi-Key_PN"
+F 5 "ETC1-1-13TR" H 3400 5400 60  0001 L CNN "MPN"
+F 6 "RF/IF and RFID" H 3400 5500 60  0001 L CNN "Category"
+F 7 "Balun" H 3400 5600 60  0001 L CNN "Family"
+F 8 "http://cdn.macom.com/datasheets/ETC1-1-13.pdf" H 3400 5700 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/m-a-com-technology-solutions/ETC1-1-13TR/1465-1217-1-ND/4429914" H 3400 5800 60  0001 L CNN "DK_Detail_Page"
+F 10 "BALUN 4.5MHZ-3GHZ 1:1 5SMD" H 3400 5900 60  0001 L CNN "Description"
+F 11 "M/A-Com Technology Solutions" H 3400 6000 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 3400 6100 60  0001 L CNN "Status"
+	1    3200 4900
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
