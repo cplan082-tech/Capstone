@@ -35,4 +35,15 @@ F 3 "https://datasheets.maximintegrated.com/en/ds/DS2745.pdf" H 2400 4600 50  00
 	1    2300 5000
 	1    0    0    -1  
 $EndComp
+$Comp
+L 74xGxx:74AHC1G00 U?
+U 1 1 611D9268
+P 5800 3100
+F 0 "U?" H 5775 3367 50  0000 C CNN
+F 1 "74AHC1G00" H 5775 3276 50  0000 C CNN
+F 2 "" H 5800 3100 50  0001 C CNN
+F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 5800 3100 50  0001 C CNN
+	1    5800 3100
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

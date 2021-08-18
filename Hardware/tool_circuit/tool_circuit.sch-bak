@@ -25,23 +25,14 @@ F 3 "http://akizukidenshi.com/download/ds/aosong/DHT11.pdf" H 2150 3500 50  0001
 	1    0    0    -1  
 $EndComp
 $Comp
-L dk_Interface-I-O-Expanders:MCP23017-E_SO U?
-U 1 1 60E6A211
-P 7600 3350
-F 0 "U?" H 7700 4353 60  0000 C CNN
-F 1 "MCP23017-E_SO" H 7700 4247 60  0000 C CNN
-F 2 "digikey-footprints:SOIC-28_W7.5mm" H 7800 3550 60  0001 L CNN
-F 3 "http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en023709" H 7800 3650 60  0001 L CNN
-F 4 "MCP23017-E/SO-ND" H 7800 3750 60  0001 L CNN "Digi-Key_PN"
-F 5 "MCP23017-E/SO" H 7800 3850 60  0001 L CNN "MPN"
-F 6 "Integrated Circuits (ICs)" H 7800 3950 60  0001 L CNN "Category"
-F 7 "Interface - I/O Expanders" H 7800 4050 60  0001 L CNN "Family"
-F 8 "http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en023709" H 7800 4150 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/microchip-technology/MCP23017-E-SO/MCP23017-E-SO-ND/894271" H 7800 4250 60  0001 L CNN "DK_Detail_Page"
-F 10 "IC I/O EXPANDER I2C 16B 28SOIC" H 7800 4350 60  0001 L CNN "Description"
-F 11 "Microchip Technology" H 7800 4450 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 7800 4550 60  0001 L CNN "Status"
-	1    7600 3350
+L Battery_Management:DS2745U U?
+U 1 1 61195996
+P 2300 5000
+F 0 "U?" H 2300 5481 50  0000 C CNN
+F 1 "DS2745U" H 2300 5390 50  0000 C CNN
+F 2 "Package_SO:TSSOP-8_3x3mm_P0.65mm" H 2300 4500 50  0001 C CNN
+F 3 "https://datasheets.maximintegrated.com/en/ds/DS2745.pdf" H 2400 4600 50  0001 C CNN
+	1    2300 5000
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
