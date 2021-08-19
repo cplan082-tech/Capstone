@@ -50,6 +50,7 @@ F0 "Power_Src" 50
 F1 "Power_Src.sch" 50
 $EndSheet
 <<<<<<< HEAD
+<<<<<<< HEAD
 Wire Wire Line
 	7700 3000 9750 3000
 Wire Wire Line
@@ -57,6 +58,8 @@ Wire Wire Line
 Wire Wire Line
 	7700 1400 7700 3000
 =======
+=======
+>>>>>>> 2ba9387917677e73fec650112dac8c5152515be9
 $Comp
 L 74xx_IEEE:74HC237 U?
 U 1 1 611DA8B1
@@ -68,5 +71,8 @@ F 3 "" H 4250 1750 50  0001 C CNN
 	1    4250 1750
 	1    0    0    -1  
 $EndComp
+<<<<<<< HEAD
+>>>>>>> 2ba9387917677e73fec650112dac8c5152515be9
+=======
 >>>>>>> 2ba9387917677e73fec650112dac8c5152515be9
 $EndSCHEMATC
