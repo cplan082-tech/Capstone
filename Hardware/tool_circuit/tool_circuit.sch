@@ -49,4 +49,10 @@ U 611DBAE9
 F0 "Power_Src" 50
 F1 "Power_Src.sch" 50
 $EndSheet
+Wire Wire Line
+	7700 3000 9750 3000
+Wire Wire Line
+	9750 3000 9750 2800
+Wire Wire Line
+	7700 1400 7700 3000
 $EndSCHEMATC
