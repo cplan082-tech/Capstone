@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 1
+Sheet 1 5
 Title ""
 Date ""
 Rev ""
@@ -13,37 +13,40 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Comp
-L Sensor:DHT11 U?
-U 1 1 61195F2D
-P 2000 3250
-F 0 "U?" H 1756 3296 50  0000 R CNN
-F 1 "DHT11" H 1756 3205 50  0000 R CNN
-F 2 "Sensor:Aosong_DHT11_5.5x12.0_P2.54mm" H 2000 2850 50  0001 C CNN
-F 3 "http://akizukidenshi.com/download/ds/aosong/DHT11.pdf" H 2150 3500 50  0001 C CNN
-	1    2000 3250
-	1    0    0    -1  
-$EndComp
-$Comp
-L Battery_Management:DS2745U U?
-U 1 1 61195996
-P 2300 5000
-F 0 "U?" H 2300 5481 50  0000 C CNN
-F 1 "DS2745U" H 2300 5390 50  0000 C CNN
-F 2 "Package_SO:TSSOP-8_3x3mm_P0.65mm" H 2300 4500 50  0001 C CNN
-F 3 "https://datasheets.maximintegrated.com/en/ds/DS2745.pdf" H 2400 4600 50  0001 C CNN
-	1    2300 5000
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xGxx:74AHC1G00 U?
-U 1 1 611D9268
-P 5800 3100
-F 0 "U?" H 5775 3367 50  0000 C CNN
-F 1 "74AHC1G00" H 5775 3276 50  0000 C CNN
-F 2 "" H 5800 3100 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 5800 3100 50  0001 C CNN
-	1    5800 3100
-	1    0    0    -1  
-$EndComp
+$Sheet
+S 5950 2200 1250 750 
+U 611DBC89
+F0 "Temp_Sense" 50
+F1 "Temp_Sense.sch" 50
+F2 "TEMP_DATA" B L 5950 2550 50 
+$EndSheet
+$Sheet
+S 5850 4200 1150 700 
+U 611DF2F9
+F0 "Battery_Monitor" 50
+F1 "Battery_Monitor.sch" 50
+F2 "BATT_MON_DATA" B L 5850 4450 50 
+$EndSheet
+$Sheet
+S 2100 4250 1250 650 
+U 611E1BEE
+F0 "Pi_Connection" 50
+F1 "Pi_Connection.sch" 50
+F2 "DATA" B R 3350 4450 50 
+$EndSheet
+Wire Bus Line
+	3350 4450 5250 4450
+Wire Bus Line
+	5950 2550 5250 2550
+Wire Bus Line
+	5250 2550 5250 4450
+Connection ~ 5250 4450
+Wire Bus Line
+	5250 4450 5850 4450
+$Sheet
+S 2000 2450 1400 850 
+U 611DBAE9
+F0 "Power_Src" 50
+F1 "Power_Src.sch" 50
+$EndSheet
 $EndSCHEMATC
