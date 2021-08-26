@@ -76,8 +76,6 @@ F 3 "~" H 5800 3400 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	5800 3550 5800 3750
-Wire Bus Line
-	6350 3550 6350 4250
 $Comp
 L power:GND #PWR?
 U 1 1 61232568
@@ -89,4 +87,6 @@ F 3 "" H 5100 4050 50  0001 C CNN
 	1    5100 4050
 	1    0    0    -1  
 $EndComp
+Wire Bus Line
+	6350 3550 6350 4250
 $EndSCHEMATC

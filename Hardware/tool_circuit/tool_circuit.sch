@@ -49,4 +49,19 @@ U 611DBAE9
 F0 "Power_Src" 50
 F1 "Power_Src.sch" 50
 $EndSheet
+$Comp
+L power:+12V #PWR?
+U 1 1 6125A008
+P 2850 2050
+F 0 "#PWR?" H 2850 1900 50  0001 C CNN
+F 1 "+12V" H 2865 2223 50  0000 C CNN
+F 2 "" H 2850 2050 50  0001 C CNN
+F 3 "" H 2850 2050 50  0001 C CNN
+	1    2850 2050
+	1    0    0    -1  
+$EndComp
+Text HLabel 2850 2450 3    50   Input ~ 0
+12V_BATTERY
+Wire Wire Line
+	2850 2050 2850 2450
 $EndSCHEMATC
