@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 3 5
+Sheet 3 6
 Title ""
 Date ""
 Rev ""
@@ -13,7 +13,7 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text HLabel 4600 3100 0    50   BiDi ~ 0
+Text HLabel 5050 3200 0    50   BiDi ~ 0
 BATT_MON_DATA
 $Comp
 L Battery_Management:DS2745U U?

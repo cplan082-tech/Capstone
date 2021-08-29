@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 5 5
+Sheet 6 6
 Title ""
 Date ""
 Rev ""
@@ -25,14 +25,14 @@ F 3 "" H 4000 1850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+3.3V #PWR?
-U 1 1 611EFC98
-P 6150 1800
-F 0 "#PWR?" H 6150 1650 50  0001 C CNN
-F 1 "+3.3V" H 6165 1973 50  0000 C CNN
-F 2 "" H 6150 1800 50  0001 C CNN
-F 3 "" H 6150 1800 50  0001 C CNN
-	1    6150 1800
+L power:VDC #PWR?
+U 1 1 612B15A0
+P 4800 1900
+F 0 "#PWR?" H 4800 1800 50  0001 C CNN
+F 1 "VDC" H 4815 2073 50  0000 C CNN
+F 2 "" H 4800 1900 50  0001 C CNN
+F 3 "" H 4800 1900 50  0001 C CNN
+	1    4800 1900
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
