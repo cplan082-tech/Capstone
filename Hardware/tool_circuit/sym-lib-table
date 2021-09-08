@@ -150,4 +150,6 @@
   (lib (name dk_TVS-Mixed-Technology)(type Legacy)(uri ${KIPRJMOD}/Project_library/digikey-kicad-library/digikey-symbols/dk_TVS-Mixed-Technology.lib)(options "")(descr ""))
   (lib (name dk_USB-DVI-HDMI-Connectors)(type Legacy)(uri ${KIPRJMOD}/Project_library/digikey-kicad-library/digikey-symbols/dk_USB-DVI-HDMI-Connectors.lib)(options "")(descr ""))
   (lib (name raspberrypi_hat)(type Legacy)(uri /Users/komaljaved/Documents/Capstone_main/Capstone/Hardware/tool_circuit/Pi_Hat/project_components/raspberrypi_hat.lib)(options "")(descr ""))
+  (lib (name 12063D106MAT2A)(type Legacy)(uri /Users/komaljaved/Downloads/12063D106MAT2A/12063D106MAT2A.lib)(options "")(descr ""))
+  (lib (name TPS563211DRLR)(type Legacy)(uri /Users/komaljaved/Downloads/ul_TPS563211DRLR/KiCAD/2021-09-08_17-33-06/2021-09-08_17-33-06.lib)(options "")(descr ""))
 )

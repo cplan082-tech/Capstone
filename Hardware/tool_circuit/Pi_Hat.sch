@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 5 6
+Sheet 5 7
 Title ""
 Date ""
 Rev ""
@@ -57,7 +57,7 @@ F 3 "" H 6600 6550 60  0001 C CNN
 	1    6700 6550
 	1    0    0    -1  
 $EndComp
-Text Label 3150 7400 2    60   ~ 0
+Text Label 3250 7300 2    60   ~ 0
 P3V3
 $Comp
 L Connector_Generic:Conn_02x02_Odd_Even J6
@@ -218,51 +218,51 @@ $EndComp
 $Comp
 L Device:R R6
 U 1 1 58E17715
-P 2350 7400
-F 0 "R6" V 2430 7400 50  0000 C CNN
-F 1 "3.9K" V 2350 7400 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.84x1.00mm_HandSolder" V 2280 7400 50  0001 C CNN
-F 3 "" H 2350 7400 50  0001 C CNN
-	1    2350 7400
+P 2450 7300
+F 0 "R6" V 2530 7300 50  0000 C CNN
+F 1 "3.9K" V 2450 7300 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.84x1.00mm_HandSolder" V 2380 7300 50  0001 C CNN
+F 3 "" H 2450 7300 50  0001 C CNN
+	1    2450 7300
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:R R8
 U 1 1 58E17720
-P 2350 7650
-F 0 "R8" V 2430 7650 50  0000 C CNN
-F 1 "3.9K" V 2350 7650 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.84x1.00mm_HandSolder" V 2280 7650 50  0001 C CNN
-F 3 "" H 2350 7650 50  0001 C CNN
-	1    2350 7650
+P 2450 7550
+F 0 "R8" V 2530 7550 50  0000 C CNN
+F 1 "3.9K" V 2450 7550 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.84x1.00mm_HandSolder" V 2380 7550 50  0001 C CNN
+F 3 "" H 2450 7550 50  0001 C CNN
+	1    2450 7550
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	1250 7400 2150 7400
+	1350 7300 2250 7300
 Wire Wire Line
-	1250 7650 2150 7650
+	1350 7550 2250 7550
 Wire Wire Line
-	2150 7500 1250 7500
+	2250 7400 1350 7400
 Wire Wire Line
-	2150 7750 1250 7750
+	2250 7650 1350 7650
 Wire Wire Line
-	2150 7750 2150 7650
-Connection ~ 2150 7650
+	2250 7650 2250 7550
+Connection ~ 2250 7550
 Wire Wire Line
-	2150 7500 2150 7400
-Connection ~ 2150 7400
+	2250 7400 2250 7300
+Connection ~ 2250 7300
 Wire Wire Line
-	2500 7400 2700 7400
+	2600 7300 2800 7300
 Wire Wire Line
-	2700 7650 2500 7650
-Connection ~ 2700 7400
-Text Label 1250 7400 0    60   ~ 0
+	2800 7550 2600 7550
+Connection ~ 2800 7300
+Text Label 1350 7300 0    60   ~ 0
 ID_SD_EEPROM_pu
-Text Label 1250 7500 0    60   ~ 0
+Text Label 1350 7400 0    60   ~ 0
 ID_SD_EEPROM
-Text Label 1250 7650 0    60   ~ 0
+Text Label 1350 7550 0    60   ~ 0
 ID_SC_EEPROM_pu
-Text Label 1250 7750 0    60   ~ 0
+Text Label 1350 7650 0    60   ~ 0
 ID_SC_EEPROM
 Wire Wire Line
 	3450 6050 2600 6050
@@ -386,19 +386,19 @@ F 3 "" H 1300 6100 50  0001 C CNN
 	1    1300 6100
 	0    1    1    0   
 $EndComp
-Text Notes 1550 7050 0    118  ~ 24
+Text Notes 1650 6950 0    118  ~ 24
 Pullup Resistors
 Text Notes 2000 4800 0    118  ~ 24
 HAT EEPROM
 Text Notes 5300 5700 0    118  ~ 24
 Mounting Holes
 Wire Wire Line
-	2700 7650 2700 7400
+	2800 7550 2800 7300
 Text Notes 7150 4950 0    60   ~ 0
 HAT spec indicates to NEVER\npower the 3.3V pins on the Raspberry Pi \nfrom the HAT header. Only connect the 3.3V\npower from the Pi if the HAT does not have\n3.3V on board.\n\nIF you are designing a board that could\neither be powered by the Pi or from the HAT\nthe jumpers here can be used.\n\nIn most cases, either design the HAT \nto provide the 5V to the Pi and use the\nprotection circuit above OR power the\nHAT from the Pi and directly connect\nthe P3V3 and P5V to the P3V3_HAT and P5V_HAT\npins.
 Text Notes 1200 5200 0    60   ~ 0
 The HAT spec requires this EEPROM with system information\nto be in place in order to be called a HAT. It should be set up as write\nprotected (WP pin held high), so it may be desirable to either put a \njumper as shown to enable writing, or to hook up a spare IO pin to do so.
-Text Notes 1100 7250 0    60   ~ 0
+Text Notes 1200 7150 0    60   ~ 0
 These are just pullup resistors for the I2C bus on the EEPROM.\nThe resistor values are per the HAT spec.
 Text Notes 850  1250 0    100  ~ 0
 This is based on the official Raspberry Pi spec to be able to call an extension board a HAT.\nhttps://github.com/raspberrypi/hats/blob/master/designguide.md
@@ -449,11 +449,11 @@ Wire Wire Line
 Wire Wire Line
 	6550 2400 7150 2400
 Wire Wire Line
-	2150 7650 2200 7650
+	2250 7550 2300 7550
 Wire Wire Line
-	2150 7400 2200 7400
+	2250 7300 2300 7300
 Wire Wire Line
-	2700 7400 3150 7400
+	2800 7300 3250 7300
 Wire Wire Line
 	1300 5750 1300 5850
 Wire Wire Line
@@ -537,4 +537,14 @@ Text Label 800  3450 0    60   ~ 0
 GND
 Text Label 800  4150 0    60   ~ 0
 GND
+Text HLabel 850  2300 0    50   Input ~ 0
+DATA
+Wire Bus Line
+	850  2300 1050 2300
+Entry Wire Line
+	1050 2300 1150 2400
+Wire Wire Line
+	1150 2400 1150 2350
+Wire Wire Line
+	1150 2350 2000 2350
 $EndSCHEMATC

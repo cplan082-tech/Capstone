@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 6
+Sheet 1 7
 Title ""
 Date ""
 Rev ""
@@ -43,12 +43,6 @@ Wire Bus Line
 Connection ~ 5250 4450
 Wire Bus Line
 	5250 4450 5850 4450
-$Sheet
-S 2000 2450 1400 850 
-U 611DBAE9
-F0 "Power_Src" 50
-F1 "Power_Src.sch" 50
-$EndSheet
 $Comp
 L power:+12V #PWR?
 U 1 1 6125A008
@@ -64,4 +58,20 @@ Text HLabel 2850 2450 3    50   Input ~ 0
 12V_BATTERY
 Wire Wire Line
 	2850 2050 2850 2450
+Text HLabel 3050 4250 3    50   Input ~ 0
+5V
+Text HLabel 5850 4650 2    50   Input ~ 0
+12V_BATTERY
+Text HLabel 3050 3300 1    50   Output ~ 0
+12V_BATTERY
+Text HLabel 3200 3300 1    50   Output ~ 0
+5V
+Text HLabel 5950 2700 2    50   Input ~ 0
+3v3
+$Sheet
+S 2000 2450 1400 850 
+U 611DBAE9
+F0 "Power_Src" 50
+F1 "Power_Src.sch" 50
+$EndSheet
 $EndSCHEMATC
