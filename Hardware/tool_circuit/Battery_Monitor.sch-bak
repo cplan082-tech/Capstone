@@ -13,7 +13,7 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text HLabel 5050 3200 0    50   BiDi ~ 0
+Text HLabel 5400 3000 0    50   BiDi ~ 0
 BATT_MON_DATA
 $Comp
 L Battery_Management:DS2745U U?
