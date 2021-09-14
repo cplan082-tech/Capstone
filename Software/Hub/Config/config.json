@@ -1,0 +1,9 @@
+{
+    "ENDPOINT" : "a3cfptquo80kpd-ats.iot.us-east-2.amazonaws.com",
+    "CLIENT_ID" : "TEST_CLIENT",
+    "PATH_TO_CERT" : "certificates/1f6d21e563-certificate.pem.crt",
+    "PATH_TO_KEY" : "certificates/1f6d21e563-private.pem.key",
+    "PATH_TO_ROOT" : "certificates/root-ca.pem",
+    "TOPIC" : "test/testing",
+    "THING_NAME": "RaspberryPi4"
+}
