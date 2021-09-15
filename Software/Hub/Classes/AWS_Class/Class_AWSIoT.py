@@ -5,12 +5,11 @@ Title : Publish data to AWS IoT Core using MQTT
 
 from awscrt import io, mqtt, auth, http
 from awsiot import mqtt_connection_builder
-import time
+#import time
 import json
 import os
-import time
 
-import csv
+#import csv
 from csv import DictReader
 
 import Functions.AWS_Functions as functions
@@ -19,6 +18,11 @@ import Functions.Audio_Functions as audio
 #import Functions.AWS_Functions as functions
 
 import boto3
+import threading
+
+received_count = 0
+received_all_event = threading.Event()
+received_all_event_timed = threading.Event()
 
 
 # Need these paths
@@ -28,6 +32,35 @@ jsonFilePath = r'Memory/Hub_Memory.json'
 
 #awsConnectSoundPath = "Sounds/MP3/AWS_Connected.mp3"
 awsConnectSoundPath = "Sounds/WAV/AWS_Connected.wav"
+
+'''
+INCOMPLETE
+
+Purpose: Function called when we get a message from AWS
+
+INCOMPLETE
+'''
+
+# Callback when the subscribed topic receives a message
+def on_message_received(topic, payload, dup, qos, retain, **kwargs):
+    print("Received message from topic '{}': {}".format(topic, payload))
+    global received_count
+    received_count += 1
+    if received_count == specific_count:
+        received_all_event.set()
+
+# Callback when the subscribed topic receives a message
+def on_message_received_timed(topic, payload, dup, qos, retain, **kwargs):
+    print("Received message from topic '{}': {}".format(topic, payload))
+    global received_count
+    received_count += 1
+    #if received_count == specific_count:
+    #    received_all_event_timed.set()
+    time.sleep(1)
+    received_all_event_timed.set()
+
+
+
 
 
 class AWSIoT(object):
@@ -40,6 +73,7 @@ class AWSIoT(object):
     MESSAGE = ""
     TOPIC = "test/testing"
     THING_NAME = ""
+    COUNT = 1 # We expect 1 package from AWS
 
     mqtt_connection = ""
     iotclient = boto3.client('iot')
@@ -88,9 +122,17 @@ class AWSIoT(object):
                 self.ENDPOINT, self.CLIENT_ID))
         connect_future = self.mqtt_connection.connect()
         connect_future.result()
-        audio.cliSound(awsConnectSoundPath)
-        print("Connected!")
-        print()
+        connection = bool(connect_future.result())
+        if connection == True:
+            audio.cliSound(awsConnectSoundPath)
+            print("Connected!")
+            print()
+            #functions.aws_connection_led(connection)
+        elif connection == False:
+            print("Unable to connect. Please try again.")
+            #functions.aws_connection_led(connection)
+        else:
+            print("Connection error!")
 
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Description: End MQTT Connection
@@ -149,7 +191,62 @@ class AWSIoT(object):
 
     def enable_topic_rule(self, rule_name):
         self.iotclient.enable_topic_rule(ruleName = rule_name)
-        
+
+    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    Description : Return the expected count
+    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+    def getCount(self):
+        return (self.COUNT)
+
+
+    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    Description: Listen to AWS for any incomming packets
+    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+def listen_to_aws(self, specific_count=0):
+    if specific_count != 0:
+        # Subscribe
+        print("Subscribing to topic '{}'...".format(self.TOPIC))
+        subscribe_future, packet_id = self.mqtt_connection.subscribe(
+            topic=self.TOPIC,
+            qos=mqtt.QoS.AT_LEAST_ONCE,
+            callback=on_message_received)
+
+        subscribe_result = subscribe_future.result()
+        print("Subscribed with {}".format(str(subscribe_result['qos'])))
+
+        # Wait for all messages to be received.
+        # This waits forever if count was set to 0.
+        if self.COUNT != 0 and not received_all_event.is_set():
+            print("Waiting for all messages to be received...")
+        received_all_event.wait()
+        print("{} message(s) received.".format(received_count))
+
+    else:
+        print("Search for messages for 10 seconds")
+        # Subscribe
+        print("Subscribing to topic '{}'...".format(self.TOPIC))
+        subscribe_future, packet_id = self.mqtt_connection.subscribe(
+            topic=self.TOPIC,
+            qos=mqtt.QoS.AT_LEAST_ONCE,
+            callback=on_message_received_timed)
+
+        subscribe_result = subscribe_future.result()
+        print("Subscribed with {}".format(str(subscribe_result['qos'])))
+
+        # Wait for messages, if any.
+        # This waits 10 seconds
+        if self.COUNT != 0 and not received_all_event_timed.is_set():
+            print("Waiting for all messages to be received... If any...")
+            # Wait 5 seconds for messages
+            time.sleep(5)
+            print("Times up")
+        received_all_event_timed.wait()
+        print("{} message(s) received.".format(received_count))  # Wait for all messages to be received.
+
+
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Description: Main function
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
