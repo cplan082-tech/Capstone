@@ -16,8 +16,14 @@ if __name__ == "__main__":
     # Initialize Classes
     aws = AWSIoT() # AWS Class
 
+    # Loop forever, or until keyboard interrupt (CTRL-C)
     try:
         while True:
+
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+            Description: Publish data to AWS if any, then listen for message from AWS
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
             # Connecting to AWS
             # Connect to AWS through mqtt connection
             aws.mqttConnect()
@@ -27,11 +33,19 @@ if __name__ == "__main__":
 
             # If there is sensor data, publish to AWS
             # =============================== ALERT =================================
-            newSensorData = True    # This will be removes later... Just for testing now
+            newSensorData = True    # This will be removed later... Just for testing now
             # =======================================================================
             if newSensorData == True:
                 aws.publishHubData()
 
+            # Set specific count to an integer other than 0 if you want the program to wait until
+            # the specified number of messages arrive.
+            # Set specific_count to 0 if you want it to wait a time period (This is better)
+            # The hub main loop will loop through checking for bluetooth and checking incoming messages
+            # Right now there is no queue so if we are not looking for messages exactly when it comes in we miss it
+            # We can use SQS to solve this problem!
+            specific_count = 0 # It will wait 5 seconds for messages
+            aws.listen_to_aws(specific_count)
 
             # aws.describe_thing()
             # aws.disable_topic_rule("RaspberryPi4Analytics_Rule")
@@ -40,7 +54,13 @@ if __name__ == "__main__":
 
             time.sleep(10)
             #print("Closing Application")
-            #exit(0)
+            #exit(0)S
+
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+            Description: Check for connection to Transponder
+            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
 
     except KeyboardInterrupt:
         print("Press Ctrl-C to terminate while statement")
