@@ -205,46 +205,46 @@ class AWSIoT(object):
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 
-def listen_to_aws(self, specific_count=0):
-    if specific_count != 0:
-        # Subscribe
-        print("Subscribing to topic '{}'...".format(self.TOPIC))
-        subscribe_future, packet_id = self.mqtt_connection.subscribe(
-            topic=self.TOPIC,
-            qos=mqtt.QoS.AT_LEAST_ONCE,
-            callback=on_message_received)
+    def listen_to_aws(self, specific_count=0):
+        if specific_count != 0:
+            # Subscribe
+            print("Subscribing to topic '{}'...".format(self.TOPIC))
+            subscribe_future, packet_id = self.mqtt_connection.subscribe(
+                topic=self.TOPIC,
+                qos=mqtt.QoS.AT_LEAST_ONCE,
+                callback=on_message_received)
 
-        subscribe_result = subscribe_future.result()
-        print("Subscribed with {}".format(str(subscribe_result['qos'])))
+            subscribe_result = subscribe_future.result()
+            print("Subscribed with {}".format(str(subscribe_result['qos'])))
 
-        # Wait for all messages to be received.
-        # This waits forever if count was set to 0.
-        if self.COUNT != 0 and not received_all_event.is_set():
-            print("Waiting for all messages to be received...")
-        received_all_event.wait()
-        print("{} message(s) received.".format(received_count))
+            # Wait for all messages to be received.
+            # This waits forever if count was set to 0.
+            if self.COUNT != 0 and not received_all_event.is_set():
+                print("Waiting for all messages to be received...")
+            received_all_event.wait()
+            print("{} message(s) received.".format(received_count))
 
-    else:
-        print("Search for messages for 10 seconds")
-        # Subscribe
-        print("Subscribing to topic '{}'...".format(self.TOPIC))
-        subscribe_future, packet_id = self.mqtt_connection.subscribe(
-            topic=self.TOPIC,
-            qos=mqtt.QoS.AT_LEAST_ONCE,
-            callback=on_message_received_timed)
+        else:
+            print("Search for messages for 10 seconds")
+            # Subscribe
+            print("Subscribing to topic '{}'...".format(self.TOPIC))
+            subscribe_future, packet_id = self.mqtt_connection.subscribe(
+                topic=self.TOPIC,
+                qos=mqtt.QoS.AT_LEAST_ONCE,
+                callback=on_message_received_timed)
 
-        subscribe_result = subscribe_future.result()
-        print("Subscribed with {}".format(str(subscribe_result['qos'])))
+            subscribe_result = subscribe_future.result()
+            print("Subscribed with {}".format(str(subscribe_result['qos'])))
 
-        # Wait for messages, if any.
-        # This waits 10 seconds
-        if self.COUNT != 0 and not received_all_event_timed.is_set():
-            print("Waiting for all messages to be received... If any...")
-            # Wait 5 seconds for messages
-            time.sleep(5)
-            print("Times up")
-        received_all_event_timed.wait()
-        print("{} message(s) received.".format(received_count))  # Wait for all messages to be received.
+            # Wait for messages, if any.
+            # This waits 10 seconds
+            if self.COUNT != 0 and not received_all_event_timed.is_set():
+                print("Waiting for all messages to be received... If any...")
+                # Wait 5 seconds for messages
+                time.sleep(5)
+                print("Times up")
+            received_all_event_timed.wait()
+            print("{} message(s) received.".format(received_count))  # Wait for all messages to be received.
 
 
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
