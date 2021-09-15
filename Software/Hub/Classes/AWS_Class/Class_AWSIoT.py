@@ -237,7 +237,7 @@ class AWSIoT(object):
             print("Subscribed with {}".format(str(subscribe_result['qos'])))
 
             # Wait for messages, if any.
-            # This waits 10 seconds
+            # This waits 5 seconds
             if self.COUNT != 0 and not received_all_event_timed.is_set():
                 print("Waiting for all messages to be received... If any...")
                 # Wait 5 seconds for messages
