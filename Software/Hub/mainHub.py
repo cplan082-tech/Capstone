@@ -33,7 +33,7 @@ if __name__ == "__main__":
 
             # If there is sensor data, publish to AWS
             # =============================== ALERT =================================
-            newSensorData = True    # This will be removed later... Just for testing now
+            newSensorData = False    # This will be removed later... Just for testing now
             # =======================================================================
             if newSensorData == True:
                 aws.publishHubData()
@@ -44,8 +44,18 @@ if __name__ == "__main__":
             # The hub main loop will loop through checking for bluetooth and checking incoming messages
             # Right now there is no queue so if we are not looking for messages exactly when it comes in we miss it
             # We can use SQS to solve this problem!
-            specific_count = 0 # It will wait 5 seconds for messages
-            aws.listen_to_aws(specific_count)
+
+            ######## UNCOMMENT
+            #specific_count = 0 # It will wait 5 seconds for messages
+            #aws.listen_to_aws(specific_count)
+            ########
+
+            queue_url = 'https://sqs.ca-central-1.amazonaws.com/423730035441/two-way-sms'
+            message = aws.get_sqs_messages(queue_url)
+            if message == "NO MESSAGES WAITING":
+                print("There were no messages... Continuing")
+            else:
+                print("The message is: " + message)
 
             # aws.describe_thing()
             # aws.disable_topic_rule("RaspberryPi4Analytics_Rule")

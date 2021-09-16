@@ -76,7 +76,8 @@ class AWSIoT(object):
     COUNT = 1 # We expect 1 package from AWS
 
     mqtt_connection = ""
-    iotclient = boto3.client('iot')
+    iotclient = boto3.client('iot', region_name='us-east-2')
+    sqsclient = boto3.client('sqs', region_name='ca-central-1')
 
     def __init__(self):
         print("Initializing AWS MQTT ")
@@ -199,6 +200,11 @@ class AWSIoT(object):
     def getCount(self):
         return (self.COUNT)
 
+    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    Description: Read messages from SQS
+    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
 
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Description: Listen to AWS for any incomming packets
@@ -248,8 +254,48 @@ class AWSIoT(object):
 
 
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-    Description: Main function
+    Description : Return 1 message from SQS if any
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+    def get_sqs_messages(self, queue_url):
+
+        # Check if there are any messages in the queue
+        queueAttributes = self.sqsclient.get_queue_attributes(
+            QueueUrl=queue_url,
+            AttributeNames=['ApproximateNumberOfMessages']
+        )
+
+        msgNumQueue = int(queueAttributes['Attributes']['ApproximateNumberOfMessages'])
+
+        if msgNumQueue > 0:
+            print(str(msgNumQueue) + " messages waiting")
+            print("Fetching first message")
+            response = self.sqsclient.receive_message(
+                QueueUrl=queue_url,
+                AttributeNames=['SentTimestamp'],
+                MaxNumberOfMessages=1,
+                MessageAttributeNames=['All'],
+                VisibilityTimeout=0,
+                WaitTimeSeconds=0
+            )
+
+            message = response['Messages'][0]['Body']
+            receipt_handle = response['Messages'][0]['ReceiptHandle']
+
+            # Delete received message from queue
+            self.sqsclient.delete_message(
+                QueueUrl=queue_url,
+                ReceiptHandle=receipt_handle
+            )
+
+            return message
+        else:
+            print(str(msgNumQueue) + " messages waiting")
+
+        message = "NO MESSAGES WAITING"
+        return message
+
+
 
 
 
