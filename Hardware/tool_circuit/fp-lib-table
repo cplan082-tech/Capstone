@@ -1,6 +1,6 @@
 (fp_lib_table
   (lib (name digikey-footprints)(type KiCad)(uri ${KIPRJMOD}/Project_library/digikey-kicad-library/digikey-footprints.pretty)(options "")(descr ""))
-  (lib (name 12063D106MAT2A)(type KiCad)(uri ${KICAD_USER_TEMPLATE_DIR}/Project_library/12063D106MAT2A)(options "")(descr ""))
+  (lib (name 12063D106MAT2A)(type KiCad)(uri /Users/komaljaved/Documents/Capstone_main/Capstone/Hardware/tool_circuit/Project_library/12063D106MAT2A)(options "")(descr ""))
   (lib (name CGA3E2X7R1H104K080AA)(type KiCad)(uri /Users/komaljaved/Documents/Capstone_main/Capstone/Hardware/tool_circuit/Project_library/CGA3E2X7R1H104K080AA)(options "")(descr ""))
   (lib (name CL31B104KBCNNNC)(type KiCad)(uri /Users/komaljaved/Documents/Capstone_main/Capstone/Hardware/tool_circuit/Project_library/CL31B104KBCNNNC)(options "")(descr ""))
   (lib (name CRCW040210K0DHEDP)(type KiCad)(uri /Users/komaljaved/Documents/Capstone_main/Capstone/Hardware/tool_circuit/Project_library/CRCW040210K0DHEDP)(options "")(descr ""))
