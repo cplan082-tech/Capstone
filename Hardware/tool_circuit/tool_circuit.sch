@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 7
+Sheet 1 5
 Title ""
 Date ""
 Rev ""
@@ -23,16 +23,9 @@ $EndSheet
 $Sheet
 S 5850 4200 1150 700 
 U 611DF2F9
-F0 "Battery_Monitor" 50
-F1 "Battery_Monitor.sch" 50
-F2 "BATT_MON_DATA" B L 5850 4450 50 
-$EndSheet
-$Sheet
-S 2100 4250 1250 650 
-U 611E1BEE
-F0 "Pi_Connection" 50
-F1 "Pi_Connection.sch" 50
-F2 "DATA" B R 3350 4450 50 
+F0 "Vibration_Sensor" 50
+F1 "Vibration_Sensor.sch" 50
+F2 "VIB_DATA" B L 5850 4450 50 
 $EndSheet
 Wire Bus Line
 	3350 4450 5250 4450
@@ -44,10 +37,10 @@ Connection ~ 5250 4450
 Wire Bus Line
 	5250 4450 5850 4450
 $Comp
-L power:+12V #PWR?
+L power:+12V #PWR0101
 U 1 1 6125A008
 P 2850 2050
-F 0 "#PWR?" H 2850 1900 50  0001 C CNN
+F 0 "#PWR0101" H 2850 1900 50  0001 C CNN
 F 1 "+12V" H 2865 2223 50  0000 C CNN
 F 2 "" H 2850 2050 50  0001 C CNN
 F 3 "" H 2850 2050 50  0001 C CNN
@@ -58,8 +51,6 @@ Text HLabel 2850 2450 3    50   Input ~ 0
 12V_BATTERY
 Wire Wire Line
 	2850 2050 2850 2450
-Text HLabel 3050 4250 3    50   Input ~ 0
-5V
 Text HLabel 5850 4650 2    50   Input ~ 0
 12V_BATTERY
 Text HLabel 3050 3300 1    50   Output ~ 0
