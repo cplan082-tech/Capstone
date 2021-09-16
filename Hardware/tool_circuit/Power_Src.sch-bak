@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 6 7
+Sheet 4 5
 Title ""
 Date ""
 Rev ""
@@ -13,17 +13,6 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Comp
-L power:+BATT #PWR?
-U 1 1 611ECA0B
-P 4150 2500
-F 0 "#PWR?" H 4150 2350 50  0001 C CNN
-F 1 "+BATT" H 4165 2673 50  0000 C CNN
-F 2 "" H 4150 2500 50  0001 C CNN
-F 3 "" H 4150 2500 50  0001 C CNN
-	1    4150 2500
-	1    0    0    -1  
-$EndComp
 Text HLabel 6700 2950 0    50   Output ~ 0
 5V
 $Sheet
@@ -32,6 +21,6 @@ U 6131D12D
 F0 "5V Regulator" 50
 F1 "5V Regulator.sch" 50
 $EndSheet
-Wire Wire Line
-	4150 2500 5150 2500
+Text HLabel 5150 2450 0    50   Input ~ 0
+12V_BATTERY
 $EndSCHEMATC
