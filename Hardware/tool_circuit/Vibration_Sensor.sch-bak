@@ -13,6 +13,6 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text HLabel 5400 2600 0    50   BiDi ~ 0
+Text HLabel 4900 3100 0    50   BiDi ~ 0
 VIB_DATA
 $EndSCHEMATC

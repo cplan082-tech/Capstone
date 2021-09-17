@@ -14,13 +14,6 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Sheet
-S 5950 2200 1250 750 
-U 611DBC89
-F0 "Temp_Sense" 50
-F1 "Temp_Sense.sch" 50
-F2 "TEMP_DATA" B L 5950 2550 50 
-$EndSheet
-$Sheet
 S 5850 4200 1150 700 
 U 611DF2F9
 F0 "Vibration_Sensor" 50
@@ -64,5 +57,12 @@ S 2000 2450 1400 850
 U 611DBAE9
 F0 "Power_Src" 50
 F1 "Power_Src.sch" 50
+$EndSheet
+$Sheet
+S 5950 2200 1250 750 
+U 611DBC89
+F0 "Temp_Sense" 50
+F1 "Temp_Sense.sch" 50
+F2 "TEMP_DATA" B L 5950 2550 50 
 $EndSheet
 $EndSCHEMATC
