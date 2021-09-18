@@ -14,7 +14,7 @@ data_pin = 14
 
 
 def main():
-
+    prev = datetime.now().time()
     while True:
         try:
             # Gather the humidity and temperature
@@ -35,7 +35,10 @@ def main():
         package = (sensor_name, temperature, humidity, stamp)
        
         #print("Temp:{0:0.1f}*C, Humidity: {1:0.1f}%".format(temperature, humidity))
-        print(package)
+        
+        print(package[3].time().hour)
+        #print(package[3].time() - prev)
+        prev = package[3].time()
 
         time.sleep(2.0)
 
