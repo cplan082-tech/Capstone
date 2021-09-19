@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 5
+Sheet 1 6
 Title ""
 Date ""
 Rev ""
@@ -24,9 +24,6 @@ Wire Bus Line
 	3350 4450 5250 4450
 Wire Bus Line
 	5950 2550 5250 2550
-Wire Bus Line
-	5250 2550 5250 4450
-Connection ~ 5250 4450
 Wire Bus Line
 	5250 4450 5850 4450
 $Comp
@@ -64,5 +61,14 @@ U 611DBC89
 F0 "Temp_Sense" 50
 F1 "Temp_Sense.sch" 50
 F2 "TEMP_DATA" B L 5950 2550 50 
+$EndSheet
+Connection ~ 5250 4450
+Wire Bus Line
+	5250 2550 5250 4450
+$Sheet
+S 1750 4200 1600 1050
+U 61460B87
+F0 "Raspberry_pi_hat" 50
+F1 "Raspberry_pi_hat.sch" 50
 $EndSheet
 $EndSCHEMATC
