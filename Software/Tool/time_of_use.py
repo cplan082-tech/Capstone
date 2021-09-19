@@ -23,6 +23,11 @@ try:
 except:
     gpio.cleanup()
 
+    
+    except:
+        gpio.cleanup()
+
+
 
 
 
