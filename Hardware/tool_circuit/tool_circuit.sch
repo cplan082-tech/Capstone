@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 6
+Sheet 1 7
 Title ""
 Date ""
 Rev ""
@@ -41,14 +41,10 @@ Text HLabel 2850 2450 3    50   Input ~ 0
 12V_BATTERY
 Wire Wire Line
 	2850 2050 2850 2450
-Text HLabel 5850 4650 2    50   Input ~ 0
-12V_BATTERY
 Text HLabel 3050 3300 1    50   Output ~ 0
 12V_BATTERY
 Text HLabel 3200 3300 1    50   Output ~ 0
 5V
-Text HLabel 5950 2700 2    50   Input ~ 0
-3v3
 $Sheet
 S 2000 2450 1400 850 
 U 611DBAE9
@@ -68,7 +64,25 @@ Wire Bus Line
 $Sheet
 S 1750 4200 1600 1050
 U 61460B87
-F0 "Raspberry_pi_hat" 50
-F1 "Raspberry_pi_hat.sch" 50
+F0 "raspberrypi_zerow_uhat" 50
+F1 "raspberrypi_zerow_uhat.sch" 50
 $EndSheet
+$Sheet
+S 5850 5450 1150 650 
+U 61495548
+F0 "Accelerometer" 50
+F1 "Accelerometer.sch" 50
+$EndSheet
+Wire Bus Line
+	5250 4450 5250 5750
+Wire Bus Line
+	5250 5750 5850 5750
+Text HLabel 5850 5750 2    50   BiDi ~ 0
+ACC_DATA
+Text HLabel 5950 2700 2    50   Input ~ 0
+3v3
+Text HLabel 5850 4650 2    50   Input ~ 0
+5V_BATTERY
+Text HLabel 5850 5900 2    50   Input ~ 0
+3v3
 $EndSCHEMATC
