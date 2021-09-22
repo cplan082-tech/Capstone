@@ -19,7 +19,7 @@ def event_handler(pin):
             prev_val = 1
             print(f"start time {start_time}")
         elif ~tool_trig_pin_val:
-            prev_val == 0
+            prev_val = 0
             retval = datetime.now() - start_time
             print(f"retval {retval}")
     else:  # else is only for testing
