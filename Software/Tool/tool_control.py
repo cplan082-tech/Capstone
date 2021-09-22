@@ -1,4 +1,4 @@
-import time_of_use.py
+import time_of_use
 
 
 
