@@ -5,9 +5,6 @@ from datetime import datetime
 tool_trig_pin = 21
 prev_val = 0
 start_time = 0
-
-gpio.setmode(gpio.BCM)
-gpio.setup(tool_trig_pin, gpio.IN)
     
 def event_handler(pin):
     global prev_val
@@ -29,11 +26,12 @@ def event_handler(pin):
 
 gpio.add_event_detect(tool_trig_pin, gpio.BOTH, callback=event_handler)
 
-try:
-    while True:
-        pass
-except:
-    gpio.cleanup()
+if __name__=="__main__":
+    try:
+        while True:
+            pass
+    except:
+        gpio.cleanup()
 
 
 
