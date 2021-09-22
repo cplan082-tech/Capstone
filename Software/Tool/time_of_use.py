@@ -2,52 +2,42 @@ import RPi.GPIO as gpio
 import time
 from datetime import datetime
 
-tool_trig = 21
+tool_trig_pin = 21
 prev_val = 0
-
-gpio.setmode(gpio.BCM)
-gpio.setup(tool_trig, gpio.IN)
-
-
-# def start_tou(pin):
-#     start_time = datetime.now().time()
-
-# def stop_tou(pin):
-#     time_of_use = datetime.now().time() - start_time
-#     print (f"time of use = {time_of_use}")
+start_time = 0
     
 def event_handler(pin):
     global prev_val
-    tool_trig_val = gpio.input(tool_trig)
-    print (f"prev: {prev_val}")
-    print(f"trig: {tool_trig_val}")
-    time.sleep(0.1)
+    global start_time
+    tool_trig_pin_val = gpio.input(tool_trig_pin)
+    time.sleep(0.1) # debouncing
     
-    if (tool_trig_val == gpio.input(tool_trig)) & (prev_val != tool_trig_val):
-        if tool_trig_val:
-            start_time = datetime.now().time()
+    if (tool_trig_pin_val == gpio.input(tool_trig_pin)) & (prev_val != tool_trig_pin_val):
+        print('hit')
+        if tool_trig_pin_val:
+            start_time = datetime.now()
             prev_val = 1
-            print(f"hit {gpio.input(tool_trig)}")
-        elif ~tool_trig_val:
-            print (f"prev before: {prev_val}")
-            print(f"trig: {tool_trig_val}")
+            print(f"start time {start_time}")
+        elif ~tool_trig_pin_val:
             prev_val == 0
-            print (f"prev after: {prev_val}")
-            print(f"hit_else {gpio.input(tool_trig)}")
-            #time_of_use = datetime.now().time() - start_time
-            #print (f"time of use = {time_of_use}")
+            retval = datetime.now() - start_time
+            print(f"retval {retval}")
+    else:  # else is only for testing
+        print(f"tool_trig_pin_val: {tool_trig_pin_val}")
+        print(f"gpio.input(tool_trig_pin): {gpio.input(tool_trig_pin)}")
+        print(f"prev_val: {prev_val}")
+        print(f"tool_trig_pin_val: {tool_trig_pin_val}")
         
+gpio.setmode(gpio.BCM)
+gpio.setup(tool_trig_pin, gpio.IN)
+gpio.add_event_detect(tool_trig_pin, gpio.BOTH, callback=event_handler)
 
-gpio.add_event_detect(tool_trig, gpio.BOTH, callback=event_handler)
-
-# gpio.add_event_detect(tool_trig, gpio.RISING, callback=start_tou)
-# gpio.add_event_detect(tool_trig, gpio.FALLING, callback=stop_tou)
-
-try:
-    while True:
-        pass
-except:
-    gpio.cleanup()
+if __name__=="__main__":
+    try:
+        while True:
+            pass
+    except:
+        gpio.cleanup()
 
 
 
