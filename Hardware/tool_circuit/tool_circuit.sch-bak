@@ -64,8 +64,8 @@ Wire Bus Line
 $Sheet
 S 1750 4200 1600 1050
 U 61460B87
-F0 "Raspberry_pi_hat" 50
-F1 "Raspberry_pi_hat.sch" 50
+F0 "raspberrypi_zerow_uhat" 50
+F1 "raspberrypi_zerow_uhat.sch" 50
 $EndSheet
 $Sheet
 S 5850 5450 1150 650 

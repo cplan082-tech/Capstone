@@ -16,9 +16,8 @@ $EndDescr
 $Sheet
 S 5850 4200 1150 700 
 U 611DF2F9
-F0 "Vibration_Sensor" 50
-F1 "Vibration_Sensor.sch" 50
-F2 "VIB_DATA" B L 5850 4450 50 
+F0 "Time_of_Use" 50
+F1 "Time_of_Use.sch" 50
 $EndSheet
 Wire Bus Line
 	3350 4450 5250 4450
