@@ -29,11 +29,9 @@ def event_handler(pin):
             prev_val = 1
             print(f"hit {gpio.input(tool_trig)}")
         elif ~tool_trig_val:
-            print (f"prev before: {prev_val}")
-            print(f"trig: {tool_trig_val}")
             prev_val == 0
-            print (f"prev after: {prev_val}")
-            print(f"hit_else {gpio.input(tool_trig)}")
+            #print (f"prev changed to: {prev_val}")
+            print(f"hit {gpio.input(tool_trig)}")
             #time_of_use = datetime.now().time() - start_time
             #print (f"time of use = {time_of_use}")
         
