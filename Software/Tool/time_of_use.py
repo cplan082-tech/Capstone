@@ -23,7 +23,8 @@ def event_handler(pin):
             print(f"retval {retval}")
        
         
-
+gpio.setmode(gpio.BCM)
+gpio.setup(tool_trig_pin, gpio.IN)
 gpio.add_event_detect(tool_trig_pin, gpio.BOTH, callback=event_handler)
 
 if __name__=="__main__":
