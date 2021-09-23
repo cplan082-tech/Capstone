@@ -12,8 +12,11 @@ accelerometer_obj = adafruit_adxl34x.ADXL345(i2c)
 
 try:
     while True:
+        time.sleep(0.5)
         accel = accelerometer_obj.acceleration
         print(f"acceleration: {accel}")
+        print(type(accel))
+        
         
 except:
     gpio.cleanup()
