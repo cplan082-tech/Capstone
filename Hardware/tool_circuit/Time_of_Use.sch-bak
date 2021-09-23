@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 7
+Sheet 7 8
 Title ""
 Date ""
 Rev ""
@@ -13,45 +13,71 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text HLabel 5350 3100 0    50   BiDi ~ 0
-GPIO_27
 $Comp
-L Connector:Conn_01x03_Female J1
-U 1 1 6144B415
-P 5550 3100
-F 0 "J1" H 5578 3126 50  0000 L CNN
-F 1 "Conn_01x03_Female" H 5578 3035 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 5550 3100 50  0001 C CNN
-F 3 "~" H 5550 3100 50  0001 C CNN
-	1    5550 3100
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0105
-U 1 1 614A4174
-P 5150 3200
-F 0 "#PWR0105" H 5150 2950 50  0001 C CNN
-F 1 "GND" H 5155 3027 50  0000 C CNN
-F 2 "" H 5150 3200 50  0001 C CNN
-F 3 "" H 5150 3200 50  0001 C CNN
-	1    5150 3200
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5350 3200 5150 3200
-Wire Wire Line
-	5100 2950 5100 3000
-Wire Wire Line
-	5100 3000 5350 3000
-$Comp
-L power:+5V #PWR0106
+L power:+5V #PWR09
 U 1 1 614A5231
-P 5100 2950
-F 0 "#PWR0106" H 5100 2800 50  0001 C CNN
-F 1 "+5V" H 5115 3123 50  0000 C CNN
-F 2 "" H 5100 2950 50  0001 C CNN
-F 3 "" H 5100 2950 50  0001 C CNN
-	1    5100 2950
+P 6350 3550
+F 0 "#PWR09" H 6350 3400 50  0001 C CNN
+F 1 "+5V" H 6365 3723 50  0000 C CNN
+F 2 "" H 6350 3550 50  0001 C CNN
+F 3 "" H 6350 3550 50  0001 C CNN
+	1    6350 3550
 	1    0    0    -1  
 $EndComp
+$Comp
+L power:GND #PWR08
+U 1 1 614A4174
+P 4950 5050
+F 0 "#PWR08" H 4950 4800 50  0001 C CNN
+F 1 "GND" H 4955 4877 50  0000 C CNN
+F 2 "" H 4950 5050 50  0001 C CNN
+F 3 "" H 4950 5050 50  0001 C CNN
+	1    4950 5050
+	1    0    0    -1  
+$EndComp
+$Comp
+L RMCF1206JT150R:RMCF1206JT150R R4
+U 1 1 614C1CF4
+P 4950 4650
+F 0 "R4" V 4904 4755 50  0000 L CNN
+F 1 "RMCF1206JT150R" V 4995 4755 50  0000 L CNN
+F 2 "RESC3216X70N" H 4950 4650 50  0001 L BNN
+F 3 "" H 4950 4650 50  0001 L BNN
+	1    4950 4650
+	0    1    1    0   
+$EndComp
+$Comp
+L Analog_Switch:ADG419BN U2
+U 1 1 614CBD1C
+P 5550 4050
+F 0 "U2" H 5550 4292 50  0000 C CNN
+F 1 "ADG419BN" H 5550 4201 50  0000 C CNN
+F 2 "Package_DIP:DIP-8_W7.62mm" H 5550 3750 50  0001 C CNN
+F 3 "https://www.analog.com/media/en/technical-documentation/data-sheets/ADG419.pdf" H 5550 3850 50  0001 C CNN
+	1    5550 4050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4950 4150 4950 4250
+Wire Wire Line
+	4950 4150 5250 4150
+Connection ~ 4950 4150
+Wire Wire Line
+	6350 4050 5850 4050
+Wire Wire Line
+	6350 3550 6350 4050
+Wire Wire Line
+	3950 4150 4950 4150
+Text Label 4150 4150 0    50   ~ 0
+GPIO17
+Entry Wire Line
+	3850 4050 3950 4150
+Text Label 3650 3900 0    50   ~ 0
+GPIO[17..17]
+Wire Bus Line
+	3850 3900 3850 4350
+Wire Bus Line
+	3650 3900 3850 3900
+Text HLabel 3650 3900 0    50   Input ~ 0
+GPIO17
 $EndSCHEMATC
