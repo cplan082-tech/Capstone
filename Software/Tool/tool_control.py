@@ -1,3 +1,4 @@
+import RPi.GPIO as gpio
 import time_of_use
 import accelerometer
 
@@ -5,7 +6,7 @@ import accelerometer
 
 try:
     while True:
-        accel = accelerometer.acceleration
+        accel = accelerometer_obj.acceleration
         print(f"acceleration: {accel}")
         
 except:
