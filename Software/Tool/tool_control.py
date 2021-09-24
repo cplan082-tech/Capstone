@@ -19,15 +19,15 @@ accelerometer_obj = adafruit_adxl34x.ADXL345(i2c)
 name_tempHum = "Temp/Humidity"
 sensor = Adafruit_DHT.DHT11
 
-# GPIO14 (pin 8) on pi
-data_pin_temp = 14
+# GPIOs
+temp_data_pin = 14  # GPIO14 (pin 8) on pi
 
 
 try:
     while True:
         time.sleep(0.5)
         accel = accelerometer_obj.acceleration
-        humidity, temperature = Adafruit_DHT.read_retry(sensor, data_pin_temp)
+        humidity, temperature = Adafruit_DHT.read_retry(sensor, temp_data_pin)
         stamp = datetime.now()
         package = {'temp': temperature,
                    'humid': humidity,
