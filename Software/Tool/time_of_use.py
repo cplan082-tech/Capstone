@@ -12,7 +12,7 @@ gpio.setup(tool_trig_pin, gpio.IN)
 gpio.add_event_detect(tool_trig_pin, gpio.BOTH, callback=event_handler)
 
 gpio.setup(tool_on_led_pin, gpio.OUT)
-gpio.output(tool_on_led_pin) = 1
+gpio.output(tool_on_led_pin, True)
 
 prev_val = 0
 start_time = 0
@@ -28,12 +28,12 @@ def event_handler(pin):
         if tool_trig_pin_val:
             start_time = datetime.now()
             prev_val = 1
-            gpio.output(tool_on_led_pin) = 0
+            gpio.output(tool_on_led_pin, False)
             print(f"start time {start_time}")
             
         elif ~tool_trig_pin_val:
             prev_val = 0
-            gpio.output(tool_on_led_pin) = 1
+            gpio.output(tool_on_led_pin, True)
             retval = datetime.now() - start_time
             print(f"retval {retval}")
             
