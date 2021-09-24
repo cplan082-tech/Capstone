@@ -6,17 +6,6 @@ from datetime import datetime
 tool_trig_pin = 21  # GPIO21 (pin 40) on pi
 tool_on_led_pin = 26  # GPIO26 (pin 37) on pi
 
-# GPIO initialization
-gpio.setmode(gpio.BCM)
-gpio.setup(tool_trig_pin, gpio.IN)
-gpio.add_event_detect(tool_trig_pin, gpio.BOTH, callback=event_handler)
-
-gpio.setup(tool_on_led_pin, gpio.OUT)
-gpio.output(tool_on_led_pin, True)
-
-prev_val = 0
-start_time = 0
-    
 def event_handler(pin):
     global prev_val
     global start_time
@@ -43,6 +32,19 @@ def event_handler(pin):
         print(f"prev_val: {prev_val}")
         print(f"tool_trig_pin_val: {tool_trig_pin_val}")
         
+
+
+# GPIO initialization
+gpio.setmode(gpio.BCM)
+gpio.setup(tool_trig_pin, gpio.IN)
+gpio.add_event_detect(tool_trig_pin, gpio.BOTH, callback=event_handler)
+
+gpio.setup(tool_on_led_pin, gpio.OUT)
+gpio.output(tool_on_led_pin, True)
+
+prev_val = 0
+start_time = 0
+    
 
 if __name__=="__main__":
     try:
