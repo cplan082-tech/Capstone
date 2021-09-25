@@ -23,8 +23,9 @@ temp_data_pin = 14  # GPIO14 (pin 8) on pi
 enable = True
 try:
     while True:
-        time.sleep(5)
-        tou.tool_enable(~enable)
+        time.sleep(5) # for testing
+        enable = not(enable) # for testing
+        tou.tool_enable(enable)
 #         accel = accelerometer_obj.acceleration
 #         humidity, temperature = Adafruit_DHT.read_retry(sensor, temp_data_pin)
 #         stamp = datetime.now()
@@ -40,3 +41,5 @@ try:
 except:
     print("exiting")
     gpio.cleanup()
+    
+gpio.cleanup()

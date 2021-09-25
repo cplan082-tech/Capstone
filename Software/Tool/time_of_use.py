@@ -11,6 +11,7 @@ tool_on_led_pin = 26  # GPIO26 (pin 37) on pi
 def event_handler(pin):
     global prev_val
     global start_time
+    global enable
     tool_trig_pin_val = gpio.input(tool_trig_pin)
     time.sleep(0.1) # debouncing
     
@@ -26,6 +27,7 @@ def event_handler(pin):
             prev_val = 0
             gpio.output(tool_on_led_pin, False)
             retval = datetime.now() - start_time
+            start_time = 0
             print(f"retval {retval}")
             
     else:  # else is only for testing
@@ -36,8 +38,25 @@ def event_handler(pin):
         
 
 def tool_enable(enable_new_val):
-    global enable = enable_new_val
+    global enable
+    global prev_val
+    global start_time
+    
+    enable = enable_new_val
+    prev_val = 0
+    
+    if (not(enable)) and (type(start_time) != int):
+        gpio.output(tool_on_led_pin, False)
+        retval = datetime.now() - start_time
+        start_time = 0
+        print(f"retval {retval}") # for testing
         
+    elif enable and (gpio.input(tool_trig_pin)):
+        start_time = datetime.now()
+        prev_val = 1
+        gpio.output(tool_on_led_pin, True)
+        print(f"start time {start_time}") # for testing
+
 
 
 # GPIO initialization
