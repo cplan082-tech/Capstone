@@ -1,5 +1,6 @@
 import RPi.GPIO as gpio
 import time
+import signal
 from datetime import datetime
 
 enable = True
@@ -8,7 +9,8 @@ enable = True
 tool_trig_pin = 21  # GPIO21 (pin 40) on pi
 tool_on_led_pin = 26  # GPIO26 (pin 37) on pi
 
-def event_handler(pin):
+
+def tool_trig_handler(pin):
     global prev_val
     global start_time
     global enable
@@ -36,6 +38,10 @@ def event_handler(pin):
         print(f"prev_val: {prev_val}")
         print(f"tool_trig_pin_val: {tool_trig_pin_val}")
         
+        
+def tool_enable_handler(signum, frame):
+    pass
+    
 
 def tool_enable(enable_new_val):
     global enable
@@ -62,7 +68,7 @@ def tool_enable(enable_new_val):
 # GPIO initialization
 gpio.setmode(gpio.BCM)
 gpio.setup(tool_trig_pin, gpio.IN)
-gpio.add_event_detect(tool_trig_pin, gpio.BOTH, callback=event_handler)
+gpio.add_event_detect(tool_trig_pin, gpio.BOTH, callback=tool_trig_handler)
 
 gpio.setup(tool_on_led_pin, gpio.OUT)
 gpio.output(tool_on_led_pin, False)
