@@ -14,10 +14,10 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Connector:Conn_01x03_Female J2
+L Connector:Conn_01x03_Female J1
 U 1 1 614AEC17
 P 5700 3500
-F 0 "J2" H 5728 3526 50  0000 L CNN
+F 0 "J1" H 5728 3526 50  0000 L CNN
 F 1 "Conn_01x03_Female" H 5728 3435 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 5700 3500 50  0001 C CNN
 F 3 "~" H 5700 3500 50  0001 C CNN
@@ -53,17 +53,17 @@ $EndComp
 Wire Wire Line
 	5050 3400 5500 3400
 Text HLabel 3850 3300 0    50   Input ~ 0
-TEMP_DATA
+GPIO[4..4]
 Wire Bus Line
 	3850 3300 4650 3300
 Entry Wire Line
 	4650 3400 4750 3500
 Wire Wire Line
 	4750 3500 5500 3500
-Text Label 4950 3500 0    50   ~ 0
-GPIO27
-Text Label 4150 3300 0    50   ~ 0
-GPIO[27..27]
 Wire Bus Line
 	4650 3300 4650 3700
+Text Label 4950 3500 0    50   ~ 0
+GPIO4
+Text Label 4100 3300 0    50   ~ 0
+GPIO[4..4]
 $EndSCHEMATC

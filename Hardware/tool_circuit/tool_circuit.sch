@@ -24,23 +24,8 @@ F0 "Power_Src" 50
 F1 "Power_Src.sch" 50
 $EndSheet
 Connection ~ 5250 4450
-$Sheet
-S 1750 4200 1600 1050
-U 61460B87
-F0 "raspberrypi_zerow_uhat" 50
-F1 "raspberrypi_zerow_uhat.sch" 50
-$EndSheet
 Wire Bus Line
 	5250 4450 5250 5750
-Wire Bus Line
-	5250 5750 5850 5750
-$Sheet
-S 5850 5450 1150 650 
-U 61495548
-F0 "Accelerometer" 50
-F1 "Accelerometer.sch" 50
-F2 "ACC_DATA" I L 5850 5750 50 
-$EndSheet
 $Sheet
 S 5850 4200 1150 700 
 U 611DF2F9
@@ -59,4 +44,19 @@ Wire Bus Line
 	5250 2550 5250 4450
 Wire Bus Line
 	5250 4450 5850 4450
+$Sheet
+S 5900 5500 1150 650 
+U 61514F06
+F0 "Accelerometer.sch" 50
+F1 "Accelerometer.sch" 50
+F2 "ACC_DATA" I L 5900 5750 50 
+$EndSheet
+$Sheet
+S 1550 4400 1800 900 
+U 61514F71
+F0 "raspberrypi_header.sch" 50
+F1 "raspberrypi_header.sch" 50
+$EndSheet
+Wire Bus Line
+	5250 5750 5900 5750
 $EndSCHEMATC

@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 7 8
+Sheet 5 8
 Title ""
 Date ""
 Rev ""
@@ -14,10 +14,10 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L power:+5V #PWR09
+L power:+5V #PWR07
 U 1 1 614A5231
 P 6350 3550
-F 0 "#PWR09" H 6350 3400 50  0001 C CNN
+F 0 "#PWR07" H 6350 3400 50  0001 C CNN
 F 1 "+5V" H 6365 3723 50  0000 C CNN
 F 2 "" H 6350 3550 50  0001 C CNN
 F 3 "" H 6350 3550 50  0001 C CNN
@@ -25,10 +25,10 @@ F 3 "" H 6350 3550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR08
+L power:GND #PWR06
 U 1 1 614A4174
 P 4950 5050
-F 0 "#PWR08" H 4950 4800 50  0001 C CNN
+F 0 "#PWR06" H 4950 4800 50  0001 C CNN
 F 1 "GND" H 4955 4877 50  0000 C CNN
 F 2 "" H 4950 5050 50  0001 C CNN
 F 3 "" H 4950 5050 50  0001 C CNN
@@ -75,9 +75,9 @@ Entry Wire Line
 Text Label 3650 3900 0    50   ~ 0
 GPIO[17..17]
 Wire Bus Line
-	3850 3900 3850 4350
-Wire Bus Line
 	3650 3900 3850 3900
 Text HLabel 3650 3900 0    50   Input ~ 0
 GPIO17
+Wire Bus Line
+	3850 3900 3850 4350
 $EndSCHEMATC
