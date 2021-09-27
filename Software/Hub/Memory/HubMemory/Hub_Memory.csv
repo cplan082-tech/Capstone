@@ -1,0 +1,11 @@
+Transponder_ID,Tool_ID,Tool_Type,Temp_Data,Battery_Charge,Timestamp,Usage_Time,Date
+tran2,tool0,tea cup,13,91,12:30:00,0:05:35,2021-04-01
+tran2,tool1,tea cup,15,85,13:00:00,0:04:50,2021-04-01
+tran4,tool2,tea cup,10,76,13:30:00,0:08:30,2021-04-01
+tran2,tool3,tea cup,26,70,14:00:00,0:07:23,2021-04-01
+tran1,tool4,tea cup,13,62,14:30:00,0:07:35,2021-04-01
+tran4,tool5,tea cup,10,58,15:00:00,0:03:18,2021-04-01
+tran3,tool6,tea cup,39,54,15:30:00,0:02:54,2021-04-01
+tran4,tool7,tea cup,13,48,16:00:00,0:03:24,2021-04-01
+tran55,tool666,tea cup,555555,100,15:30:00,0:02:54,2021-09-22
+tran55,tool777,tea cup,555555,100,16:00:00,0:03:24,2021-09-22
