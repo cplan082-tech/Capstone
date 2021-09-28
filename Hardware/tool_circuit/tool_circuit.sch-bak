@@ -51,12 +51,12 @@ F0 "Accelerometer.sch" 50
 F1 "Accelerometer.sch" 50
 F2 "ACC_DATA" I L 5900 5750 50 
 $EndSheet
+Wire Bus Line
+	5250 5750 5900 5750
 $Sheet
-S 1550 4400 1800 900 
+S 1550 4300 1800 900 
 U 61514F71
 F0 "raspberrypi_header.sch" 50
 F1 "raspberrypi_header.sch" 50
 $EndSheet
-Wire Bus Line
-	5250 5750 5900 5750
 $EndSCHEMATC

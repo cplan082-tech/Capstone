@@ -1,0 +1,46 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#(c) SnapEDA 2016 (snapeda.com)
+#This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA) with Design Exception 1.0
+#
+# 5BC-3-CA-F
+#
+DEF 5BC-3-CA-F D 0 40 N N 1 L N
+F0 "D" 601 250 50 H V L BNN
+F1 "5BC-3-CA-F" 600 350 50 H V L BNN
+F2 "3_PIN_CONNECTOR" 0 0 50 H I L BNN
+F3 "" 0 0 50 H I L BNN
+DRAW
+P 2 0 0 10 -150 0 -200 -100 N
+P 2 0 0 10 -200 -100 -250 0 N
+P 2 0 0 10 -150 -100 -200 -100 N
+P 2 0 0 10 -200 -100 -250 -100 N
+P 2 0 0 10 -150 0 -200 0 N
+P 2 0 0 10 -200 0 -250 0 N
+P 2 0 0 6 -280 -30 -335 -85 N
+P 2 0 0 6 -275 -75 -330 -130 N
+P 2 0 0 10 150 0 200 -100 N
+P 2 0 0 10 200 -100 250 0 N
+P 2 0 0 10 150 -100 200 -100 N
+P 2 0 0 10 200 -100 250 -100 N
+P 2 0 0 10 150 0 200 0 N
+P 2 0 0 10 200 0 250 0 N
+P 2 0 0 6 280 -30 335 -85 N
+P 2 0 0 6 275 -75 330 -130 N
+C 0 200 10 0 0 16 N
+T 0 -110 -215 40 0 0 0 RED Normal 0 L B
+T 0 425 -217 40 0 0 0 GREEN Normal 0 L B
+P 4 0 0 6 -335 -85 -320 -50 -300 -70 -335 -85 f
+P 4 0 0 6 -330 -130 -315 -95 -295 -115 -330 -130 f
+P 4 0 0 6 295 -115 330 -130 315 -95 295 -115 f
+P 4 0 0 6 300 -70 335 -85 320 -50 300 -70 f
+P 2 0 0 10 200 200 -200 200 N
+P 2 0 0 10 -200 200 -200 0 N
+P 2 0 0 10 200 200 200 0 N
+X ~ CA 0 300 100 D 40 40 0 0 P 
+X ~ R -200 -200 100 U 40 40 0 0 P 
+X ~ G 200 -200 100 U 40 40 0 0 P 
+ENDDRAW
+ENDDEF
+#
+# End Library
