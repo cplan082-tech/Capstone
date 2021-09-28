@@ -41,7 +41,7 @@ Wire Wire Line
 	5350 3600 5350 3700
 Wire Wire Line
 	5050 3400 5500 3400
-Text HLabel 3850 3300 0    50   Input ~ 0
+Text HLabel 3850 3300 0    50   BiDi ~ 0
 TEMP_DATA
 Wire Bus Line
 	3850 3300 4650 3300
@@ -51,8 +51,6 @@ Wire Wire Line
 	4750 3500 5500 3500
 Text Label 4950 3500 0    50   ~ 0
 GPIO27
-Text Label 4150 3300 0    50   ~ 0
-GPIO[27..27]
 $Comp
 L power:+3.3V #PWR0102
 U 1 1 6153FBB6

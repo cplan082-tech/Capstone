@@ -188,18 +188,8 @@ Wire Wire Line
 	5850 2050 6200 2050
 Wire Wire Line
 	6200 1950 6200 2050
-Text Label 4100 2150 0    50   ~ 0
-GPIO2_SDA1
-Text Label 4100 2250 0    50   ~ 0
-GPIO3_SCL1
 Text Label 4100 2350 0    50   ~ 0
 GPIO4_GPIO_GCLK
-Text Label 4100 2550 0    50   ~ 0
-GPIO17_GEN0
-Text Label 4100 2650 0    50   ~ 0
-GPIO27_GEN2
-Text Label 4100 2750 0    50   ~ 0
-GPIO22_GEN3
 Text Label 4100 2950 0    50   ~ 0
 GPIO10_SPI_MOSI
 Wire Wire Line
@@ -238,12 +228,7 @@ Text Label 4100 3750 0    50   ~ 0
 GPIO19
 Text Label 4100 3850 0    50   ~ 0
 GPIO26
-NoConn ~ 4000 2150
-NoConn ~ 4000 2250
 NoConn ~ 4000 2350
-NoConn ~ 4000 2550
-NoConn ~ 4000 2650
-NoConn ~ 4000 2750
 NoConn ~ 4000 2950
 NoConn ~ 4000 3050
 NoConn ~ 4000 3150
@@ -302,8 +287,6 @@ Wire Wire Line
 NoConn ~ 6600 2350
 NoConn ~ 6600 2450
 NoConn ~ 6600 2550
-NoConn ~ 6600 2750
-NoConn ~ 6600 2850
 NoConn ~ 6600 3050
 NoConn ~ 6600 3150
 NoConn ~ 6600 3250
@@ -568,8 +551,20 @@ Entry Wire Line
 	3050 2650 3150 2750
 Wire Wire Line
 	3150 2750 5050 2750
-Wire Bus Line
-	3050 1950 3050 2800
 Text Label 3300 2750 0    50   ~ 0
 GPIO22
+Text HLabel 2350 1950 0    50   BiDi ~ 0
+PI_CONN
+Text Label 4100 2150 0    50   ~ 0
+GPIO2_SDA1
+Text Label 4100 2250 0    50   ~ 0
+GPIO3_SCL1
+Text Label 4100 2550 0    50   ~ 0
+GPIO17_GEN0
+Text Label 4100 2750 0    50   ~ 0
+GPIO22_GEN3
+Text Label 4100 2650 0    50   ~ 0
+GPIO27_GEN2
+Wire Bus Line
+	3050 1950 3050 2800
 $EndSCHEMATC
