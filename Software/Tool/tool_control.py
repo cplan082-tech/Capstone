@@ -11,8 +11,8 @@ import csv
 
 # Accelerometer Init
 name_accel = "Accelerometer"
-i2c = busio.I2C(board.SCL, board.SDA)
-accelerometer_obj = adafruit_adxl34x.ADXL345(i2c)
+# i2c = busio.I2C(board.SCL, board.SDA)
+# accelerometer_obj = adafruit_adxl34x.ADXL345(i2c)
 
 # Temp/Humidity sense Init
 name_tempHum = "Temp/Humidity"
@@ -21,16 +21,28 @@ sensor = Adafruit_DHT.DHT11
 # GPIOs
 temp_data_pin = 14  # GPIO14 (pin 8) on pi
 
+enable = True
+interup_flag = False
+timer_time = 10
+
 def enable_timerOut_handler(signum, frame):
+    global enable, interup_flag
+    print('hit')
+#     global interup_flag
     enable = not(enable)
+    interup_flag = True
     tou.tool_enable(enable)
     
 
-enable = True
 signal.signal(signal.SIGALRM, enable_timerOut_handler)
-signal.alarm(10)
+signal.alarm(timer_time)
 try:
     while True:
+        # For testing (if statment)
+        if interup_flag == True:
+            interup_flag = False
+            signal.alarm(timer_time)
+            
         pass
 #         time.sleep(5) # for testing
 #         enable = not(enable) # for testing
@@ -48,7 +60,16 @@ try:
         
         
 except:
-    print("exiting")
+    print("exiting fuck")
     gpio.cleanup()
     
 gpio.cleanup()
+
+signal.alarm(timer_time)
+
+while True:
+    if interup_flag == True:
+        interup_flag = False
+        signal.alarm(timer_time)
+        print('here')
+    
