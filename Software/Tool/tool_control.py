@@ -27,10 +27,11 @@ def enable_timerOut_handler(signum, frame):
     
 
 enable = True
-signal.signal(signal.SIGALM, enable_timerOut_handler)
+signal.signal(signal.SIGALRM, enable_timerOut_handler)
 signal.alarm(10)
 try:
     while True:
+        pass
 #         time.sleep(5) # for testing
 #         enable = not(enable) # for testing
 #         tou.tool_enable(enable)
