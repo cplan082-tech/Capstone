@@ -37,10 +37,6 @@ def tool_trig_handler(pin):
         print(f"gpio.input(tool_trig_pin): {gpio.input(tool_trig_pin)}")
         print(f"prev_val: {prev_val}")
         print(f"tool_trig_pin_val: {tool_trig_pin_val}")
-        
-        
-def tool_enable_handler(signum, frame):
-    pass
     
 
 def tool_enable(enable_new_val):
