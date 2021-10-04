@@ -8,14 +8,6 @@ from datetime import datetime
 tool_trig_pin = 21  # GPIO21 (pin 40) on pi
 tool_on_led_pin = 26  # GPIO26 (pin 37) on pi
 
-# GPIO initialization
-gpio.setmode(gpio.BCM)
-gpio.setup(tool_trig_pin, gpio.IN)
-gpio.add_event_detect(tool_trig_pin, gpio.BOTH, callback=tool_trig_handler)
-
-gpio.setup(tool_on_led_pin, gpio.OUT)
-gpio.output(tool_on_led_pin, False)
-
 # "Time of use" timer variables
 prev_val = 0
 start_time = 0
@@ -71,6 +63,17 @@ def tool_enable(enable_new_val):
         prev_val = 1
         gpio.output(tool_on_led_pin, True)
         print(f"start time {start_time}") # for testing
+        
+        
+# GPIO initialization
+# These are defined here becasue the callback tool_trig_handeler must be
+# defined before running this section of code. Location marked with "# Here"
+gpio.setmode(gpio.BCM) 
+gpio.setup(tool_trig_pin, gpio.IN)
+gpio.add_event_detect(tool_trig_pin, gpio.BOTH, callback=tool_trig_handler)  # Here
+
+gpio.setup(tool_on_led_pin, gpio.OUT)
+gpio.output(tool_on_led_pin, False)
     
 
 if __name__=="__main__":
