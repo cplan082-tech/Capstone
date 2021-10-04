@@ -5,7 +5,7 @@ import board
 import busio
 import adafruit_adxl34x
 import Adafruit_DHT
-from datetime import datetime
+from datetime import datetime, timedelta
 import signal
 import csv
 
@@ -50,7 +50,7 @@ try:
         
         # "Time of use" collection
         time_of_use = tou.accumulator
-        tou.accumulator = 0  # Resets accumulator
+        tou.accumulator = timedelta()  # Resets accumulator
         
         # Accelerometer data collection
         accel = accelerometer_obj.acceleration

@@ -1,7 +1,7 @@
 import RPi.GPIO as gpio
 import time
 import signal
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 # GPIOs
@@ -11,7 +11,7 @@ tool_on_led_pin = 26  # GPIO26 (pin 37) on pi
 # "Time of use" timer variables
 prev_val = 0
 start_time = 0
-accumulator = 0
+accumulator = timedelta()
 enable = True
 
 
@@ -38,11 +38,11 @@ def tool_trig_handler(pin):
             accumulator = accumulator + retval
             print(f"retval {retval}")
             
-    else:  # else is only for testing
-        print(f"tool_trig_pin_val: {tool_trig_pin_val}")
-        print(f"gpio.input(tool_trig_pin): {gpio.input(tool_trig_pin)}")
-        print(f"prev_val: {prev_val}")
-        print(f"tool_trig_pin_val: {tool_trig_pin_val}")
+#     else:  # else is only for testing
+#         print(f"tool_trig_pin_val: {tool_trig_pin_val}")
+#         print(f"gpio.input(tool_trig_pin): {gpio.input(tool_trig_pin)}")
+#         print(f"prev_val: {prev_val}")
+#         print(f"tool_trig_pin_val: {tool_trig_pin_val}")
     
 
 def tool_enable(enable_new_val):
