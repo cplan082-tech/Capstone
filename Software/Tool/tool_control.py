@@ -10,9 +10,13 @@ import signal
 import csv
 
 # Accelerometer Init
-# name_accel = "Accelerometer"
-# i2c = busio.I2C(board.SCL, board.SDA)
-# accelerometer_obj = adafruit_adxl34x.ADXL345(i2c)
+name_accel = "Accelerometer"
+i2c = busio.I2C(board.SCL, board.SDA)
+accelerometer_obj = adafruit_adxl34x.ADXL345(i2c)
+accelerometer_obj.enable_freefall_detection(threshold=10, time=25)
+accelerometer_obj.enable_motion_detection(threshold=18)
+accelerometer_obj.enable_tap_detection(tap_count=1, threshold=20, duration=50, latency=20, window=255)
+
 
 # Temp/Humidity sense Init
 name_tempHum = "Temp/Humidity"
@@ -42,19 +46,25 @@ try:
             interup_flag = False
             signal.alarm(timer_time)
             
+        accel = accelerometer_obj.acceleration
+        accel_freefall = accelerometer_obj.events["freefall"]
+        accel_colision = accelerometer_obj.events['tap']
+        accel_motion = accelerometer_obj.events['motion']
         
-#         time.sleep(5) # for testing
-#         enable = not(enable) # for testing
-#         tou.tool_enable(enable)
-#         accel = accelerometer_obj.acceleration
-#         humidity, temperature = Adafruit_DHT.read_retry(sensor, temp_data_pin)
-#         stamp = datetime.now()
-#         package = {'temp': temperature,
-#                    'humid': humidity,
-#                    'accel x': accel[0],
-#                    'accel y': accel[1],
-#                    'accel z': accel[2],
-#                    'timestamp': stamp}
+        humidity, temperature = Adafruit_DHT.read_retry(sensor, temp_data_pin)
+        
+        stamp = datetime.now()
+        
+        package = {'temp': temperature,
+                   'humid': humidity,
+                   'accel x': accel[0],
+                   'accel y': accel[1],
+                   'accel z': accel[2],
+                   'freefall': accel_freefall,
+                   'colision': accel_colision,
+                   'Motion': accelerometer_obj.events['motion'],
+                   'timestamp': stamp}
+        print(package)  # For testing
         
         
         
