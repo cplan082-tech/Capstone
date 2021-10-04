@@ -60,16 +60,16 @@ try:
         
         
 except:
-    print("exiting fuck")
+    print("exiting")
     gpio.cleanup()
     
 gpio.cleanup()
 
-signal.alarm(timer_time)
-
-while True:
-    if interup_flag == True:
-        interup_flag = False
-        signal.alarm(timer_time)
-        print('here')
+# signal.alarm(timer_time)
+# 
+# while True:
+#     if interup_flag == True:
+#         interup_flag = False
+#         signal.alarm(timer_time)
+#         print('here')
     
