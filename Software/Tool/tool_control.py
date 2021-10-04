@@ -10,7 +10,7 @@ import signal
 import csv
 
 # Accelerometer Init
-name_accel = "Accelerometer"
+# name_accel = "Accelerometer"
 # i2c = busio.I2C(board.SCL, board.SDA)
 # accelerometer_obj = adafruit_adxl34x.ADXL345(i2c)
 
@@ -28,7 +28,6 @@ timer_time = 10
 def enable_timerOut_handler(signum, frame):
     global enable, interup_flag
     print('hit')
-#     global interup_flag
     enable = not(enable)
     interup_flag = True
     tou.tool_enable(enable)
@@ -64,12 +63,3 @@ except:
     gpio.cleanup()
     
 gpio.cleanup()
-
-# signal.alarm(timer_time)
-# 
-# while True:
-#     if interup_flag == True:
-#         interup_flag = False
-#         signal.alarm(timer_time)
-#         print('here')
-    
