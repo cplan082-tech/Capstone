@@ -42,7 +42,7 @@ try:
             interup_flag = False
             signal.alarm(timer_time)
             
-        pass
+        
 #         time.sleep(5) # for testing
 #         enable = not(enable) # for testing
 #         tou.tool_enable(enable)
