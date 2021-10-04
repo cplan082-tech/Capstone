@@ -64,7 +64,9 @@ try:
                    'colision': accel_colision,
                    'Motion': accelerometer_obj.events['motion'],
                    'timestamp': stamp}
-        print(package)  # For testing
+        print("freefall", package['freefall'], "\n",
+              "colision", package['colision'], "\n",
+              "Motion", package['Motion'], "\n")  # For testing
         
         
         
