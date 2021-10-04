@@ -1,6 +1,6 @@
 import RPi.GPIO as gpio
-import time_of_use as tou
 import time
+import time_of_use as tou
 import board
 import busio
 import adafruit_adxl34x
@@ -28,10 +28,10 @@ temp_data_pin = 14  # GPIO14 (pin 8) on pi
 enable = True
 interup_flag = False
 timer_time = 10
+data_collect_time_delay = 2 # seconds
 
 def enable_timerOut_handler(signum, frame):
     global enable, interup_flag
-    print('hit')
     enable = not(enable)
     interup_flag = True
     tou.tool_enable(enable)
@@ -46,15 +46,25 @@ try:
             interup_flag = False
             signal.alarm(timer_time)
             
+        time.sleep(data_collect_time_delay)
+        
+        # "Time of use" collection
+        time_of_use = tou.accumulator
+        tou.accumulator = 0  # Resets accumulator
+        
+        # Accelerometer data collection
         accel = accelerometer_obj.acceleration
         accel_freefall = accelerometer_obj.events["freefall"]
         accel_colision = accelerometer_obj.events['tap']
         accel_motion = accelerometer_obj.events['motion']
         
+        # Humidity/Temp data collection
         humidity, temperature = Adafruit_DHT.read_retry(sensor, temp_data_pin)
         
+        # Timestamp
         stamp = datetime.now()
         
+        # Package to be sent to transponder
         package = {'temp': temperature,
                    'humid': humidity,
                    'accel x': accel[0],
@@ -63,10 +73,13 @@ try:
                    'freefall': accel_freefall,
                    'colision': accel_colision,
                    'Motion': accelerometer_obj.events['motion'],
+                   'Time_of_use': time_of_use,
                    'timestamp': stamp}
-        print("freefall", package['freefall'], "\n",
-              "colision", package['colision'], "\n",
-              "Motion", package['Motion'], "\n")  # For testing
+#         print("freefall", package['freefall'], "\n",
+#               "colision", package['colision'], "\n",
+#               "Motion", package['Motion'], "\n")  # For testing
+        print(time_of_use)
+        
         
         
         
