@@ -7,7 +7,7 @@ import adafruit_adxl34x
 import Adafruit_DHT
 from datetime import datetime, timedelta
 import signal
-import csv
+import csv  # Erase after dict2csv is working and moved to transponder_control.py
 
 # Accelerometer Init
 name_accel = "Accelerometer"
@@ -35,6 +35,10 @@ def enable_timerOut_handler(signum, frame):
     enable = not(enable)
     interup_flag = True
     tou.tool_enable(enable)
+    
+    
+def to_csv(package):
+    pass
     
 
 signal.signal(signal.SIGALRM, enable_timerOut_handler)
@@ -72,9 +76,12 @@ try:
                    'accel z': accel[2],
                    'freefall': accel_freefall,
                    'colision': accel_colision,
-                   'Motion': accelerometer_obj.events['motion'],
+                   'Motion': accel_motion,
                    'Time_of_use': time_of_use,
                    'timestamp': stamp}
+        
+        to_csv(package)
+        
 #         print("freefall", package['freefall'], "\n",
 #               "colision", package['colision'], "\n",
 #               "Motion", package['Motion'], "\n")  # For testing
