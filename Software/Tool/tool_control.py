@@ -29,6 +29,7 @@ enable = True
 interup_flag = False
 timer_time = 10
 data_collect_time_delay = 2 # seconds
+csv_file = "test.csv"
 
 def enable_timerOut_handler(signum, frame):
     global enable, interup_flag
@@ -37,8 +38,14 @@ def enable_timerOut_handler(signum, frame):
     tou.tool_enable(enable)
     
     
-def to_csv(package):
-    pass
+def dict_to_csv(package):
+    try:
+        with open(csv_file, 'w') as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=list(package.keys()))
+            writer.writeheader()
+            writer.writerow(package)
+            
+            csvfile.close()
     
 
 signal.signal(signal.SIGALRM, enable_timerOut_handler)
@@ -80,7 +87,7 @@ try:
                    'Time_of_use': time_of_use,
                    'timestamp': stamp}
         
-        to_csv(package)
+        dict_to_csv(package)
         
 #         print("freefall", package['freefall'], "\n",
 #               "colision", package['colision'], "\n",
