@@ -46,6 +46,9 @@ def dict_to_csv(package):
             writer.writerow(package)
             
             csvfile.close()
+            
+    except IOError:
+        print("I/O error")
     
 
 signal.signal(signal.SIGALRM, enable_timerOut_handler)

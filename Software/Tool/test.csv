@@ -1,0 +1,2 @@
+temp,humid,accel x,accel y,accel z,freefall,colision,Motion,Time_of_use,timestamp
+24.0,38.0,9.6889702,-0.0784532,1.2944778,False,False,False,0:00:02.397092,2021-10-04 22:41:57.381368
