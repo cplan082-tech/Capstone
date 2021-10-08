@@ -9,7 +9,7 @@ import multiprocessing
 import subprocess
 import re
 
-print("OK")
+print("Hub Wifi Script")
 time.sleep(1)
 
 #Are you testing on your computer or your Pi? 1 for Yes, 0 for No
@@ -30,16 +30,23 @@ Memory_name="Hub_Memory.csv"
 #Set these path parameters for testing purposes:
 TransponderFile = "/home/pi/Hub/Memory/HubMemory/"+ Memory_name
 TransponderPath = "/home/pi/Hub/Memory/HubMemory"
-MACPath ="/Users/christelledube/Desktop/PythonScripts/hub_to_tool/Hub/Memory/HubMemory"  # This is your hub technically
+
+filepath=os.path.realpath(__file__) #This locates your directory of the current working script  
+filepath = os.path.dirname(filepath) + "/Memory/HubMemory" #Concatonates script filepath to memory
+MACPath = filepath #This your hub file path to memory
+
+
+#MACPath ="/Users/christelledube/Desktop/PythonScripts/hub_to_tool/Hub/Memory/HubMemory"  # This is your hub technically
 #MACFlagPath ="/Users/christelledube/Desktop/PythonScripts/hub_to_tool/Hub/Memory"
 
+print(MACPath)
 
 #if MAC flag is set to 1, then the path corresponds to the MAC path, if 0, then the Pi path
 if MAC ==1:
     path = MACPath
     #FlagPath = MACFlagPath
 else:
-    #path = TransponderPath
+    path = MACPath
     #FlagPath = TransponderPath
 
 
@@ -75,7 +82,7 @@ def Retreive():
 #List the amount of data dump files by login through ssh
 def ConnectionTest():
     #flag()
-    print("\nRunning ConnectionTest()\n")
+    print("\nRunning ConnectionTest()")
     
     output = pexpect.run("ssh pi@" + IP_Transponder +" 'ls "+ TransponderPath +" '", events={'(?i)password':""+ Password +"\n"})
     print("\nThe output of ssh command: \n%s" %output.decode("utf-8"))

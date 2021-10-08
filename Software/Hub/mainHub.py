@@ -57,6 +57,7 @@ if __name__ == "__main__":
             else:
                 print("The message is: " + message)
 
+            
             # aws.describe_thing()
             # aws.disable_topic_rule("RaspberryPi4Analytics_Rule")
 
