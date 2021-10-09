@@ -33,7 +33,7 @@ if __name__ == "__main__":
 
             # If there is sensor data, publish to AWS
             # =============================== ALERT =================================
-            newSensorData = False    # This will be removed later... Just for testing now
+            newSensorData = True    # This will be removed later... Just for testing now
             # =======================================================================
             if newSensorData == True:
                 aws.publishHubData()
@@ -57,6 +57,7 @@ if __name__ == "__main__":
             else:
                 print("The message is: " + message)
 
+            
             # aws.describe_thing()
             # aws.disable_topic_rule("RaspberryPi4Analytics_Rule")
 
@@ -69,6 +70,10 @@ if __name__ == "__main__":
             '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             Description: Check for connection to Transponder
             '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+            # Try to connect...
+
+
 
 
 

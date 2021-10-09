@@ -1,19 +1,24 @@
 import RPi.GPIO as gpio
 import time
 import signal
-from datetime import datetime
+from datetime import datetime, timedelta
 
-enable = True
 
 # GPIOs
 tool_trig_pin = 21  # GPIO21 (pin 40) on pi
 tool_on_led_pin = 26  # GPIO26 (pin 37) on pi
 
+# "Time of use" timer variables
+prev_val = 0
+start_time = 0
+accumulator = timedelta()
+enable = True
+
 
 def tool_trig_handler(pin):
     global prev_val
     global start_time
-    global enable
+    global enable, accumulator
     tool_trig_pin_val = gpio.input(tool_trig_pin)
     time.sleep(0.1) # debouncing
     
@@ -30,23 +35,18 @@ def tool_trig_handler(pin):
             gpio.output(tool_on_led_pin, False)
             retval = datetime.now() - start_time
             start_time = 0
+            accumulator = accumulator + retval
             print(f"retval {retval}")
             
-    else:  # else is only for testing
-        print(f"tool_trig_pin_val: {tool_trig_pin_val}")
-        print(f"gpio.input(tool_trig_pin): {gpio.input(tool_trig_pin)}")
-        print(f"prev_val: {prev_val}")
-        print(f"tool_trig_pin_val: {tool_trig_pin_val}")
-        
-        
-def tool_enable_handler(signum, frame):
-    pass
+#     else:  # else is only for testing
+#         print(f"tool_trig_pin_val: {tool_trig_pin_val}")
+#         print(f"gpio.input(tool_trig_pin): {gpio.input(tool_trig_pin)}")
+#         print(f"prev_val: {prev_val}")
+#         print(f"tool_trig_pin_val: {tool_trig_pin_val}")
     
 
 def tool_enable(enable_new_val):
-    global enable
-    global prev_val
-    global start_time
+    global enable, prev_val, start_time, accumulator
     
     enable = enable_new_val
     prev_val = 0
@@ -55,6 +55,7 @@ def tool_enable(enable_new_val):
         gpio.output(tool_on_led_pin, False)
         retval = datetime.now() - start_time
         start_time = 0
+        accumulator = accumulator + retval
         print(f"retval {retval}") # for testing
         
     elif enable and (gpio.input(tool_trig_pin)):
@@ -62,19 +63,17 @@ def tool_enable(enable_new_val):
         prev_val = 1
         gpio.output(tool_on_led_pin, True)
         print(f"start time {start_time}") # for testing
-
-
-
+        
+        
 # GPIO initialization
-gpio.setmode(gpio.BCM)
+# These are defined here becasue the callback tool_trig_handeler must be
+# defined before running this section of code. Location marked with "# Here"
+gpio.setmode(gpio.BCM) 
 gpio.setup(tool_trig_pin, gpio.IN)
-gpio.add_event_detect(tool_trig_pin, gpio.BOTH, callback=tool_trig_handler)
+gpio.add_event_detect(tool_trig_pin, gpio.BOTH, callback=tool_trig_handler)  # Here
 
 gpio.setup(tool_on_led_pin, gpio.OUT)
 gpio.output(tool_on_led_pin, False)
-
-prev_val = 0
-start_time = 0
     
 
 if __name__=="__main__":
@@ -83,9 +82,3 @@ if __name__=="__main__":
             pass
     except:
         gpio.cleanup()
-
-
-
-
-
-

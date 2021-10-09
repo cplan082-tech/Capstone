@@ -124,16 +124,16 @@ class AWSIoT(object):
         connect_future = self.mqtt_connection.connect()
         connect_future.result()
         connection = bool(connect_future.result())
-        if connection == True:
-            audio.cliSound(awsConnectSoundPath)
-            print("Connected!")
-            print()
+        #if connection == True:
+        #    audio.cliSound(awsConnectSoundPath)
+        #    print("Connected!")
+        #    print()
             #functions.aws_connection_led(connection)
-        elif connection == False:
-            print("Unable to connect. Please try again.")
+        #elif connection == False:
+        #    print("Unable to connect. Please try again.")
             #functions.aws_connection_led(connection)
-        else:
-            print("Connection error!")
+        #else:
+        #    print("Connection error!")
 
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Description: End MQTT Connection
