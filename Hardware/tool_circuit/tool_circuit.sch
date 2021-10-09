@@ -16,7 +16,7 @@ $EndDescr
 Wire Bus Line
 	5950 2550 5250 2550
 $Sheet
-S 1750 2800 1400 850 
+S 2600 2350 1400 850 
 U 611DBAE9
 F0 "Power_Src" 50
 F1 "Power_Src.sch" 50

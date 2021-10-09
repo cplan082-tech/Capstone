@@ -4,7 +4,7 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 7 8
-Title ""
+Title "Accelerometer "
 Date ""
 Rev ""
 Comp ""
@@ -21,9 +21,7 @@ Text Label 5550 3900 0    50   ~ 0
 GPIO2
 Text Label 5650 4000 0    50   ~ 0
 GPIO3
-Text Label 4750 4300 0    50   ~ 0
-GPIO[2..3]
-Text HLabel 4700 4300 0    50   Input ~ 0
+Text HLabel 4700 4300 0    50   BiDi ~ 0
 ACC_DATA
 Entry Wire Line
 	5550 4300 5650 4200
@@ -74,6 +72,10 @@ Wire Wire Line
 	5100 3300 5100 3750
 Wire Wire Line
 	5300 3400 5300 3750
+NoConn ~ 6000 3500
+NoConn ~ 6000 3600
+NoConn ~ 6000 3700
+NoConn ~ 6000 3800
 Wire Bus Line
 	4700 4300 5550 4300
 $EndSCHEMATC

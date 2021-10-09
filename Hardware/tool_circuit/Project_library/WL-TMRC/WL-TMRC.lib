@@ -1,0 +1,52 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#(c) SnapEDA 2016 (snapeda.com)
+#This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA) with Design Exception 1.0
+#
+# WL-TMRC
+#
+DEF WL-TMRC D 0 40 Y N 1 L N
+F0 "D" -51 204 50 H V L BNN
+F1 "WL-TMRC" -48 -218 50 H V L BNN
+F3 "" 0 0 50 H I L BNN
+F4 "http://www.we-online.de" 0 0 50 H I L BNN "COMPANY-URL"
+F5 "APR 2013" 0 0 50 H I L BNN "CREATED-DATE"
+F6 "http://katalog.we-online.de/en/led/WL-TMRC?m=t&sq=tmrc&sp=&sp=http%3A%2F%2Fwww.we-online.de%2Fweb%2Fen%2Felectronic_components%2Fsearchpage_PBS.php%3Fsearch%3Dtmrc" 0 0 50 H I L BNN "DATASHEET-URL"
+F7 "Würth Elektronik eiSos GmbH" 0 0 50 H I L BNN "MANUFACTURER"
+F8 "Christin Otto" 0 0 50 H I L BNN "CREATED-BY"
+$FPLIST
+ LED-3MM-ROUND
+ LED-3MM-ROUND
+ LED-3MM-ROUND
+ LED-3MM-ROUND
+ LED-5MM-ROUND
+ LED-5MM-ROUND
+ LED-5MM-ROUND
+ LED-5MM-ROUND
+ LED-3MM-ROUND
+ LED-3MM-ROUND
+ LED-5MM-ROUND
+$ENDFPLIST
+DRAW
+P 2 0 0 10 -100 0 100 100 N
+P 2 0 0 10 100 100 100 0 N
+P 2 0 0 10 100 0 100 -100 N
+P 2 0 0 10 100 -100 -100 0 N
+P 2 0 0 10 -100 0 100 0 N
+P 2 0 0 10 -100 100 -100 -100 N
+P 2 0 0 10 -69 128 -69 98 N
+P 2 0 0 10 -69 98 -39 128 N
+P 2 0 0 10 -39 128 -69 128 N
+P 2 0 0 10 -30 167 -48 138 N
+P 2 0 0 10 -48 138 0 167 N
+P 2 0 0 10 0 167 -30 167 N
+P 2 0 0 10 -20 79 -69 128 N
+P 2 0 0 10 -30 167 20 118 N
+T 0 -200 -100 50 0 0 0 - Normal 0 L B
+T 0 200 -100 50 0 0 0 + Normal 0 L B
+X ~ 1 -200 0 100 R 40 40 0 0 B 
+X ~ 2 200 0 100 L 40 40 0 0 B 
+ENDDRAW
+ENDDEF
+#
+# End Library
