@@ -187,5 +187,6 @@ Thumbs.db
 # profiling data
 .prof
 
+testing_something.txt
 
 # End of https://www.toptal.com/developers/gitignore/api/python,kicad
