@@ -64,7 +64,7 @@
     (pad_drill 0.762)
     (pad_to_mask_clearance 0.0508)
     (aux_axis_origin 0 0)
-    (visible_elements FFFFF7FF)
+    (visible_elements FFFFFFFF)
     (pcbplotparams
       (layerselection 0x010fc_ffffffff)
       (usegerberextensions false)
@@ -142,7 +142,7 @@
   )
 
   (module ul_TPS563211DRLR:TPS563211DRLR (layer F.Cu) (tedit 0) (tstamp 6148A862)
-    (at 91.44 83.947)
+    (at 140.9065 85.09)
     (path /611DBAE9/6131D12D/61393280)
     (fp_text reference U2 (at 0 -3.8735) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
@@ -194,7 +194,7 @@
   )
 
   (module CRCW040210K0DHEDP:RESC1005X40N (layer F.Cu) (tedit 613FD123) (tstamp 6149E761)
-    (at 99.568 85.09)
+    (at 149.0345 86.233)
     (path /611DBAE9/6131D12D/6140F8A3)
     (fp_text reference R4 (at 1.778 -0.0635) (layer F.SilkS)
       (effects (font (size 0.393701 0.393701) (thickness 0.15)))
@@ -217,7 +217,7 @@
   )
 
   (module ul_RC0603FR-0782KL:RC0603FR-0782KL (layer F.Cu) (tedit 0) (tstamp 6149FAAF)
-    (at 99.9617 83.566)
+    (at 149.4282 84.709)
     (path /611DBAE9/6131D12D/6140CEA8)
     (fp_text reference R3 (at -0.1397 -1.3335) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
@@ -268,7 +268,7 @@
   )
 
   (module RNCP1206FTD10K0:RESC3115X60N (layer F.Cu) (tedit 613FCA48) (tstamp 6146CEE0)
-    (at 95.32 83.947)
+    (at 144.7865 85.09)
     (path /611DBAE9/6131D12D/61403723)
     (fp_text reference R2 (at 0.184 -1.651) (layer F.SilkS)
       (effects (font (size 0.393701 0.393701) (thickness 0.15)))
@@ -293,7 +293,7 @@
   )
 
   (module ul_SDR1307-4R7ML:SDR1307-4R7ML (layer F.Cu) (tedit 0) (tstamp 6149F641)
-    (at 97.2312 100.711)
+    (at 146.6977 101.854)
     (path /611DBAE9/6131D12D/6140681E)
     (fp_text reference L1 (at -0.0762 3.048) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
@@ -337,7 +337,7 @@
   )
 
   (module Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical (layer F.Cu) (tedit 59FED5CC) (tstamp 6146CE99)
-    (at 114.935 100.965)
+    (at 164.4015 102.108)
     (descr "Through hole straight pin header, 1x03, 2.54mm pitch, single row")
     (tags "Through hole pin header THT 1x03 2.54mm single row")
     (path /611DF2F9/6144B415)
@@ -379,7 +379,7 @@
   )
 
   (module 12063D106MAT2A:CAPC3216X178N (layer F.Cu) (tedit 61329151) (tstamp 6149FA00)
-    (at 100.789 91.948)
+    (at 150.2555 93.091)
     (path /611DBAE9/6131D12D/613292F8)
     (fp_text reference C4 (at 3.0335 0.381) (layer F.SilkS)
       (effects (font (size 0.393701 0.393701) (thickness 0.15)))
@@ -404,7 +404,7 @@
   )
 
   (module CL31B104KBCNNNC:CAPC3216X180N (layer F.Cu) (tedit 6138DC46) (tstamp 6146CE72)
-    (at 100.901 87.503)
+    (at 150.3675 88.646)
     (path /611DBAE9/6131D12D/6138E334)
     (fp_text reference C3 (at 2.858 0.508) (layer F.SilkS)
       (effects (font (size 0.393701 0.393701) (thickness 0.15)))
@@ -429,7 +429,7 @@
   )
 
   (module CGA3E2X7R1H104K080AA:CAPC1608X90N (layer F.Cu) (tedit 61326652) (tstamp 6148AED2)
-    (at 100.002 89.789)
+    (at 149.4685 90.932)
     (path /611DBAE9/6131D12D/61326D86)
     (fp_text reference C2 (at 2.233 0.0635) (layer F.SilkS)
       (effects (font (size 0.393701 0.393701) (thickness 0.15)))
@@ -452,7 +452,7 @@
   )
 
   (module KCM55QR7YA226KH01L:CAPC6153X390N (layer F.Cu) (tedit 6132604B) (tstamp 6146CE54)
-    (at 93.79 89.027)
+    (at 143.2565 90.17)
     (path /611DBAE9/6131D12D/61326360)
     (fp_text reference C1 (at -2.6 -3.35) (layer F.SilkS)
       (effects (font (size 0.393701 0.393701) (thickness 0.15)))
@@ -477,7 +477,7 @@
   )
 
   (module Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical (layer F.Cu) (tedit 59FED5CC) (tstamp 6149E222)
-    (at 108.712 88.265)
+    (at 158.1785 89.408)
     (descr "Through hole straight pin header, 1x08, 2.54mm pitch, single row")
     (tags "Through hole pin header THT 1x08 2.54mm single row")
     (path /61495548/6149E3EA)
@@ -529,7 +529,7 @@
   )
 
   (module Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical (layer F.Cu) (tedit 59FED5CC) (tstamp 6149E239)
-    (at 114.808 88.138)
+    (at 164.2745 89.281)
     (descr "Through hole straight pin header, 1x03, 2.54mm pitch, single row")
     (tags "Through hole pin header THT 1x03 2.54mm single row")
     (path /611DBC89/614AEC17)
