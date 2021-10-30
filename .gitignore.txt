@@ -1,6 +1,8 @@
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,kicad
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,kicad
+# Other files to ignor
+testing_something.txt
 
 ### KiCad ###
 # For PCBs designed using KiCad: http://www.kicad-pcb.org/
