@@ -1,4 +1,4 @@
-update=Monday, November 01, 2021 at 02:24:24 am
+update=Tuesday, November 02, 2021 at 04:38:46 pm
 version=1
 last_client=kicad
 [general]
@@ -70,7 +70,7 @@ SolderPasteClearance=0
 SolderPasteRatio=-0
 [pcbnew/Layer.F.Cu]
 Name=F.Cu
-Type=0
+Type=1
 Enabled=1
 [pcbnew/Layer.In1.Cu]
 Name=In1.Cu

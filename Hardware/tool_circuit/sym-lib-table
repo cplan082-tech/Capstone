@@ -191,4 +191,5 @@
   (lib (name EEUFS1K101)(type Legacy)(uri ${KICAD_USER_TEMPLATE_DIR}/Project_library/EEUFS1K101/EEUFS1K101.lib)(options "")(descr ""))
   (lib (name 2021-10-30_21-05-21)(type Legacy)(uri ${KICAD_USER_TEMPLATE_DIR}/Project_library/ul_IHLP4040DZER101M11/KiCAD/2021-10-30_21-05-21/2021-10-30_21-05-21.lib)(options "")(descr ""))
   (lib (name 2021-10-30_21-29-43)(type Legacy)(uri ${KICAD_USER_TEMPLATE_DIR}/Project_library/ul_B380-13-F/KiCAD/2021-10-30_21-29-43/2021-10-30_21-29-43.lib)(options "")(descr ""))
+  (lib (name 2021-11-02_22-07-21)(type Legacy)(uri ${KICAD_USER_TEMPLATE_DIR}/Project_library/ul_1825255-1/KiCAD/2021-11-02_22-07-21/2021-11-02_22-07-21.lib)(options "")(descr ""))
 )

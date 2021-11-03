@@ -677,9 +677,9 @@ F 4 "Kingbright" H 8500 2000 50  0001 L BNN "MANUFACTURER"
 	1    8500 2000
 	-1   0    0    1   
 $EndComp
-Wire Bus Line
-	1950 2050 1950 2650
 Connection ~ 5850 2050
 Wire Wire Line
 	5850 2050 5850 1950
+Wire Bus Line
+	1950 2050 1950 2650
 $EndSCHEMATC
