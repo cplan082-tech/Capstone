@@ -18,9 +18,14 @@ import csv_manipulation as csvm
 name_accel = "Accelerometer"
 i2c = busio.I2C(board.SCL, board.SDA)
 accelerometer_obj = adafruit_adxl34x.ADXL345(i2c)
-accelerometer_obj.enable_freefall_detection(threshold=10, time=25)
+accelerometer_obj.enable_freefall_detection(threshold=10, 
+                                            time=25)
 accelerometer_obj.enable_motion_detection(threshold=18)
-accelerometer_obj.enable_tap_detection(tap_count=1, threshold=20, duration=50, latency=20, window=255)
+accelerometer_obj.enable_tap_detection(tap_count=1, 
+                                       threshold=20, 
+                                       duration=50, 
+                                       latency=20, 
+                                       window=255)
 
 
 # Temp/Humidity sense Init

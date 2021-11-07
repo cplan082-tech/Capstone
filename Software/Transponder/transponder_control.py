@@ -4,25 +4,18 @@ Created on Sun Nov  7 14:57:47 2021
 
 @author: clive
 """
-import csv
 import os
+import sys
+sys.path.append(os.path.realpath('../functional_scripts'))
+import csv_manipulation as csvm
 
-csv_file = "/home/pi/Hub/Memory/HubMemory/Tool_Memory.csv"
-interesting_files = glob.glob("/home/pi/Hub/Memory/HubMemory/*.csv") 
+path_memory = "/home/pi/Hub/Memory/HubMemory/"
+csv_file = "Tool_Memory_acumulator.csv"
+csv_file_input = "Tool_Memory.csv"
 
 while True:
     
-    if os.path.isfile(csv_file):
-        
-        header_saved = False
-        with open('/home/pi/Hub/Memory/HubMemory/output.csv','w') as fout:
-            for filename in interesting_files:
-                with open(filename) as fin:
-                    header = next(fin)
-                    if not header_saved:
-                        fout.write(header)
-                        header_saved = True
-                    for line in fin:
-                        fout.write(line)
-        
-        os.remove(csv_file)
+    # Checks if any new data has been recieved
+    if os.path.isfile(csv_file_input):
+        csvm.csv_concat(path_memory, csv_file) # updates accumulator
+        os.remove(path_memory + csv_file_input) # Deletes old data
