@@ -61,8 +61,6 @@ NoConn ~ 6000 3700
 NoConn ~ 6000 3800
 Wire Wire Line
 	5550 3900 6000 3900
-Wire Bus Line
-	4700 4300 5550 4300
 $Comp
 L power:GND #PWR011
 U 1 1 617F6689
@@ -74,4 +72,6 @@ F 3 "" H 6000 3300 50  0001 C CNN
 	1    6000 3300
 	0    1    1    0   
 $EndComp
+Wire Bus Line
+	4700 4300 5550 4300
 $EndSCHEMATC

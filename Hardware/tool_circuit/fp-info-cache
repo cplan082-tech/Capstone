@@ -1,4 +1,4 @@
-20029441605871298
+20031077772568076
 12063D106MAT2A
 CAPC3216X178N
 
@@ -21,12 +21,12 @@ RESC3116X65N
 2
 2
 B380-13-F
-B380-13-F
+1825255-1
 
 
 0
-2
-2
+5
+5
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -86512,6 +86512,13 @@ Through hole socket strip THT 2x20 2.54mm double row
 0
 40
 40
+ul_1825255-1
+1825255-1
+
+
+0
+5
+5
 ul_RC0603FR-0782KL
 RC0603FR-0782KL
 
