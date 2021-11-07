@@ -13,6 +13,11 @@ from datetime import datetime, timedelta
 import signal
 import csv_manipulation as csvm
 
+# Tool's memory file for sensor data
+import shutil # need this too move "Tool_Memory.csv" to proper location
+csv_file = "Tool_Memory.csv"
+path_memory = "/home/Tool/Documents/tooldump/"
+
 
 # Accelerometer Init
 name_accel = "Accelerometer"
@@ -39,7 +44,7 @@ enable = True
 interup_flag = False
 timer_time = 10
 data_collect_time_delay = 2 # seconds
-csv_file = "test.csv"
+
 
 def enable_timerOut_handler(signum, frame):
     global enable, interup_flag
@@ -89,6 +94,16 @@ try:
                    'timestamp': stamp}
         
         csvm.dict_to_csv(package, csv_file)
+        
+        # checksa if "Tool_Memory.csv" already exists. If so, it concats
+        # new data with banked data. else it moves new csv to memory locvation
+        if not os.path.isfile(path_memory + csv_file):
+            shutil.move(csv_file, path_memory)
+        else:
+            os.rename(csv_file, 'temp.csv')
+            shutil.move('temp.csv', path_memory)
+            csvm.csv_concat(path_memory, csv_file)
+            os.remove(path_memory + 'temp.csv')
         
 #         print("freefall", package['freefall'], "\n",
 #               "colision", package['colision'], "\n",
