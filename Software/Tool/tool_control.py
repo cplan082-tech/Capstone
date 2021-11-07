@@ -1,3 +1,7 @@
+import os
+import sys
+sys.path.append(os.path.realpath('..\\functional_scripts'))
+
 import RPi.GPIO as gpio
 import time
 import time_of_use as tou
@@ -7,8 +11,8 @@ import adafruit_adxl34x
 import Adafruit_DHT
 from datetime import datetime, timedelta
 import signal
-import os
-import csv  # Erase after dict2csv is working and moved to transponder_control.py
+import csv_manipulation as csvm
+
 
 # Accelerometer Init
 name_accel = "Accelerometer"
@@ -38,26 +42,6 @@ def enable_timerOut_handler(signum, frame):
     interup_flag = True
     tou.tool_enable(enable)
     
-    
-def dict_to_csv(package):
-    try:
-        if os.path.isfile(csv_file):
-            file_exists = True
-        else:
-            file_exists = False
-            
-        with open(csv_file, 'a', newline='') as csvfile:
-            writer = csv.DictWriter(csvfile, fieldnames=list(package.keys()))
-            
-            if not file_exists:
-                writer.writeheader()
-                
-            writer.writerow(package)
-            
-            csvfile.close()
-            
-    except IOError:
-        print("I/O error")
     
 
 signal.signal(signal.SIGALRM, enable_timerOut_handler)
@@ -99,12 +83,12 @@ try:
                    'Time_of_use': time_of_use,
                    'timestamp': stamp}
         
-        dict_to_csv(package)
+        csvm.dict_to_csv(package)
         
 #         print("freefall", package['freefall'], "\n",
 #               "colision", package['colision'], "\n",
 #               "Motion", package['Motion'], "\n")  # For testing
-        print(time_of_use)
+        print(time_of_use, csv_file)
         
         
         

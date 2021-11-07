@@ -8,29 +8,31 @@ import csv
 import os
 import glob
 import shutil
-import csv_manipulator as csvm
+import sys
+sys.path.append(os.path.realpath('..\\..\\functional_scripts'))
+
+import csv_manipulation as csvm
 
 
-
-def dict_to_csv(package):
-    try:
-        if os.path.isfile(csv_file):
-            file_exists = True
-        else:
-            file_exists = False
+# def dict_to_csv(package):
+#     try:
+#         if os.path.isfile(csv_file):
+#             file_exists = True
+#         else:
+#             file_exists = False
             
-        with open(csv_file, 'a', newline='') as csvfile:
-            writer = csv.DictWriter(csvfile, fieldnames=list(package.keys()))
+#         with open(csv_file, 'a', newline='') as csvfile:
+#             writer = csv.DictWriter(csvfile, fieldnames=list(package.keys()))
             
-            if not file_exists:
-                writer.writeheader()
+#             if not file_exists:
+#                 writer.writeheader()
                 
-            writer.writerow(package)
+#             writer.writerow(package)
             
-            csvfile.close()
+#             csvfile.close()
             
-    except IOError:
-        print("I/O error")
+#     except IOError:
+#         print("I/O error")
         
         
         
@@ -49,7 +51,7 @@ package = {'temp': 10,
             'Time_of_use': 'time_of_use',
             'timestamp': 10}
 
-dict_to_csv(package)
+csvm.dict_to_csv(package, csv_file)
 
 
 csv_file = "foldertest/test2.csv"  
@@ -64,7 +66,7 @@ package = {'temp': 12,
             'Time_of_use': 'time_of_use',
             'timestamp': 10}
 
-dict_to_csv(package)
+csvm.dict_to_csv(package, csv_file)
 
 
 # file1 = open("foldertest/test1.csv", "a")
