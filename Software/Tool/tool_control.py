@@ -1,6 +1,6 @@
 import os
 import sys
-sys.path.append(os.path.realpath('..\\functional_scripts'))
+sys.path.append(os.path.realpath('../functional_scripts'))
 
 import RPi.GPIO as gpio
 import time
@@ -83,7 +83,7 @@ try:
                    'Time_of_use': time_of_use,
                    'timestamp': stamp}
         
-        csvm.dict_to_csv(package)
+        csvm.dict_to_csv(package, csv_file)
         
 #         print("freefall", package['freefall'], "\n",
 #               "colision", package['colision'], "\n",
