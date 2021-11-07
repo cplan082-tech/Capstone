@@ -1,6 +1,27 @@
-19985308235018618
+20029441605871298
 12063D106MAT2A
 CAPC3216X178N
+
+
+0
+2
+2
+1825255-1
+SW_1825255-1
+
+
+0
+5
+5
+AC1206FR-07130RL
+RESC3116X65N
+
+
+0
+2
+2
+B380-13-F
+B380-13-F
 
 
 0
@@ -304,6 +325,13 @@ Battery
 Battery_Panasonic_CR3032-VCN_Vertical_CircularHoles
 Panasonic CR-3032/VCN battery, https://industrial.panasonic.com/cdbs/www-data/pdf2/AAA4000/AAA4000D140.pdf
 battery CR-3032 coin cell vertical
+0
+2
+2
+Blue LED
+151034BS03000
+
+
 0
 2
 2
@@ -2297,6 +2325,13 @@ CAPC3216X180N
 2
 CRCW040210K0DHEDP
 RESC1005X40N
+
+
+0
+2
+2
+CRGCQ1206F820R
+RESC3115X65N
 
 
 0
@@ -50742,6 +50777,20 @@ One digit LED 7 segment SA39-11 SC39-11 SA39-12 SC39-12
 0
 10
 10
+EEUFS1K101
+CAPPRD500W60D1000H1250
+
+
+0
+2
+2
+EJ503A
+MPD_EJ503A
+
+
+0
+3
+3
 Ferrite_THT
 LairdTech_28C0236-0JW-10
 Ferrite, vertical, LairdTech 28C0236-0JW-10, https://assets.lairdtech.com/home/brandworld/files/28C0236-0JW-10.pdf, JW Miller core https://www.bourns.com/products/magnetic-products/j.w.-miller-through-hole-ferrite-beads-emi-filters
@@ -51603,6 +51652,13 @@ Fuse Fuseholder TR5 Littelfuse/Wickmann No. 460 No560
 0
 2
 2
+Green LED
+SLI-343M8C3F
+
+
+0
+2
+2
 Heatsink
 Heatsink_35x26mm_1xFixation3mm_Fischer-SK486-35
 Heatsink, 35mm x 26mm, 1x Fixation 3mm, Fischer SK486-35
@@ -51694,6 +51750,13 @@ heatsink
 0
 2
 1
+IHLP-4040DZ_VIS
+IHLP4040DZER101M11
+
+
+0
+2
+2
 Inductor_SMD
 L_6.3x6.3_H3
 Choke, SMD, 6.3x6.3mm 3mm height
@@ -56244,6 +56307,13 @@ Yellow 5381 Series LED
 0
 2
 2
+LM2576D2TR4-5G
+D2PAK-5
+
+
+0
+6
+6
 Module
 A20_OLINUXINO_LIME2
 A20 Olinuxino LIME2, 1.2GHz, 512-1024MB RAM, Micro-SD, NAND or eMMC, 1000Mbit Ethernet
@@ -73513,6 +73583,13 @@ Potentiometer vertical Vishay T73YP
 0
 3
 3
+RC1206FR-0742R2L
+RESC3116X65N
+
+
+0
+2
+2
 RF
 Skyworks_SKY13575_639LF
 http://www.skyworksinc.com/uploads/documents/SKY13575_639LF_203270D.pdf
@@ -74423,6 +74500,20 @@ WiFi IEEE802.11 b/g/n
 0
 44
 44
+RK73Z2BTTD
+RK73Z2BTTD
+
+
+0
+2
+2
+RMCF1206JT220R
+RESC3216X70N
+
+
+0
+2
+2
 RNCP1206FTD4K99
 RNCP1206FTD4K99
 
@@ -74431,6 +74522,13 @@ RNCP1206FTD4K99
 2
 2
 RNCP1206FTD10K0
+RESC3115X60N
+
+
+0
+2
+2
+RNCP1206FTD100R
 RESC3115X60N
 
 
@@ -76341,6 +76439,13 @@ rotary encoder
 0
 5
 4
+S2751-46R
+HARWIN_S2751-46R
+
+
+0
+1
+1
 Sensor
 Aosong_DHT11_5.5x12.0_P2.54mm
 Temperature and humidity module, http://akizukidenshi.com/download/ds/aosong/DHT11.pdf
@@ -82305,6 +82410,13 @@ transformer flyback
 0
 10
 10
+URS1E102MHD1TO
+URS1E102MHD1TO
+
+
+0
+2
+2
 Valve
 Valve_ECC-83-1
 Valve ECC-83-1 round pins
@@ -83072,6 +83184,34 @@ Varistor
 RV_Disc_D21.5mm_W11.4mm_P10mm
 Varistor, diameter 21.5mm, width 11.4mm, pitch 10mm
 varistor SIOV
+0
+2
+2
+WL-TMRC
+LED-3MM-ROUND
+WL-TMRC THT LED mono-color round colorlens,Size: 3 mm,
+
+0
+2
+2
+WL-TMRC
+LED-5MM-ROUND
+WL-TMRC THT LED mono-color round colorlens,Size: 5 mm
+
+0
+2
+2
+WP7113GD
+LED_WP7113GD
+
+
+0
+2
+2
+WP7113YD
+LED_WP7113YD
+
+
 0
 2
 2
@@ -86323,6 +86463,55 @@ Zigbee_Module_MRF24J40MD
 0
 12
 12
+footprints
+RNCP1206FTD100R
+
+
+0
+2
+2
+lib
+MountingHole_2.7mm_M2.5_uHAT_RPi
+Mounting Hole 2.7mm, no annular, M2.5
+mounting hole 2.7mm no annular m2.5
+0
+0
+0
+lib
+MountingHole_2.75mm
+
+mounting hole 2.75mm no annular
+0
+0
+0
+lib
+PinSocket_2x20_P2.54mm_Vertical_Centered_Anchor
+Through hole straight socket strip, 2x20, 2.54mm pitch, double cols (from Kicad 4.0.7), script generated
+Through hole socket strip THT 2x20 2.54mm double row
+0
+40
+40
+pihat footprints
+MountingHole_2.7mm_M2.5_uHAT_RPi
+Mounting Hole 2.7mm, no annular, M2.5
+mounting hole 2.7mm no annular m2.5
+0
+0
+0
+pihat footprints
+MountingHole_2.75mm
+
+mounting hole 2.75mm no annular
+0
+0
+0
+pihat footprints
+PinSocket_2x20_P2.54mm_Vertical_Centered_Anchor
+Through hole straight socket strip, 2x20, 2.54mm pitch, double cols (from Kicad 4.0.7), script generated
+Through hole socket strip THT 2x20 2.54mm double row
+0
+40
+40
 ul_RC0603FR-0782KL
 RC0603FR-0782KL
 

@@ -7,6 +7,7 @@ import adafruit_adxl34x
 import Adafruit_DHT
 from datetime import datetime, timedelta
 import signal
+import os
 import csv  # Erase after dict2csv is working and moved to transponder_control.py
 
 # Accelerometer Init
@@ -40,9 +41,17 @@ def enable_timerOut_handler(signum, frame):
     
 def dict_to_csv(package):
     try:
-        with open(csv_file, 'w') as csvfile:
+        if os.path.isfile(csv_file):
+            file_exists = True
+        else:
+            file_exists = False
+            
+        with open(csv_file, 'a', newline='') as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=list(package.keys()))
-            writer.writeheader()
+            
+            if not file_exists:
+                writer.writeheader()
+                
             writer.writerow(package)
             
             csvfile.close()
