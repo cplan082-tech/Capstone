@@ -6,18 +6,20 @@ Created on Sun Nov  7 14:05:01 2021
 """
 import csv
 import os
+import glob
+import shutil
+import csv_manipulator as csvm
 
-csv_file = "test.csv"
 
 
 def dict_to_csv(package):
     try:
-        if not os.path.isfile(csv_file):
+        if os.path.isfile(csv_file):
             file_exists = True
         else:
             file_exists = False
             
-        with open(csv_file, 'a') as csvfile:
+        with open(csv_file, 'a', newline='') as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=list(package.keys()))
             
             if not file_exists:
@@ -31,6 +33,11 @@ def dict_to_csv(package):
         print("I/O error")
         
         
+        
+# file1 = open("")
+        
+        
+csv_file = "foldertest/test1.csv"  
 package = {'temp': 10,
             'humid': 10,
             'accel x': 10,
@@ -44,6 +51,8 @@ package = {'temp': 10,
 
 dict_to_csv(package)
 
+
+csv_file = "foldertest/test2.csv"  
 package = {'temp': 12,
             'humid': 20,
             'accel x': 40,
@@ -57,6 +66,37 @@ package = {'temp': 12,
 
 dict_to_csv(package)
 
+
+# file1 = open("foldertest/test1.csv", "a")
+# file2 = open("foldertest/test2.csv", "r")
+
+# for line in file2:
+#    file1.write(line)
+
+# file1.close()
+# file2.close()
+
+
+def csv_concat(path, filename_output):
+    interesting_files = glob.glob(path + "*.csv")  
+    header_saved = False
+    
+    with open(filename_output,'w') as fout:
+        for filename in interesting_files:
+            with open(filename) as fin:
+                header = next(fin)
+                if not header_saved:
+                    fout.write(header)
+                    header_saved = True
+                for line in fin:
+                    fout.write(line)
+    if os.path.isfile(path + filename_output):
+        os.remove(path + filename_output)                
+    shutil.move(filename_output, path)
+
+path = 'foldertest/'
+filename_output = 'output.csv'
+csv_concat(path, filename_output)
 
 
 
