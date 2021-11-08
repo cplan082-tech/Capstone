@@ -8,16 +8,6 @@ import time
 import multiprocessing
 import subprocess
 import re
-import csv
-
-def wifi_param_extract(filename_in):
-    with open(filename_in, mode='r') as infile:
-        reader = csv.reader(infile)
-        with open('temp_params.csv', mode='w') as outfile:
-            writer = csv.writer(outfile)
-            mydict = {rows[0]:rows[1] for rows in reader}
-    os.remove('temp_params.csv')
-    return mydict
 
 print("OK")
 time.sleep(1)
@@ -25,29 +15,23 @@ time.sleep(1)
 #Are you testing on your computer or your Pi? 1 for Yes, 0 for No
 MAC=0
 
-# Extraction of initialization parameters
-wifi_params = wifi_param_extract(path.realpath('../../../wifi_params.csv'))
 #What is your pi password?
-Password = wifi_params["Password"]
+Password ='nick'
 
 #What are the Pi IPs?
-IP_src = wifi_params["IP_src"] #"10.0.0.198"
-IP_dest = wifi_params["IP_dest"]#"10.0.0.112"
+IP_Tool="192.168.0.29"
+IP_Transponder="192.168.0.28"
 
 #What minium signal power do you want? less than -60dBm is very weak
 Signal_Power= '-70'
 
 #What is the name of the tool memory file that we pass to the transponder?
-Memory_name="Tool_Memory.csv"
+Memory_name="Hub_Memory.csv"
 
 #Set these path parameters for testing purposes:
-# dest_filename = Memory_name
-# dest_path = os.path.realpath("../wifi_comms/Memory/")
-# src_path = "/home/pi/Hub/Memory/HubMemory"
-
-src_filename = "/home/Tool/Documents/tooldump/"+ Memory_name
-src_path = "/home/Tool/Documents/tooldump"
-dest_path = os.path.realpath("../wifi_comms/Memory/")
+ToolFile = "/home/pi/Documents/tooldump/"+ Memory_name
+ToolPath = "/home/pi/Documents/tooldump"
+TransponderPath = "/home/pi/Hub/Memory/HubMemory"
 MACPath ="/Users/christelledube/Desktop/PythonScripts/hub_to_tool/Hub/Memory/HubMemory"
 MACFlagPath ="/Users/christelledube/Desktop/PythonScripts/hub_to_tool/Hub/Memory"
 
@@ -57,8 +41,8 @@ if MAC ==1:
     path = MACPath
     FlagPath = MACFlagPath
 else:
-    path = dest_path
-    FlagPath = dest_path
+    path = TransponderPath
+    FlagPath = TransponderPath
 
 
 #Loop will run 100000 times
@@ -71,7 +55,7 @@ while i<100000:
         file = pathlib.Path(FlagPath +"/flag.csv") #Checks if the flag file exists
         if file.exists ():
             print("Flag file found")
-            output = pexpect.run("scp " + FlagPath +"/flag.csv pi@"+ IP_src +":"+ src_path, events={'(?i)password':""+ Password +"\n"})
+            output = pexpect.run("scp " + FlagPath +"/flag.csv pi@"+ IP_Tool +":"+ ToolPath, events={'(?i)password':""+ Password +"\n"})
             print("\nThe output of ssh command: \n%s" %output.decode("utf-8"))
             time.sleep(1)
             os.remove(FlagPath + "/flag.csv")
@@ -87,7 +71,7 @@ while i<100000:
 
         print ("Running Retreive() function")
 
-        output = pexpect.run("scp pi@"+ IP_src +":"+ src_filename + " "+ path, events={'(?i)password':""+ Password +"\n"})
+        output = pexpect.run("scp pi@"+ IP_Tool +":"+ ToolFile + " "+ path, events={'(?i)password':""+ Password +"\n"})
         print("\nThe output of ssh command: \n%s" %output.decode("utf-8"))
         time.sleep(1)
         print("Tool memory file retreived")
@@ -98,7 +82,7 @@ while i<100000:
         flag()
         print("\nRunning ConnectionTest()\n")
         
-        output = pexpect.run("ssh pi@" + IP_src +" 'ls "+ src_path +" '", events={'(?i)password':""+ Password +"\n"})
+        output = pexpect.run("ssh pi@" + IP_Tool +" 'ls "+ ToolPath +" '", events={'(?i)password':""+ Password +"\n"})
         print("\nThe output of ssh command: \n%s" %output.decode("utf-8"))
         #os.system("nick")
         print("\nConnection established\n")
