@@ -50,7 +50,7 @@ def enable_timerOut_handler(signum, frame):
     global enable, interup_flag
     enable = not(enable)
     interup_flag = True
-    tou.tool_enable(enable)
+    # tou.tool_enable(enable)
     
     
 
@@ -62,6 +62,9 @@ try:
         # For testing (if statment)
         if interup_flag == True:
             interup_flag = False
+            # Move this here for testing. Does the tool disable/enable fast 
+            # enough when it is here?
+            tou.tool_enable(enable) # this line only is for testing
             signal.alarm(timer_time)
             
         time.sleep(data_collect_time_delay)
