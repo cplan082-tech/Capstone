@@ -30,6 +30,8 @@ def csv_concat(path, filename_output):
     
 def dict_to_csv(package, csv_file):
     try:
+        # Checks if csv files already exists. If not, the first row of the csv 
+        # will be a header
         if os.path.isfile(csv_file):
             file_exists = True
         else:
@@ -48,3 +50,13 @@ def dict_to_csv(package, csv_file):
     except IOError:
         print("I/O error")
             
+        
+
+def wifi_param_extract(filename_in):
+    with open(filename_in, mode='r') as infile:
+        reader = csv.reader(infile)
+        with open('temp_params.csv', mode='w') as outfile:
+            writer = csv.writer(outfile)
+            mydict = {rows[0]:rows[1] for rows in reader}
+    os.remove('temp_params.csv')
+    return mydict
