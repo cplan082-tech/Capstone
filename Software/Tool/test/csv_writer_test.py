@@ -69,6 +69,9 @@ package = {'temp': 12,
 csvm.dict_to_csv(package, csv_file)
 
 
+
+
+        
 # file1 = open("foldertest/test1.csv", "a")
 # file2 = open("foldertest/test2.csv", "r")
 
@@ -99,6 +102,20 @@ def csv_concat(path, filename_output):
 path = 'foldertest/'
 filename_output = 'output.csv'
 csv_concat(path, filename_output)
+
+filename_in = path + filename_output
+
+def wifi_param_extract(filename_in):
+    with open(filename_in, mode='r') as infile:
+        reader = csv.reader(infile)
+        with open('temp_params.csv', mode='w') as outfile:
+            writer = csv.writer(outfile)
+            mydict = {rows[0]:rows[1] for rows in reader}
+    os.remove('temp_params.csv')
+    return mydict
+
+dic = wifi_param_extract(filename_in)
+print(dic["temp"])
 
 
 

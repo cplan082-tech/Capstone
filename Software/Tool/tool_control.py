@@ -56,6 +56,7 @@ def enable_timerOut_handler(signum, frame):
 
 signal.signal(signal.SIGALRM, enable_timerOut_handler)
 signal.alarm(timer_time)
+
 try:
     while True:
         # For testing (if statment)
@@ -91,7 +92,8 @@ try:
                    'colision': accel_colision,
                    'Motion': accel_motion,
                    'Time_of_use': time_of_use,
-                   'timestamp': stamp}
+                   'date': stamp.date(),
+                   'Time':stamp.time()}
         
         csvm.dict_to_csv(package, csv_file)
         
