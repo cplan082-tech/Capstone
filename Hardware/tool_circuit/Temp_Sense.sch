@@ -18,7 +18,7 @@ L Connector:Conn_01x03_Female J2
 U 1 1 614AEC17
 P 5700 3500
 F 0 "J2" H 5728 3526 50  0000 L CNN
-F 1 "Conn_01x03_Female" H 5728 3435 50  0000 L CNN
+F 1 "Temp_Sense" H 5728 3435 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 5700 3500 50  0001 C CNN
 F 3 "~" H 5700 3500 50  0001 C CNN
 	1    5700 3500
@@ -41,16 +41,6 @@ Wire Wire Line
 	5350 3600 5350 3700
 Wire Wire Line
 	5050 3400 5500 3400
-Text HLabel 3850 3300 0    50   BiDi ~ 0
-TEMP_DATA
-Wire Bus Line
-	3850 3300 4650 3300
-Entry Wire Line
-	4650 3400 4750 3500
-Wire Wire Line
-	4750 3500 5500 3500
-Text Label 4950 3500 0    50   ~ 0
-GPIO27
 $Comp
 L power:+3.3V #PWR08
 U 1 1 6153FBB6
@@ -62,6 +52,8 @@ F 3 "" H 5050 3400 50  0001 C CNN
 	1    5050 3400
 	1    0    0    -1  
 $EndComp
-Wire Bus Line
-	4650 3300 4650 3700
+Text GLabel 5250 3500 0    50   BiDi ~ 0
+GPIO27_GEN2
+Wire Wire Line
+	5500 3500 5250 3500
 $EndSCHEMATC

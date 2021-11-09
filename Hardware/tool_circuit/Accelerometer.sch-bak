@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 7 8
+Sheet 8 8
 Title "Accelerometer "
 Date ""
 Rev ""
@@ -13,20 +13,6 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Wire Wire Line
-	5550 4200 5550 3900
-Wire Wire Line
-	5650 4200 5650 4000
-Text Label 5550 3900 0    50   ~ 0
-GPIO2
-Text Label 5650 4000 0    50   ~ 0
-GPIO3
-Text HLabel 4700 4300 0    50   BiDi ~ 0
-ACC_DATA
-Entry Wire Line
-	5550 4300 5650 4200
-Entry Wire Line
-	5450 4300 5550 4200
 $Comp
 L Connector:Conn_01x08_Female J3
 U 1 1 6149E3EA
@@ -38,8 +24,6 @@ F 3 "~" H 6200 3600 50  0001 C CNN
 	1    6200 3600
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	5650 4000 6000 4000
 Wire Wire Line
 	5300 3400 6000 3400
 $Comp
@@ -59,8 +43,6 @@ NoConn ~ 6000 3500
 NoConn ~ 6000 3600
 NoConn ~ 6000 3700
 NoConn ~ 6000 3800
-Wire Wire Line
-	5550 3900 6000 3900
 $Comp
 L power:GND #PWR011
 U 1 1 617F6689
@@ -72,6 +54,8 @@ F 3 "" H 6000 3300 50  0001 C CNN
 	1    6000 3300
 	0    1    1    0   
 $EndComp
-Wire Bus Line
-	4700 4300 5550 4300
+Text GLabel 6000 3900 0    50   BiDi ~ 0
+GPIO2_SDA1
+Text GLabel 6000 4000 0    50   BiDi ~ 0
+GPIO3_SCL1
 $EndSCHEMATC
