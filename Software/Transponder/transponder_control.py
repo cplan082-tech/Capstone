@@ -17,6 +17,7 @@ csv_file_input = "Tool_Memory.csv"
 # FOR TESTING
 csvm.dict_to_csv({'place': 'holder'}, os.path.realpath('../wifi_comms/Memory/') # TODO: remove thisjs
 
+
 while True:
     
     # Checks if any new data has been recieved
