@@ -15,7 +15,7 @@ csv_file_input = "Tool_Memory.csv"
 
 # We just want to create a flag csv, we don't care what's in it
 # FOR TESTING
-csvm.dict_to_csv({'place': 'holder'}, os.path.realpath('../wifi_comms/Memory/') # TODO: remove this
+csvm.dict_to_csv({'place': 'holder'}, os.path.realpath('../wifi_comms/Memory/') # TODO: remove thisjs
 
 while True:
     
