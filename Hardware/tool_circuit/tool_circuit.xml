@@ -1,0 +1,1089 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>/Users/komaljaved/Documents/Capstone_main/Capstone/Hardware/tool_circuit/tool_circuit.sch</source>
+    <date>Sunday, November 07, 2021 at 07:52:26 pm</date>
+    <tool>Eeschema (5.1.10-1-10_14)</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>tool_circuit.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="2" name="/Power_Src/" tstamps="/611DBAE9/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>Power_Src.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="3" name="/Power_Src/5V Regulator/" tstamps="/611DBAE9/6131D12D/">
+      <title_block>
+        <title>12V-5V Regulator</title>
+        <company/>
+        <rev/>
+        <date/>
+        <source>5V Regulator.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="4" name="/Power_Src/Battery_Src/" tstamps="/611DBAE9/614E4070/">
+      <title_block>
+        <title>Power Supply Connector Jack</title>
+        <company/>
+        <rev/>
+        <date/>
+        <source>Battery_Src.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="5" name="/Time_of_Use/" tstamps="/611DF2F9/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>Time_of_Use.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="6" name="/Temp_Sense/" tstamps="/611DBC89/">
+      <title_block>
+        <title>Temperature Sensor</title>
+        <company/>
+        <rev/>
+        <date/>
+        <source>Temp_Sense.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="7" name="/raspberrypi_header.sch/" tstamps="/61514F71/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>raspberrypi_header.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="8" name="/Accelerometer.sch/" tstamps="/61514F06/">
+      <title_block>
+        <title>Accelerometer </title>
+        <company/>
+        <rev/>
+        <date/>
+        <source>Accelerometer.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="TP1">
+      <value>S2751-46R</value>
+      <footprint>S2751-46R:HARWIN_S2751-46R</footprint>
+      <fields>
+        <field name="MANUFACTURER">HARWIN</field>
+        <field name="STANDARD">Manufacturer Recommendations</field>
+      </fields>
+      <libsource lib="S2751-46R" part="S2751-46R" description=""/>
+      <sheetpath names="/Power_Src/5V Regulator/" tstamps="/611DBAE9/6131D12D/"/>
+      <tstamp>6164D605</tstamp>
+    </comp>
+    <comp ref="U1">
+      <value>LM2576D2TR4-5G</value>
+      <footprint>LM2576D2TR4-5G:D2PAK-5</footprint>
+      <libsource lib="LM2576D2TR4-5G" part="LM2576D2TR4-5G" description=""/>
+      <sheetpath names="/Power_Src/5V Regulator/" tstamps="/611DBAE9/6131D12D/"/>
+      <tstamp>617DD1AF</tstamp>
+    </comp>
+    <comp ref="C2">
+      <value>1000uF</value>
+      <footprint>URS1E102MHD1TO:URS1E102MHD1TO</footprint>
+      <libsource lib="2021-10-30_20-57-30" part="URS1E102MHD1TO" description=""/>
+      <sheetpath names="/Power_Src/5V Regulator/" tstamps="/611DBAE9/6131D12D/"/>
+      <tstamp>617E34C7</tstamp>
+    </comp>
+    <comp ref="TP2">
+      <value>S2751-46R</value>
+      <footprint>S2751-46R:HARWIN_S2751-46R</footprint>
+      <fields>
+        <field name="MANUFACTURER">HARWIN</field>
+        <field name="STANDARD">Manufacturer Recommendations</field>
+      </fields>
+      <libsource lib="S2751-46R" part="S2751-46R" description=""/>
+      <sheetpath names="/Power_Src/5V Regulator/" tstamps="/611DBAE9/6131D12D/"/>
+      <tstamp>6164FDC2</tstamp>
+    </comp>
+    <comp ref="C1">
+      <value>100uF</value>
+      <footprint>EEUFS1K101:CAPPRD500W60D1000H1250</footprint>
+      <fields>
+        <field name="A_max">12.5</field>
+        <field name="DESCRIPTION">FS-A</field>
+        <field name="D_nom">10</field>
+        <field name="MF">PANASONIC</field>
+        <field name="PARTREV">28-FEB-20</field>
+        <field name="b_max">0.65</field>
+        <field name="b_nom">0.6</field>
+        <field name="e_nom">5</field>
+      </fields>
+      <libsource lib="EEUFS1K101" part="EEUFS1K101" description=""/>
+      <sheetpath names="/Power_Src/5V Regulator/" tstamps="/611DBAE9/6131D12D/"/>
+      <tstamp>617EC29C</tstamp>
+    </comp>
+    <comp ref="L1">
+      <value>100 uH</value>
+      <footprint>IHLP-4040DZ_VIS:IHLP4040DZER101M11</footprint>
+      <libsource lib="2021-10-30_21-05-21" part="IHLP4040DZER101M11" description=""/>
+      <sheetpath names="/Power_Src/5V Regulator/" tstamps="/611DBAE9/6131D12D/"/>
+      <tstamp>617F1E2E</tstamp>
+    </comp>
+    <comp ref="CR1">
+      <value>B380-13-F</value>
+      <footprint>B380-13-F:B380-13-F</footprint>
+      <libsource lib="tool_circuit-rescue" part="B380-13-F-2021-10-30_21-29-43" description=""/>
+      <sheetpath names="/Power_Src/5V Regulator/" tstamps="/611DBAE9/6131D12D/"/>
+      <tstamp>6180A80C</tstamp>
+    </comp>
+    <comp ref="R2">
+      <value>820</value>
+      <footprint>CRGCQ1206F820R:RESC3115X65N</footprint>
+      <fields>
+        <field name="Comment">2-2176343-4</field>
+      </fields>
+      <libsource lib="CRGCQ1206F820R" part="CRGCQ1206F820R" description=""/>
+      <sheetpath names="/Power_Src/5V Regulator/" tstamps="/611DBAE9/6131D12D/"/>
+      <tstamp>61883CC7</tstamp>
+    </comp>
+    <comp ref="D6">
+      <value>Green</value>
+      <footprint>WP7113GD:LED_WP7113GD</footprint>
+      <fields>
+        <field name="MANUFACTURER">Kingbright</field>
+      </fields>
+      <libsource lib="WP7113GD" part="WP7113GD" description=""/>
+      <sheetpath names="/Power_Src/5V Regulator/" tstamps="/611DBAE9/6131D12D/"/>
+      <tstamp>61894810</tstamp>
+    </comp>
+    <comp ref="J1">
+      <value>EJ503A</value>
+      <footprint>EJ503A:MPD_EJ503A</footprint>
+      <fields>
+        <field name="MANUFACTURER">MPD</field>
+        <field name="MAXIMUM_PACKAGE_HEIGHT">11 mm</field>
+        <field name="PARTREV">B</field>
+        <field name="STANDARD">Manufacturer Recommendations</field>
+      </fields>
+      <libsource lib="EJ503A" part="EJ503A" description=""/>
+      <sheetpath names="/Power_Src/Battery_Src/" tstamps="/611DBAE9/614E4070/"/>
+      <tstamp>614F5D56</tstamp>
+    </comp>
+    <comp ref="R3">
+      <value>10k</value>
+      <footprint>RNCP1206FTD10K0:RESC3115X60N</footprint>
+      <libsource lib="RNCP1206FTD10K0" part="RNCP1206FTD10K0" description=""/>
+      <sheetpath names="/Time_of_Use/" tstamps="/611DF2F9/"/>
+      <tstamp>617867AC</tstamp>
+    </comp>
+    <comp ref="SW1">
+      <value>1825255-1</value>
+      <footprint>ul_1825255-1:1825255-1</footprint>
+      <libsource lib="2021-11-02_22-07-21" part="1825255-1" description=""/>
+      <sheetpath names="/Time_of_Use/" tstamps="/611DF2F9/"/>
+      <tstamp>6186D287</tstamp>
+    </comp>
+    <comp ref="J2">
+      <value>Conn_01x03_Female</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector" part="Conn_01x03_Female" description="Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/Temp_Sense/" tstamps="/611DBC89/"/>
+      <tstamp>614AEC17</tstamp>
+    </comp>
+    <comp ref="J4">
+      <value>GPIO_CONNECTOR</value>
+      <footprint>lib:PinSocket_2x20_P2.54mm_Vertical_Centered_Anchor</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector_Generic" part="Conn_02x20_Odd_Even" description="Generic connector, double row, 02x20, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/raspberrypi_header.sch/" tstamps="/61514F71/"/>
+      <tstamp>5C77771F</tstamp>
+    </comp>
+    <comp ref="H1">
+      <value>MountingHole</value>
+      <footprint>lib:MountingHole_2.7mm_M2.5_uHAT_RPi</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/raspberrypi_header.sch/" tstamps="/61514F71/"/>
+      <tstamp>5C7C4C81</tstamp>
+    </comp>
+    <comp ref="H2">
+      <value>MountingHole</value>
+      <footprint>lib:MountingHole_2.7mm_M2.5_uHAT_RPi</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/raspberrypi_header.sch/" tstamps="/61514F71/"/>
+      <tstamp>5C7C7FBC</tstamp>
+    </comp>
+    <comp ref="H3">
+      <value>MountingHole</value>
+      <footprint>lib:MountingHole_2.7mm_M2.5_uHAT_RPi</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/raspberrypi_header.sch/" tstamps="/61514F71/"/>
+      <tstamp>5C7C8014</tstamp>
+    </comp>
+    <comp ref="H4">
+      <value>MountingHole</value>
+      <footprint>lib:MountingHole_2.7mm_M2.5_uHAT_RPi</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/raspberrypi_header.sch/" tstamps="/61514F71/"/>
+      <tstamp>5C7C8030</tstamp>
+    </comp>
+    <comp ref="D4">
+      <value>Yellow</value>
+      <footprint>WP7113YD:LED_WP7113YD</footprint>
+      <fields>
+        <field name="MANUFACTURER">Kingbright</field>
+      </fields>
+      <libsource lib="WP7113YD" part="WP7113YD" description=""/>
+      <sheetpath names="/raspberrypi_header.sch/" tstamps="/61514F71/"/>
+      <tstamp>61534E0C</tstamp>
+    </comp>
+    <comp ref="LED1">
+      <value>Blue</value>
+      <footprint>Blue LED:151034BS03000</footprint>
+      <libsource lib="2021-09-28_17-07-40" part="151034BS03000" description=""/>
+      <sheetpath names="/raspberrypi_header.sch/" tstamps="/61514F71/"/>
+      <tstamp>61630B5E</tstamp>
+    </comp>
+    <comp ref="TP5">
+      <value>S2751-46R</value>
+      <footprint>S2751-46R:HARWIN_S2751-46R</footprint>
+      <fields>
+        <field name="MANUFACTURER">HARWIN</field>
+        <field name="STANDARD">Manufacturer Recommendations</field>
+      </fields>
+      <libsource lib="S2751-46R" part="S2751-46R" description=""/>
+      <sheetpath names="/raspberrypi_header.sch/" tstamps="/61514F71/"/>
+      <tstamp>61650FDF</tstamp>
+    </comp>
+    <comp ref="TP8">
+      <value>S2751-46R</value>
+      <footprint>S2751-46R:HARWIN_S2751-46R</footprint>
+      <fields>
+        <field name="MANUFACTURER">HARWIN</field>
+        <field name="STANDARD">Manufacturer Recommendations</field>
+      </fields>
+      <libsource lib="S2751-46R" part="S2751-46R" description=""/>
+      <sheetpath names="/raspberrypi_header.sch/" tstamps="/61514F71/"/>
+      <tstamp>61651CC8</tstamp>
+    </comp>
+    <comp ref="TP7">
+      <value>S2751-46R</value>
+      <footprint>S2751-46R:HARWIN_S2751-46R</footprint>
+      <fields>
+        <field name="MANUFACTURER">HARWIN</field>
+        <field name="STANDARD">Manufacturer Recommendations</field>
+      </fields>
+      <libsource lib="S2751-46R" part="S2751-46R" description=""/>
+      <sheetpath names="/raspberrypi_header.sch/" tstamps="/61514F71/"/>
+      <tstamp>6165274B</tstamp>
+    </comp>
+    <comp ref="TP6">
+      <value>S2751-46R</value>
+      <footprint>S2751-46R:HARWIN_S2751-46R</footprint>
+      <fields>
+        <field name="MANUFACTURER">HARWIN</field>
+        <field name="STANDARD">Manufacturer Recommendations</field>
+      </fields>
+      <libsource lib="S2751-46R" part="S2751-46R" description=""/>
+      <sheetpath names="/raspberrypi_header.sch/" tstamps="/61514F71/"/>
+      <tstamp>61653544</tstamp>
+    </comp>
+    <comp ref="TP4">
+      <value>S2751-46R</value>
+      <footprint>S2751-46R:HARWIN_S2751-46R</footprint>
+      <fields>
+        <field name="MANUFACTURER">HARWIN</field>
+        <field name="STANDARD">Manufacturer Recommendations</field>
+      </fields>
+      <libsource lib="S2751-46R" part="S2751-46R" description=""/>
+      <sheetpath names="/raspberrypi_header.sch/" tstamps="/61514F71/"/>
+      <tstamp>61653BD5</tstamp>
+    </comp>
+    <comp ref="TP3">
+      <value>S2751-46R</value>
+      <footprint>S2751-46R:HARWIN_S2751-46R</footprint>
+      <fields>
+        <field name="MANUFACTURER">HARWIN</field>
+        <field name="STANDARD">Manufacturer Recommendations</field>
+      </fields>
+      <libsource lib="S2751-46R" part="S2751-46R" description=""/>
+      <sheetpath names="/raspberrypi_header.sch/" tstamps="/61514F71/"/>
+      <tstamp>61654750</tstamp>
+    </comp>
+    <comp ref="R9">
+      <value>130</value>
+      <footprint>AC1206FR-07130RL:RESC3116X65N</footprint>
+      <libsource lib="AC1206FR-07130RL" part="AC1206FR-07130RL" description=""/>
+      <sheetpath names="/raspberrypi_header.sch/" tstamps="/61514F71/"/>
+      <tstamp>61659CB7</tstamp>
+    </comp>
+    <comp ref="R4">
+      <value>42.2</value>
+      <footprint>RC1206FR-0742R2L:RESC3116X65N</footprint>
+      <libsource lib="RC1206FR-0742R2L" part="RC1206FR-0742R2L" description=""/>
+      <sheetpath names="/raspberrypi_header.sch/" tstamps="/61514F71/"/>
+      <tstamp>6165D04D</tstamp>
+    </comp>
+    <comp ref="R8">
+      <value>220</value>
+      <footprint>RMCF1206JT220R:RESC3216X70N</footprint>
+      <libsource lib="RMCF1206JT220R" part="RMCF1206JT220R" description=""/>
+      <sheetpath names="/raspberrypi_header.sch/" tstamps="/61514F71/"/>
+      <tstamp>61665485</tstamp>
+    </comp>
+    <comp ref="D2">
+      <value>Red</value>
+      <footprint>WL-TMRC:LED-5MM-ROUND</footprint>
+      <fields>
+        <field name="COMPANY-URL">http://www.we-online.de</field>
+        <field name="CREATED-BY">Christin Otto</field>
+        <field name="CREATED-DATE">APR 2013</field>
+        <field name="DATASHEET-URL">http://katalog.we-online.de/en/led/WL-TMRC?m=t&amp;sq=tmrc&amp;sp=&amp;sp=http%3A%2F%2Fwww.we-online.de%2Fweb%2Fen%2Felectronic_components%2Fsearchpage_PBS.php%3Fsearch%3Dtmrc</field>
+        <field name="MANUFACTURER">Würth Elektronik eiSos GmbH</field>
+      </fields>
+      <libsource lib="WL-TMRC" part="WL-TMRC" description=""/>
+      <sheetpath names="/raspberrypi_header.sch/" tstamps="/61514F71/"/>
+      <tstamp>6161A01D</tstamp>
+    </comp>
+    <comp ref="R7">
+      <value>100</value>
+      <footprint>footprints:RNCP1206FTD100R</footprint>
+      <libsource lib="2021-10-29_06-40-06" part="RNCP1206FTD100R" description=""/>
+      <sheetpath names="/raspberrypi_header.sch/" tstamps="/61514F71/"/>
+      <tstamp>617F85FE</tstamp>
+    </comp>
+    <comp ref="R6">
+      <value>100</value>
+      <footprint>footprints:RNCP1206FTD100R</footprint>
+      <libsource lib="2021-10-29_06-40-06" part="RNCP1206FTD100R" description=""/>
+      <sheetpath names="/raspberrypi_header.sch/" tstamps="/61514F71/"/>
+      <tstamp>617FA914</tstamp>
+    </comp>
+    <comp ref="R5">
+      <value>100</value>
+      <footprint>footprints:RNCP1206FTD100R</footprint>
+      <libsource lib="2021-10-29_06-40-06" part="RNCP1206FTD100R" description=""/>
+      <sheetpath names="/raspberrypi_header.sch/" tstamps="/61514F71/"/>
+      <tstamp>617FB26E</tstamp>
+    </comp>
+    <comp ref="D1">
+      <value>Green</value>
+      <footprint>WP7113GD:LED_WP7113GD</footprint>
+      <fields>
+        <field name="MANUFACTURER">Kingbright</field>
+      </fields>
+      <libsource lib="WP7113GD" part="WP7113GD" description=""/>
+      <sheetpath names="/raspberrypi_header.sch/" tstamps="/61514F71/"/>
+      <tstamp>617D44BC</tstamp>
+    </comp>
+    <comp ref="D3">
+      <value>Green</value>
+      <footprint>WP7113GD:LED_WP7113GD</footprint>
+      <fields>
+        <field name="MANUFACTURER">Kingbright</field>
+      </fields>
+      <libsource lib="WP7113GD" part="WP7113GD" description=""/>
+      <sheetpath names="/raspberrypi_header.sch/" tstamps="/61514F71/"/>
+      <tstamp>617DC6A4</tstamp>
+    </comp>
+    <comp ref="D5">
+      <value>Green</value>
+      <footprint>WP7113GD:LED_WP7113GD</footprint>
+      <fields>
+        <field name="MANUFACTURER">Kingbright</field>
+      </fields>
+      <libsource lib="WP7113GD" part="WP7113GD" description=""/>
+      <sheetpath names="/raspberrypi_header.sch/" tstamps="/61514F71/"/>
+      <tstamp>617E4650</tstamp>
+    </comp>
+    <comp ref="J3">
+      <value>Conn_01x08_Female</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector" part="Conn_01x08_Female" description="Generic connector, single row, 01x08, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/Accelerometer.sch/" tstamps="/61514F06/"/>
+      <tstamp>6149E3EA</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="2021-09-28_17-07-40" part="151034BS03000">
+      <footprints>
+        <fp>LED_BS03000_WRE</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">LED</field>
+        <field name="Value">151034BS03000</field>
+        <field name="Footprint">LED_BS03000_WRE</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="unspc"/>
+        <pin num="2" name="2" type="unspc"/>
+      </pins>
+    </libpart>
+    <libpart lib="2021-10-29_06-40-06" part="RNCP1206FTD100R">
+      <footprints>
+        <fp>STA_RNCP1206_STP</fp>
+        <fp>STA_RNCP1206_STP-M</fp>
+        <fp>STA_RNCP1206_STP-L</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">RNCP1206FTD100R</field>
+        <field name="Footprint">STA_RNCP1206_STP</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="unspc"/>
+        <pin num="2" name="2" type="unspc"/>
+      </pins>
+    </libpart>
+    <libpart lib="2021-10-30_20-57-30" part="URS1E102MHD1TO">
+      <footprints>
+        <fp>CAP_UPM_12P5X15_NCH</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">URS1E102MHD1TO</field>
+        <field name="Footprint">CAP_UPM_12P5X15_NCH</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="unspc"/>
+        <pin num="2" name="2" type="unspc"/>
+      </pins>
+    </libpart>
+    <libpart lib="2021-10-30_21-05-21" part="IHLP4040DZER101M11">
+      <footprints>
+        <fp>IND_IHLP-4040DZ_VIS</fp>
+        <fp>IND_IHLP-4040DZ_VIS-M</fp>
+        <fp>IND_IHLP-4040DZ_VIS-L</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">L</field>
+        <field name="Value">IHLP4040DZER101M11</field>
+        <field name="Footprint">IND_IHLP-4040DZ_VIS</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="unspc"/>
+        <pin num="2" name="2" type="unspc"/>
+      </pins>
+    </libpart>
+    <libpart lib="2021-11-02_22-07-21" part="1825255-1">
+      <footprints>
+        <fp>SW3_1825255-1_TEC</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">1825255-1</field>
+        <field name="Footprint">SW3_1825255-1_TEC</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="unspc"/>
+        <pin num="2" name="2" type="unspc"/>
+        <pin num="3" name="3" type="unspc"/>
+      </pins>
+    </libpart>
+    <libpart lib="AC1206FR-07130RL" part="AC1206FR-07130RL">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">AC1206FR-07130RL</field>
+        <field name="Footprint">RESC3116X65N</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="CRGCQ1206F820R" part="CRGCQ1206F820R">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">CRGCQ1206F820R</field>
+        <field name="Footprint">RESC3115X65N</field>
+        <field name="Comment">2-2176343-4</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector" part="Conn_01x03_Female">
+      <description>Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x03_Female</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector" part="Conn_01x08_Female">
+      <description>Generic connector, single row, 01x08, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x08_Female</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+        <pin num="5" name="Pin_5" type="passive"/>
+        <pin num="6" name="Pin_6" type="passive"/>
+        <pin num="7" name="Pin_7" type="passive"/>
+        <pin num="8" name="Pin_8" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_02x20_Odd_Even">
+      <description>Generic connector, double row, 02x20, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_2x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_02x20_Odd_Even</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+        <pin num="5" name="Pin_5" type="passive"/>
+        <pin num="6" name="Pin_6" type="passive"/>
+        <pin num="7" name="Pin_7" type="passive"/>
+        <pin num="8" name="Pin_8" type="passive"/>
+        <pin num="9" name="Pin_9" type="passive"/>
+        <pin num="10" name="Pin_10" type="passive"/>
+        <pin num="11" name="Pin_11" type="passive"/>
+        <pin num="12" name="Pin_12" type="passive"/>
+        <pin num="13" name="Pin_13" type="passive"/>
+        <pin num="14" name="Pin_14" type="passive"/>
+        <pin num="15" name="Pin_15" type="passive"/>
+        <pin num="16" name="Pin_16" type="passive"/>
+        <pin num="17" name="Pin_17" type="passive"/>
+        <pin num="18" name="Pin_18" type="passive"/>
+        <pin num="19" name="Pin_19" type="passive"/>
+        <pin num="20" name="Pin_20" type="passive"/>
+        <pin num="21" name="Pin_21" type="passive"/>
+        <pin num="22" name="Pin_22" type="passive"/>
+        <pin num="23" name="Pin_23" type="passive"/>
+        <pin num="24" name="Pin_24" type="passive"/>
+        <pin num="25" name="Pin_25" type="passive"/>
+        <pin num="26" name="Pin_26" type="passive"/>
+        <pin num="27" name="Pin_27" type="passive"/>
+        <pin num="28" name="Pin_28" type="passive"/>
+        <pin num="29" name="Pin_29" type="passive"/>
+        <pin num="30" name="Pin_30" type="passive"/>
+        <pin num="31" name="Pin_31" type="passive"/>
+        <pin num="32" name="Pin_32" type="passive"/>
+        <pin num="33" name="Pin_33" type="passive"/>
+        <pin num="34" name="Pin_34" type="passive"/>
+        <pin num="35" name="Pin_35" type="passive"/>
+        <pin num="36" name="Pin_36" type="passive"/>
+        <pin num="37" name="Pin_37" type="passive"/>
+        <pin num="38" name="Pin_38" type="passive"/>
+        <pin num="39" name="Pin_39" type="passive"/>
+        <pin num="40" name="Pin_40" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="EEUFS1K101" part="EEUFS1K101">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">EEUFS1K101</field>
+        <field name="Footprint">CAPPRD500W60D1000H1250</field>
+        <field name="PARTREV">28-FEB-20</field>
+        <field name="b_nom">0.6</field>
+        <field name="A_max">12.5</field>
+        <field name="D_nom">10</field>
+        <field name="b_max">0.65</field>
+        <field name="e_nom">5</field>
+        <field name="MF">PANASONIC</field>
+        <field name="DESCRIPTION">FS-A</field>
+      </fields>
+      <pins>
+        <pin num="N" name="~" type="passive"/>
+        <pin num="P" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="EJ503A" part="EJ503A">
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">EJ503A</field>
+        <field name="Footprint">MPD_EJ503A</field>
+        <field name="MAXIMUM_PACKAGE_HEIGHT">11 mm</field>
+        <field name="PARTREV">B</field>
+        <field name="STANDARD">Manufacturer Recommendations</field>
+        <field name="MANUFACTURER">MPD</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+        <pin num="3" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="LM2576D2TR4-5G" part="LM2576D2TR4-5G">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">LM2576D2TR4-5G</field>
+        <field name="Footprint">D2PAK-5</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VIN" type="input"/>
+        <pin num="2" name="OUT" type="output"/>
+        <pin num="3" name="GND" type="passive"/>
+        <pin num="4" name="FB" type="output"/>
+        <pin num="5" name="ON/OFF" type="input"/>
+        <pin num="6" name="GND" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Mechanical" part="MountingHole">
+      <description>Mounting Hole without connection</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>MountingHole*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">H</field>
+        <field name="Value">MountingHole</field>
+      </fields>
+    </libpart>
+    <libpart lib="RC1206FR-0742R2L" part="RC1206FR-0742R2L">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">RC1206FR-0742R2L</field>
+        <field name="Footprint">RESC3116X65N</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="RMCF1206JT220R" part="RMCF1206JT220R">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">RMCF1206JT220R</field>
+        <field name="Footprint">RESC3216X70N</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="RNCP1206FTD10K0" part="RNCP1206FTD10K0">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">RNCP1206FTD10K0</field>
+        <field name="Footprint">RESC3115X60N</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="S2751-46R" part="S2751-46R">
+      <fields>
+        <field name="Reference">TP</field>
+        <field name="Value">S2751-46R</field>
+        <field name="Footprint">HARWIN_S2751-46R</field>
+        <field name="MANUFACTURER">HARWIN</field>
+        <field name="STANDARD">Manufacturer Recommendations</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="WL-TMRC" part="WL-TMRC">
+      <footprints>
+        <fp>LED-3MM-ROUND</fp>
+        <fp>LED-3MM-ROUND</fp>
+        <fp>LED-3MM-ROUND</fp>
+        <fp>LED-3MM-ROUND</fp>
+        <fp>LED-5MM-ROUND</fp>
+        <fp>LED-5MM-ROUND</fp>
+        <fp>LED-5MM-ROUND</fp>
+        <fp>LED-5MM-ROUND</fp>
+        <fp>LED-3MM-ROUND</fp>
+        <fp>LED-3MM-ROUND</fp>
+        <fp>LED-5MM-ROUND</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">WL-TMRC</field>
+        <field name="COMPANY-URL">http://www.we-online.de</field>
+        <field name="CREATED-DATE">APR 2013</field>
+        <field name="DATASHEET-URL">http://katalog.we-online.de/en/led/WL-TMRC?m=t&amp;sq=tmrc&amp;sp=&amp;sp=http%3A%2F%2Fwww.we-online.de%2Fweb%2Fen%2Felectronic_components%2Fsearchpage_PBS.php%3Fsearch%3Dtmrc</field>
+        <field name="MANUFACTURER">Würth Elektronik eiSos GmbH</field>
+        <field name="CREATED-BY">Christin Otto</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="BiDi"/>
+        <pin num="2" name="~" type="BiDi"/>
+      </pins>
+    </libpart>
+    <libpart lib="WP7113GD" part="WP7113GD">
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">WP7113GD</field>
+        <field name="Footprint">LED_WP7113GD</field>
+        <field name="MANUFACTURER">Kingbright</field>
+      </fields>
+      <pins>
+        <pin num="A" name="A" type="passive"/>
+        <pin num="C" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="WP7113YD" part="WP7113YD">
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">WP7113YD</field>
+        <field name="Footprint">LED_WP7113YD</field>
+        <field name="MANUFACTURER">Kingbright</field>
+      </fields>
+      <pins>
+        <pin num="A" name="A" type="passive"/>
+        <pin num="C" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="tool_circuit-rescue" part="B380-13-F-2021-10-30_21-29-43">
+      <footprints>
+        <fp>SMC_DIO</fp>
+        <fp>SMC_DIO-M</fp>
+        <fp>SMC_DIO-L</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">CR</field>
+        <field name="Value">B380-13-F-2021-10-30_21-29-43</field>
+        <field name="Footprint">SMC_DIO</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="unspc"/>
+        <pin num="2" name="2" type="unspc"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="2021-09-28_17-07-40">
+      <uri>/Users/komaljaved/Documents/Capstone_main/Capstone/Hardware/tool_circuit/Project_library/ul_151034BS03000/KiCAD/2021-09-28_17-07-40/2021-09-28_17-07-40.lib</uri>
+    </library>
+    <library logical="2021-10-29_06-40-06">
+      <uri>/Users/komaljaved/Documents/Capstone_main/Capstone/Hardware/tool_circuit/Project_library/ul_RNCP1206FTD100R/KiCAD/2021-10-29_06-40-06/2021-10-29_06-40-06.lib</uri>
+    </library>
+    <library logical="2021-10-30_20-57-30">
+      <uri>/Users/komaljaved/Documents/Capstone_main/Capstone/Hardware/tool_circuit/Project_library/ul_URS1E102MHD1TO/KiCAD/2021-10-30_20-57-30/2021-10-30_20-57-30.lib</uri>
+    </library>
+    <library logical="2021-10-30_21-05-21">
+      <uri>/Users/komaljaved/Documents/Capstone_main/Capstone/Hardware/tool_circuit/Project_library/ul_IHLP4040DZER101M11/KiCAD/2021-10-30_21-05-21/2021-10-30_21-05-21.lib</uri>
+    </library>
+    <library logical="2021-11-02_22-07-21">
+      <uri>/Users/komaljaved/Documents/Capstone_main/Capstone/Hardware/tool_circuit/Project_library/ul_1825255-1/KiCAD/2021-11-02_22-07-21/2021-11-02_22-07-21.lib</uri>
+    </library>
+    <library logical="AC1206FR-07130RL">
+      <uri>/Users/komaljaved/Documents/Capstone_main/Capstone/Hardware/tool_circuit/Project_library/AC1206FR-07130RL/AC1206FR-07130RL.lib</uri>
+    </library>
+    <library logical="CRGCQ1206F820R">
+      <uri>/Users/komaljaved/Documents/Capstone_main/Capstone/Hardware/tool_circuit/Project_library/CRGCQ1206F820R/CRGCQ1206F820R.lib</uri>
+    </library>
+    <library logical="Connector">
+      <uri>/Library/Application Support/kicad/library/Connector.lib</uri>
+    </library>
+    <library logical="Connector_Generic">
+      <uri>/Library/Application Support/kicad/library/Connector_Generic.lib</uri>
+    </library>
+    <library logical="EEUFS1K101">
+      <uri>/Users/komaljaved/Documents/Capstone_main/Capstone/Hardware/tool_circuit/Project_library/EEUFS1K101/EEUFS1K101.lib</uri>
+    </library>
+    <library logical="EJ503A">
+      <uri>/Users/komaljaved/Documents/Capstone_main/Capstone/Hardware/tool_circuit/Project_library/EJ503A/EJ503A.lib</uri>
+    </library>
+    <library logical="LM2576D2TR4-5G">
+      <uri>/Users/komaljaved/Documents/Capstone_main/Capstone/Hardware/tool_circuit/Project_library/LM2576D2TR4-5G/LM2576D2TR4-5G.lib</uri>
+    </library>
+    <library logical="Mechanical">
+      <uri>/Library/Application Support/kicad/library/Mechanical.lib</uri>
+    </library>
+    <library logical="RC1206FR-0742R2L">
+      <uri>/Users/komaljaved/Documents/Capstone_main/Capstone/Hardware/tool_circuit/Project_library/RC1206FR-0742R2L/RC1206FR-0742R2L.lib</uri>
+    </library>
+    <library logical="RMCF1206JT220R">
+      <uri>/Users/komaljaved/Documents/Capstone_main/Capstone/Hardware/tool_circuit/Project_library/RMCF1206JT220R/RMCF1206JT220R.lib</uri>
+    </library>
+    <library logical="RNCP1206FTD10K0">
+      <uri>/Users/komaljaved/Documents/Capstone_main/Capstone/Hardware/tool_circuit/Project_library/RNCP1206FTD10K0/RNCP1206FTD10K0.lib</uri>
+    </library>
+    <library logical="S2751-46R">
+      <uri>/Users/komaljaved/Documents/Capstone_main/Capstone/Hardware/tool_circuit/Project_library/S2751-46R/S2751-46R.lib</uri>
+    </library>
+    <library logical="WL-TMRC">
+      <uri>/Users/komaljaved/Documents/Capstone_main/Capstone/Hardware/tool_circuit/Project_library/WL-TMRC/WL-TMRC.lib</uri>
+    </library>
+    <library logical="WP7113GD">
+      <uri>/Users/komaljaved/Documents/Capstone_main/Capstone/Hardware/tool_circuit/Project_library/WP7113GD/WP7113GD.lib</uri>
+    </library>
+    <library logical="WP7113YD">
+      <uri>/Users/komaljaved/Documents/Capstone_main/Capstone/Hardware/tool_circuit/Project_library/WP7113YD/WP7113YD.lib</uri>
+    </library>
+    <library logical="tool_circuit-rescue">
+      <uri>/Users/komaljaved/Documents/Capstone_main/Capstone/Hardware/tool_circuit/tool_circuit-rescue.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="7" name="+3V3">
+      <node ref="J2" pin="1"/>
+      <node ref="TP5" pin="1"/>
+      <node ref="J4" pin="17"/>
+      <node ref="J4" pin="1"/>
+      <node ref="TP4" pin="1"/>
+      <node ref="D1" pin="A"/>
+      <node ref="J3" pin="2"/>
+    </net>
+    <net code="8" name="/Temp_Sense/GPIO27">
+      <node ref="J2" pin="2"/>
+    </net>
+    <net code="9" name="GND">
+      <node ref="R9" pin="2"/>
+      <node ref="J4" pin="9"/>
+      <node ref="J3" pin="1"/>
+      <node ref="J2" pin="3"/>
+      <node ref="J1" pin="3"/>
+      <node ref="R2" pin="2"/>
+      <node ref="U1" pin="3"/>
+      <node ref="D5" pin="C"/>
+      <node ref="U1" pin="6"/>
+      <node ref="U1" pin="5"/>
+      <node ref="C2" pin="2"/>
+      <node ref="R5" pin="2"/>
+      <node ref="R6" pin="2"/>
+      <node ref="J4" pin="6"/>
+      <node ref="R7" pin="2"/>
+      <node ref="R3" pin="2"/>
+      <node ref="J1" pin="2"/>
+      <node ref="R4" pin="2"/>
+      <node ref="J4" pin="14"/>
+      <node ref="J4" pin="20"/>
+      <node ref="J4" pin="25"/>
+      <node ref="CR1" pin="2"/>
+      <node ref="J4" pin="30"/>
+      <node ref="C1" pin="N"/>
+      <node ref="J4" pin="34"/>
+      <node ref="J4" pin="39"/>
+    </net>
+    <net code="10" name="/Time_of_Use/GPIO22">
+      <node ref="SW1" pin="2"/>
+    </net>
+    <net code="11" name="+5V">
+      <node ref="J4" pin="4"/>
+      <node ref="TP2" pin="1"/>
+      <node ref="L1" pin="1"/>
+      <node ref="C2" pin="1"/>
+      <node ref="J4" pin="2"/>
+      <node ref="U1" pin="4"/>
+      <node ref="R8" pin="1"/>
+      <node ref="SW1" pin="1"/>
+    </net>
+    <net code="12" name="Net-(R3-Pad1)">
+      <node ref="SW1" pin="3"/>
+      <node ref="R3" pin="1"/>
+    </net>
+    <net code="13" name="Net-(J3-Pad8)">
+      <node ref="J3" pin="8"/>
+    </net>
+    <net code="15" name="Net-(J3-Pad6)">
+      <node ref="J3" pin="6"/>
+    </net>
+    <net code="16" name="Net-(J3-Pad5)">
+      <node ref="J3" pin="5"/>
+    </net>
+    <net code="17" name="Net-(J3-Pad4)">
+      <node ref="J3" pin="4"/>
+    </net>
+    <net code="18" name="Net-(J3-Pad3)">
+      <node ref="J3" pin="3"/>
+    </net>
+    <net code="20" name="GPIO2_SDA1">
+      <node ref="J3" pin="7"/>
+      <node ref="J4" pin="3"/>
+    </net>
+    <net code="21" name="Net-(D5-PadA)">
+      <node ref="D5" pin="A"/>
+      <node ref="R8" pin="2"/>
+    </net>
+    <net code="22" name="Net-(D3-PadC)">
+      <node ref="D3" pin="C"/>
+      <node ref="R7" pin="1"/>
+    </net>
+    <net code="23" name="Net-(D1-PadC)">
+      <node ref="D1" pin="C"/>
+      <node ref="R5" pin="1"/>
+    </net>
+    <net code="24" name="Net-(D2-Pad1)">
+      <node ref="R6" pin="1"/>
+      <node ref="D2" pin="1"/>
+    </net>
+    <net code="25" name="Net-(LED1-Pad1)">
+      <node ref="LED1" pin="1"/>
+      <node ref="R4" pin="1"/>
+    </net>
+    <net code="26" name="/raspberrypi_header.sch/GPIO4_GPIO_GCLK">
+      <node ref="J4" pin="7"/>
+    </net>
+    <net code="27" name="/raspberrypi_header.sch/GPIO10_SPI_MOSI">
+      <node ref="J4" pin="19"/>
+    </net>
+    <net code="28" name="/raspberrypi_header.sch/GPIO9_SPI_MISO">
+      <node ref="J4" pin="21"/>
+    </net>
+    <net code="29" name="/raspberrypi_header.sch/GPIO11_SPI_SCLK">
+      <node ref="J4" pin="23"/>
+    </net>
+    <net code="30" name="/raspberrypi_header.sch/ID_SD">
+      <node ref="J4" pin="27"/>
+    </net>
+    <net code="31" name="/raspberrypi_header.sch/GPIO5">
+      <node ref="J4" pin="29"/>
+    </net>
+    <net code="32" name="/raspberrypi_header.sch/GPIO6">
+      <node ref="J4" pin="31"/>
+    </net>
+    <net code="33" name="/raspberrypi_header.sch/GPIO13">
+      <node ref="J4" pin="33"/>
+    </net>
+    <net code="34" name="/raspberrypi_header.sch/GPIO19">
+      <node ref="J4" pin="35"/>
+    </net>
+    <net code="35" name="/raspberrypi_header.sch/GPIO26">
+      <node ref="J4" pin="37"/>
+    </net>
+    <net code="36" name="Net-(D4-PadC)">
+      <node ref="R9" pin="1"/>
+      <node ref="D4" pin="C"/>
+    </net>
+    <net code="37" name="/raspberrypi_header.sch/GPIO14_TXD0">
+      <node ref="J4" pin="8"/>
+    </net>
+    <net code="38" name="/raspberrypi_header.sch/GPIO15_RXD0">
+      <node ref="J4" pin="10"/>
+    </net>
+    <net code="39" name="/raspberrypi_header.sch/GPIO18_GEN1">
+      <node ref="J4" pin="12"/>
+    </net>
+    <net code="40" name="/raspberrypi_header.sch/GPIO8_SPI_CE0_N">
+      <node ref="J4" pin="24"/>
+    </net>
+    <net code="41" name="/raspberrypi_header.sch/GPIO7_SPI_CE1_N">
+      <node ref="J4" pin="26"/>
+    </net>
+    <net code="42" name="/raspberrypi_header.sch/ID_SC">
+      <node ref="J4" pin="28"/>
+    </net>
+    <net code="43" name="/raspberrypi_header.sch/GPIO12">
+      <node ref="J4" pin="32"/>
+    </net>
+    <net code="44" name="/raspberrypi_header.sch/GPIO16">
+      <node ref="J4" pin="36"/>
+    </net>
+    <net code="45" name="/raspberrypi_header.sch/GPIO20">
+      <node ref="J4" pin="38"/>
+    </net>
+    <net code="46" name="/raspberrypi_header.sch/GPIO21">
+      <node ref="J4" pin="40"/>
+    </net>
+    <net code="47" name="/raspberrypi_header.sch/Data_Transfer">
+      <node ref="TP8" pin="1"/>
+      <node ref="D4" pin="A"/>
+      <node ref="J4" pin="16"/>
+    </net>
+    <net code="48" name="/raspberrypi_header.sch/Enable_LED">
+      <node ref="D3" pin="A"/>
+      <node ref="J4" pin="18"/>
+      <node ref="TP7" pin="1"/>
+    </net>
+    <net code="49" name="/raspberrypi_header.sch/GPIO3_SCL1">
+      <node ref="J4" pin="5"/>
+    </net>
+    <net code="50" name="/raspberrypi_header.sch/GPIO17_GEN0">
+      <node ref="J4" pin="11"/>
+    </net>
+    <net code="51" name="/raspberrypi_header.sch/GPIO27">
+      <node ref="J4" pin="13"/>
+    </net>
+    <net code="52" name="/raspberrypi_header.sch/Disable_LED">
+      <node ref="TP6" pin="1"/>
+      <node ref="J4" pin="22"/>
+      <node ref="D2" pin="2"/>
+    </net>
+    <net code="53" name="/raspberrypi_header.sch/GPIO22_GEN3">
+      <node ref="LED1" pin="2"/>
+      <node ref="TP3" pin="1"/>
+      <node ref="J4" pin="15"/>
+    </net>
+    <net code="54" name="Net-(D6-PadC)">
+      <node ref="D6" pin="C"/>
+      <node ref="R2" pin="1"/>
+    </net>
+    <net code="55" name="+12V">
+      <node ref="D6" pin="A"/>
+      <node ref="C1" pin="P"/>
+      <node ref="U1" pin="1"/>
+      <node ref="TP1" pin="1"/>
+      <node ref="J1" pin="1"/>
+    </net>
+    <net code="56" name="Net-(CR1-Pad1)">
+      <node ref="CR1" pin="1"/>
+      <node ref="L1" pin="2"/>
+      <node ref="U1" pin="2"/>
+    </net>
+  </nets>
+</export>
