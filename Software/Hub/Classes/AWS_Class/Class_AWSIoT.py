@@ -15,6 +15,8 @@ from csv import DictReader
 import Functions.AWS_Functions as functions
 import Functions.Audio_Functions as audio
 
+from botocore.exceptions import ClientError
+
 #import Functions.AWS_Functions as functions
 
 import boto3
@@ -80,6 +82,7 @@ class AWSIoT(object):
     mqtt_connection = ""
     iotclient = boto3.client('iot', region_name='us-east-2')
     sqsclient = boto3.client('sqs', region_name='ca-central-1')
+    snsclient = boto3.client('sns', region_name='us-east-2')
 
     def __init__(self):
         print("Initializing AWS MQTT ")
@@ -203,9 +206,26 @@ class AWSIoT(object):
         return (self.COUNT)
 
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-    Description: Read messages from SQS
+    Description: Send message to SNS topic
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
+    @staticmethod
+    def publish_message_sns(topic_arn = 'arn:aws:sns:us-east-2:423730035441:ToolAlert', message = "Tool Alert! Possible stolen tool!"):
+        """
+        Publishes a message to a topic. Subscriptions can be filtered
+        based on message attributes so that a subscription receives messages only
+        when specified attributes are present.
+
+        :param topic: The topic to publish to.
+        :param message: The message to publish.
+        """
+        snsclient = boto3.client('sns', region_name='us-east-2')
+        # Publish to topic
+        snsclient.publish(TopicArn=topic_arn,
+                    Message=message,
+                    Subject="Force Field Alert",
+                    MessageStructure='string')
+        print("Alert Sent!")
 
 
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''

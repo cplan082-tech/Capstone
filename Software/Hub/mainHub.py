@@ -4,6 +4,7 @@
 
 from Classes.AWS_Class.Class_AWSIoT import AWSIoT
 import time
+from datetime import datetime
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 Description: Main function
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -57,9 +58,18 @@ if __name__ == "__main__":
             else:
                 print("The message is: " + message)
 
-            
-            # aws.describe_thing()
-            # aws.disable_topic_rule("RaspberryPi4Analytics_Rule")
+
+            # This is where we would send an alert if a tool is stolen
+            # The alert will be of the form of sms or email depending on who is subscribed in the AWS SNS topic (ToolAlert)
+            # Below is the variable that will trigger the alert
+            Alert = False
+
+            topic = 'arn:aws:sns:us-east-2:423730035441:ToolAlert'
+            message = "\nAlert!\n\nPossible stolen tool.\nPlease double check inventory.\n\n" + datetime.now().strftime("%b %d %Y - %H:%M:%S")
+            if Alert == True:
+                aws.publish_message_sns(topic, message)
+
+
 
             aws.mqttDisconnect()
 
