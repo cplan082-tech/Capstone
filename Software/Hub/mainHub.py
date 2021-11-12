@@ -98,7 +98,8 @@ if __name__ == "__main__":
 
 
             aws.mqttDisconnect()
-
+            ##########################################################################################################
+            # Remove this timer delay for real device... This is just done for testing
             time.sleep(10)
             #print("Closing Application")
             #exit(0)S
