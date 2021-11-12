@@ -3,6 +3,7 @@
 #import Classes.AWS_Class.Class_AWSIoT
 
 from Classes.AWS_Class.Class_AWSIoT import AWSIoT
+from Functions.Misc_Functions import is_tool_missing
 import time
 from datetime import datetime
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -33,11 +34,39 @@ if __name__ == "__main__":
             # We can do our actions
 
             # If there is sensor data, publish to AWS
-            # =============================== ALERT =================================
-            newSensorData = True    # This will be removed later... Just for testing now
+            # =======================================================================
+            newSensorData = True
             # =======================================================================
             if newSensorData == True:
+                # If there is new sensor data (the Hub_Memory.csv file got updated)
+                # First check if a tool has been stolen
+
+                ######### Checking if tool has suspisious behaviour #################
+                topic = 'arn:aws:sns:us-east-2:423730035441:ToolAlert'
+                Alert, lastDate, lastTime, toolId, dateChecked, timeChecked = is_tool_missing(3)
+
+                # =======================================================================
+                Alert = True # For testing so I dont get constant messages remove later
+                # =======================================================================
+
+                # Data was corrupted (date or time recorded in csv is later than the time checked)
+                if Alert == 'Data Corrupted':
+                    message = "\n\nData is corrupted.\nLast known tool time/date is later than today's time.\nTool # " + toolId + "\n\nLast recorded time:\n" + lastDate + " at " + lastTime + '\n\nTime checked:\n' + dateChecked + " at " + timeChecked
+                    aws.publish_message_sns(topic, message)
+                # The last known time of the tool is later than the threshold of three hours
+                elif Alert == True:
+                    message = "\n\nPossible stolen tool!\nPlease check inventory.\nTool # " + toolId + "\n\nLast recorded time:\n" + lastDate + " at " + lastTime + '\n\nTime checked:\n' + dateChecked + " at " + timeChecked
+                    aws.publish_message_sns(topic, message)
+                # No suspicious behaviour noted
+                else:
+                    print("Tool is not lost were good!")
+
+                ################# Publish data to the hub #############################
                 aws.publishHubData()
+
+                ################# Remove csv file here... #############################
+                newSensorData == False
+
 
             # Set specific count to an integer other than 0 if you want the program to wait until
             # the specified number of messages arrive.
@@ -62,12 +91,9 @@ if __name__ == "__main__":
             # This is where we would send an alert if a tool is stolen
             # The alert will be of the form of sms or email depending on who is subscribed in the AWS SNS topic (ToolAlert)
             # Below is the variable that will trigger the alert
-            Alert = False
 
-            topic = 'arn:aws:sns:us-east-2:423730035441:ToolAlert'
-            message = "\nAlert!\n\nPossible stolen tool.\nPlease double check inventory.\n\n" + datetime.now().strftime("%b %d %Y - %H:%M:%S")
-            if Alert == True:
-                aws.publish_message_sns(topic, message)
+
+
 
 
 

@@ -15,7 +15,7 @@ from csv import DictReader
 import Functions.AWS_Functions as functions
 import Functions.Audio_Functions as audio
 
-from botocore.exceptions import ClientError
+
 
 #import Functions.AWS_Functions as functions
 
