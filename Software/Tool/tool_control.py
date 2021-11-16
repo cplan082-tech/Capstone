@@ -110,10 +110,21 @@ try:
             csvm.csv_concat(path_memory, csv_file)
             os.remove(path_memory + 'temp.csv')
         
-#         print("freefall", package['freefall'], "\n",
-#               "colision", package['colision'], "\n",
-#               "Motion", package['Motion'], "\n")  # For testing
-        print(time_of_use, csv_file)
+        # For testing
+        print('temp :', package['temp'], "\n",
+              'humidity :', package['humid'], "\n",
+              'accel x :', package['accel x'], "\n",
+              'accel y :', package['accel y'], "\n",
+              'accel z :', package['accel z'], "\n",
+              "freefall :", package['freefall'], "\n",
+              "colision :", package['colision'], "\n",
+              "Motion :", package['Motion'], "\n",
+              "Time of use :", package['Time_of_use'], "\n",
+              "date :", package['date'], "\n",
+              "Time :", package['Time'], "\n",
+              "==========================================")  # For testing
+        
+#         print(time_of_use, csv_file)
         
         
         
