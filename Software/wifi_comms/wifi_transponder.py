@@ -67,7 +67,7 @@ def flag():
     file = pathlib.Path(FlagPath +"/flag.csv") #Checks if the flag file exists
     if file.exists ():
         print("Flag file found")
-        output = pexpect.run("scp " + FlagPath +"/flag.csv pi@"+ IP_src +":"+ src_path, events={'(?i)password':""+ Password +"\n"})
+        output = pexpect.run("scp " + FlagPath +"/flag.csv Tool@"+ IP_src +":"+ src_path, events={'(?i)password':""+ Password +"\n"})
         print("\nThe output of ssh command: \n%s" %output.decode("utf-8"))
         time.sleep(1)
         os.remove(FlagPath + "/flag.csv")
