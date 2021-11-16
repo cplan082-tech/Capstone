@@ -70,8 +70,9 @@ try:
         time.sleep(data_collect_time_delay)
         
         # "Time of use" collection
-        time_of_use = tou.accumulator
-        tou.accumulator = timedelta()  # Resets accumulator
+        if tou.accumulator != timedelta(): # endures that accumulator is not empty before transfering data and reseting acc
+            time_of_use = tou.accumulator
+            tou.accumulator = timedelta()  # Resets accumulator
         
         # Accelerometer data collection
         accel = accelerometer_obj.acceleration
