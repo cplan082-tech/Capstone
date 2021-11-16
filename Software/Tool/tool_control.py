@@ -102,6 +102,10 @@ try:
         
         csvm.dict_to_csv(package, csv_file)
         
+        # Resets time_of_use once recorded
+        if time_of_use !=  timedelta():
+            time_of_use =  timedelta()
+        
         # checksa if "Tool_Memory.csv" already exists. If so, it concats
         # new data with banked data. else it moves new csv to memory locvation
         if not os.path.isfile(path_memory + csv_file):
