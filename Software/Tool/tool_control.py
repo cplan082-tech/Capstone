@@ -56,6 +56,7 @@ def enable_timerOut_handler(signum, frame):
 
 signal.signal(signal.SIGALRM, enable_timerOut_handler)
 signal.alarm(timer_time)
+time_of_use = timedelta()
 
 try:
     while True:
