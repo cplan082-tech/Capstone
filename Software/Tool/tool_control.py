@@ -56,6 +56,7 @@ def enable_timerOut_handler(signum, frame):
 
 signal.signal(signal.SIGALRM, enable_timerOut_handler)
 signal.alarm(timer_time)
+time_of_use = timedelta()
 
 try:
     while True:
@@ -70,8 +71,9 @@ try:
         time.sleep(data_collect_time_delay)
         
         # "Time of use" collection
-        time_of_use = tou.accumulator
-        tou.accumulator = timedelta()  # Resets accumulator
+        if tou.accumulator != timedelta(): # endures that accumulator is not empty before transfering data and reseting acc
+            time_of_use = tou.accumulator
+            tou.accumulator = timedelta()  # Resets accumulator
         
         # Accelerometer data collection
         accel = accelerometer_obj.acceleration
@@ -100,6 +102,10 @@ try:
         
         csvm.dict_to_csv(package, csv_file)
         
+        # Resets time_of_use once recorded
+        if time_of_use !=  timedelta():
+            time_of_use =  timedelta()
+        
         # checksa if "Tool_Memory.csv" already exists. If so, it concats
         # new data with banked data. else it moves new csv to memory locvation
         if not os.path.isfile(path_memory + csv_file):
@@ -110,10 +116,21 @@ try:
             csvm.csv_concat(path_memory, csv_file)
             os.remove(path_memory + 'temp.csv')
         
-#         print("freefall", package['freefall'], "\n",
-#               "colision", package['colision'], "\n",
-#               "Motion", package['Motion'], "\n")  # For testing
-        print(time_of_use, csv_file)
+        # For testing
+        print('temp :', package['temp'], "\n",
+              'humidity :', package['humid'], "\n",
+              'accel x :', package['accel x'], "\n",
+              'accel y :', package['accel y'], "\n",
+              'accel z :', package['accel z'], "\n",
+              "freefall :", package['freefall'], "\n",
+              "colision :", package['colision'], "\n",
+              "Motion :", package['Motion'], "\n",
+              "Time of use :", package['Time_of_use'], "\n",
+              "date :", package['date'], "\n",
+              "Time :", package['Time'], "\n",
+              "==========================================")  # For testing
+        
+#         print(time_of_use, csv_file)
         
         
         
