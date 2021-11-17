@@ -40,7 +40,7 @@ while True:
         interupt_flag = False
         os.remove(path_enable_flag)
     
-    if os.path.exist(filename_enable_timer_input):
+    if os.path.exists(filename_enable_timer_input):
         enable_timer_val = csvm.enable_timer_extract(path_memory + filename_enable_timer_input)
         signal.alarm(enable_timer_val)
         os.remove(path_memory + filename_enable_timer_input)
