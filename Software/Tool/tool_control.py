@@ -17,6 +17,7 @@ import csv_manipulation as csvm
 import shutil # need this too move "Tool_Memory.csv" to proper location
 csv_file = "Tool_Memory.csv"
 path_memory = "/home/Tool/Documents/tooldump/"
+path_flag_csv = "/home/Tool/Documents/tooldump/flag.csv"
 
 
 # Accelerometer Init
@@ -40,18 +41,15 @@ sensor = Adafruit_DHT.DHT11
 # GPIOs
 temp_data_pin = 14  # GPIO14 (pin 8) on pi
 
-enable = True
+enable = False # Allows script to know if tool needs to be re-enabled once timer is refilled
 interup_flag = False
-timer_time = 10
-data_collect_time_delay = 2 # seconds
+timer_time = 10 # Time the tool can opperate independantly of transponder
+data_collect_time_delay = 1 # seconds
 
 
 def enable_timerOut_handler(signum, frame):
-    global enable, interup_flag
-    enable = not(enable)
-    interup_flag = True
-    # tou.tool_enable(enable)
-    
+    global interup_flag
+    interup_flag = True    
     
 
 signal.signal(signal.SIGALRM, enable_timerOut_handler)
@@ -61,12 +59,22 @@ time_of_use = timedelta()
 try:
     while True:
         # For testing (if statment)
+        if os.path.exists(path_flag_csv):
+            signal.alarm(timer_time)
+            os.remove(path_flag_csv)
+            if enable == False:
+                tou.tool_enable(True) # enable tool
+                enable = True   
+                
+            # If timer is reset, then value of interupt flag should be reset to True
+            if interup_flag == True: 
+                interup_flag = False
+                
         if interup_flag == True:
             interup_flag = False
-            # Move this here for testing. Does the tool disable/enable fast 
-            # enough when it is here?
-            tou.tool_enable(enable) # this line only is for testing
-            signal.alarm(timer_time)
+            tou.tool_enable(False) # disable tool
+            enable = False
+            
             
         time.sleep(data_collect_time_delay)
         

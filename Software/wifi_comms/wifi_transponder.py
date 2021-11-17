@@ -70,7 +70,7 @@ def flag():
         output = pexpect.run("scp " + FlagPath +"/flag.csv Tool@"+ IP_src +":"+ src_path, events={'(?i)password':""+ Password +"\n"})
         print("\nThe output of ssh command: \n%s" %output.decode("utf-8"))
         time.sleep(1)
-        os.remove(FlagPath + "/flag.csv")
+        # os.remove(FlagPath + "/flag.csv")
         print("Flag file deleted\n")
     else:
         print("No flag file found\n")
