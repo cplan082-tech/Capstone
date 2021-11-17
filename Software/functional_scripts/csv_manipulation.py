@@ -60,3 +60,14 @@ def wifi_param_extract(filename_in):
             mydict = {rows[0]:rows[1] for rows in reader}
     os.remove('temp_params.csv')
     return mydict
+
+
+def enable_timer_extract(filename_in):
+    with open(filename_in, mode='r') as infile:
+        reader = csv.reader(infile)
+        with open('temp.csv', mode='w') as outfile:
+            writer = csv.writer(outfile)
+            timer_val = [rows[0] for rows in reader]
+        os.remove('temp.csv')
+        return int(timer_val[0])
+        

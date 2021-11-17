@@ -42,14 +42,14 @@ sensor = Adafruit_DHT.DHT11
 temp_data_pin = 14  # GPIO14 (pin 8) on pi
 
 enable = False # Allows script to know if tool needs to be re-enabled once timer is refilled
-interup_flag = False
+interupt_flag = False
 timer_time = 10 # Time the tool can opperate independantly of transponder
 data_collect_time_delay = 1 # seconds
 
 
 def enable_timerOut_handler(signum, frame):
-    global interup_flag
-    interup_flag = True    
+    global interupt_flag
+    interupt_flag = True    
     
 
 signal.signal(signal.SIGALRM, enable_timerOut_handler)
@@ -67,11 +67,11 @@ try:
                 enable = True   
                 
             # If timer is reset, then value of interupt flag should be reset to True
-            if interup_flag == True: 
-                interup_flag = False
+            if interupt_flag == True: 
+                interupt_flag = False
                 
-        if interup_flag == True:
-            interup_flag = False
+        if interupt_flag == True:
+            interupt_flag = False
             tou.tool_enable(False) # disable tool
             enable = False
             
