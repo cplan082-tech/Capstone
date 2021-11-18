@@ -3,8 +3,9 @@
 #import Classes.AWS_Class.Class_AWSIoT
 
 from Classes.AWS_Class.Class_AWSIoT import AWSIoT
-from Functions.Misc_Functions import is_tool_missing
+from Functions.Misc_Functions import is_tool_missing, findTimeSum
 import time
+import os
 from datetime import datetime
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 Description: Main function
@@ -14,7 +15,7 @@ if __name__ == "__main__":
 
     # Variables
     newSensorData = False
-
+    csvFilePath = r'Memory/Hub_Memory.csv'
     # Initialize Classes
     aws = AWSIoT() # AWS Class
 
@@ -33,11 +34,20 @@ if __name__ == "__main__":
             # We are now connected to AWS
             # We can do our actions
 
+            if os.path.exists(csvFilePath):
+                newSensorData = True
+            else:
+                newSensorData = False
+
             # If there is sensor data, publish to AWS
             # =======================================================================
-            newSensorData = True
+            #newSensorData = False
             # =======================================================================
             if newSensorData == True:
+
+                # Find the time sum in minutes
+                findTimeSum(csvFilePath)
+
                 # If there is new sensor data (the Hub_Memory.csv file got updated)
                 # First check if a tool has been stolen
 
@@ -46,7 +56,7 @@ if __name__ == "__main__":
                 Alert, lastDate, lastTime, toolId, dateChecked, timeChecked = is_tool_missing(3)
 
                 # =======================================================================
-                Alert = True # For testing so I dont get constant messages remove later
+                #Alert = True # For testing so I dont get constant messages remove later
                 # =======================================================================
 
                 # Data was corrupted (date or time recorded in csv is later than the time checked)
@@ -65,7 +75,9 @@ if __name__ == "__main__":
                 aws.publishHubData()
 
                 ################# Remove csv file here... #############################
-                newSensorData == False
+                newSensorData = False
+                if os.path.exists(csvFilePath):
+                    os.remove(csvFilePath)
 
 
             # Set specific count to an integer other than 0 if you want the program to wait until
@@ -100,7 +112,7 @@ if __name__ == "__main__":
             aws.mqttDisconnect()
             ##########################################################################################################
             # Remove this timer delay for real device... This is just done for testing
-            time.sleep(10)
+            time.sleep(2)
             #print("Closing Application")
             #exit(0)S
 

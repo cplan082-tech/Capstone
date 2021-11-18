@@ -7,10 +7,10 @@
         "x": "9.6889982",
         "y": "-0.0784196",
         "z": "1.2944834",
-        "freefall": "FALSE",
-        "collision": "FALSE",
-        "Motion": "FALSE",
-        "Time_of_use": "00:02.21",
+        "freefall": "False",
+        "collision": "False",
+        "Motion": "False",
+        "Time_of_use": "1.12",
         "date": "2021-10-31",
         "time": "19:48"
     }

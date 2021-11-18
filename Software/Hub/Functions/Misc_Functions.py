@@ -1,5 +1,7 @@
 import csv
 from datetime import datetime
+import pandas as pd
+import datetime as datetime2 # I was getting errors without this?
 
 csvFilePath = r'Memory/Hub_Memory.csv'
 headers = ['Transponder_ID','Tool_ID','temp','humid','x','y','z','freefall','collision','Motion','Time_of_use','date','time']
@@ -10,7 +12,7 @@ def is_tool_missing(timeThreshold = 3):
     lastRow = data[-1]
 
     lastTime = lastRow[-5:]
-    lastDate = lastRow[-16:-6]
+    lastDate = lastRow[-17:-7]
     toolId = lastRow[0:6]
 
     DateNow = datetime.today().strftime('%Y-%m-%d')
@@ -47,4 +49,21 @@ def is_tool_missing(timeThreshold = 3):
             print("We received tool information before the 3 hour threshold (" + str((diff.seconds)/60) + " minutes)")
             return False, lastDate, lastTime, toolId, DateNow, TimeNow
 
+
+def make_delta(entry):
+    m, s = entry.split(':')
+    return datetime2.timedelta(minutes=int(m), seconds=float(s))
+
+def findTimeSum(path):
+    df2 = pd.read_csv(path)
+    df = pd.DataFrame(df2)  # initalizes the data
+    time_of_use = df["Time_of_use"].apply(lambda entry: make_delta(entry))  # takes each number in the column "Time_of_use" and converts it to a base 10 number, which is then added to a list
+    result = sum(time_of_use, datetime2.timedelta())  # take everything in the list and add it
+    print(result)
+    result2 = round((result.seconds)/60, 2) # convert seconds to minutes
+    print(result2)
+
+    df["Time_of_use"] = result2
+    df.to_csv(path, index=False)
+    print("Done converting times and finding sum!")
 
