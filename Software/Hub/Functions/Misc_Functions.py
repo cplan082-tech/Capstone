@@ -7,20 +7,28 @@ csvFilePath = r'Memory/Hub_Memory.csv'
 headers = ['Transponder_ID','Tool_ID','temp','humid','x','y','z','freefall','collision','Motion','Time_of_use','date','time']
 
 def is_tool_missing(timeThreshold = 3):
-    with open(csvFilePath, 'r') as file:
-        data = file.readlines()
-    lastRow = data[-1]
 
-    lastTime = lastRow[-5:]
-    lastDate = lastRow[-17:-7]
-    toolId = lastRow[0:6]
+    csv = pd.read_csv(csvFilePath)
+    df = pd.DataFrame(csv)
+
+    lastTime = df["time"][df.index[-1]]
+    lastDate = df["date"][df.index[-1]]
+    toolId = str(df["Tool_ID"][df.index[-1]])
+
+    #with open(csvFilePath, 'r') as file:
+    #    data = file.readlines()
+    #lastRow = data[-1]
+
+    #lastTime = lastRow[-5:]
+    #lastDate = lastRow[-17:-7]
+    #toolId = lastRow[0:6]
 
     DateNow = datetime.today().strftime('%Y-%m-%d')
     TimeNow = datetime.today().strftime('%H:%M')
 
     # These are used for testing!!!
-    #lastDate = '2021-11-12'
-    #TimeNow = "23:00"
+    #lastDate = '2021-11-19'
+    #TimeNow = "13:00"
 
     print("\nThe last known date is: " + lastDate)
     print("The last known time is: " + lastTime)
