@@ -75,3 +75,9 @@ def findTimeSum(path):
     df.to_csv(path, index=False)
     print("Done converting times and finding sum!")
 
+def check_float(potential_float):
+    try:
+        float(potential_float)
+        return True
+    except ValueError:
+        return False

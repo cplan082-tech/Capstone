@@ -3,7 +3,7 @@
 #import Classes.AWS_Class.Class_AWSIoT
 
 from Classes.AWS_Class.Class_AWSIoT import AWSIoT
-from Functions.Misc_Functions import is_tool_missing, findTimeSum
+from Functions.Misc_Functions import is_tool_missing, findTimeSum, check_float
 import time
 import os
 import csv
@@ -96,10 +96,11 @@ if __name__ == "__main__":
             csvFilePathUpdateTimer = r'Memory/Update_Timer.csv'
             queue_url = 'https://sqs.ca-central-1.amazonaws.com/423730035441/two-way-sms'
             message = aws.get_sqs_messages(queue_url)
-            if message.isnumeric():
+            if check_float(message) == True:
                 print("The number is: " + message)
                 with open(csvFilePathUpdateTimer, 'w') as csvfile:
-                    csvfile = csvfile.write(message)
+                    timerSeconds = str(int(float(message)*3600))
+                    csvfile = csvfile.write(timerSeconds)
                     #filewriter = csv.writer(csvfile, delimiter=',',
                     #                        quotechar='|', quoting=csv.QUOTE_MINIMAL)
                     #filewriter.write(list(message))
