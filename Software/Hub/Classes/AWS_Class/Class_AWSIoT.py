@@ -14,7 +14,7 @@ from csv import DictReader
 
 import Functions.AWS_Functions as functions
 import Functions.Audio_Functions as audio
-
+import time
 
 
 #import Functions.AWS_Functions as functions
@@ -83,7 +83,7 @@ class AWSIoT(object):
     iotclient = boto3.client('iot', region_name='us-east-2')
     sqsclient = boto3.client('sqs', region_name='ca-central-1')
     snsclient = boto3.client('sns', region_name='us-east-2')
-
+    check = 0
     def __init__(self):
         print("Initializing AWS MQTT ")
         self.setVariables()
@@ -127,8 +127,8 @@ class AWSIoT(object):
         print("Connecting to {} with client ID '{}'...".format(
                 self.ENDPOINT, self.CLIENT_ID))
         connect_future = self.mqtt_connection.connect()
-        connect_future.result()
-        connection = bool(connect_future.result())
+        #connect_future.result()
+        #connection = bool(connect_future.result())
         #if connection == True:
         #    audio.cliSound(awsConnectSoundPath)
         #    print("Connected!")
@@ -147,7 +147,7 @@ class AWSIoT(object):
     def mqttDisconnect(self):
         print('Closing connection')
         disconnect_future = self.mqtt_connection.disconnect()
-        disconnect_future.result()
+        #disconnect_future.result()
 
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Description: Publish CSV file in chunks in JSON format
@@ -281,6 +281,9 @@ class AWSIoT(object):
 
     def get_sqs_messages(self, queue_url):
 
+        maxWait = 4
+
+        print(self.check)
         # Check if there are any messages in the queue
         queueAttributes = self.sqsclient.get_queue_attributes(
             QueueUrl=queue_url,
@@ -289,7 +292,18 @@ class AWSIoT(object):
 
         msgNumQueue = int(queueAttributes['Attributes']['ApproximateNumberOfMessages'])
 
-        if msgNumQueue > 0:
+        if msgNumQueue > 0 and self.check >= 0 and self.check < maxWait:
+            self.check = self.check + 1
+            message = "NO MESSAGES WAITING"
+            print(self.check)
+            return message
+        elif msgNumQueue == 0 and self.check == maxWait:
+            self.check = 0
+            message = "NO MESSAGES WAITING"
+            print(self.check)
+            return message
+        if msgNumQueue > 0 and self.check == maxWait:
+            self.check = 0
             print(str(msgNumQueue) + " messages waiting")
             print("Fetching first message")
             response = self.sqsclient.receive_message(
@@ -309,7 +323,6 @@ class AWSIoT(object):
                 QueueUrl=queue_url,
                 ReceiptHandle=receipt_handle
             )
-
             return message
         else:
             print(str(msgNumQueue) + " messages waiting")

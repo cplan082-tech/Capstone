@@ -95,7 +95,9 @@ if __name__ == "__main__":
 
             queue_url = 'https://sqs.ca-central-1.amazonaws.com/423730035441/two-way-sms'
             message = aws.get_sqs_messages(queue_url)
-            if message == "NO MESSAGES WAITING":
+            if message.isnumeric():
+                print("The number is: " + message)
+            elif message == "NO MESSAGES WAITING":
                 print("There were no messages... Continuing")
             else:
                 print("The message is: " + message)
