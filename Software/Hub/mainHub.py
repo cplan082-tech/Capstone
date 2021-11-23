@@ -6,6 +6,7 @@ from Classes.AWS_Class.Class_AWSIoT import AWSIoT
 from Functions.Misc_Functions import is_tool_missing, findTimeSum
 import time
 import os
+import csv
 from datetime import datetime
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 Description: Main function
@@ -92,11 +93,16 @@ if __name__ == "__main__":
             #specific_count = 0 # It will wait 5 seconds for messages
             #aws.listen_to_aws(specific_count)
             ########
-
+            csvFilePathUpdateTimer = r'Memory/Update_Timer.csv'
             queue_url = 'https://sqs.ca-central-1.amazonaws.com/423730035441/two-way-sms'
             message = aws.get_sqs_messages(queue_url)
             if message.isnumeric():
                 print("The number is: " + message)
+                with open(csvFilePathUpdateTimer, 'w') as csvfile:
+                    csvfile = csvfile.write(message)
+                    #filewriter = csv.writer(csvfile, delimiter=',',
+                    #                        quotechar='|', quoting=csv.QUOTE_MINIMAL)
+                    #filewriter.write(list(message))
             elif message == "NO MESSAGES WAITING":
                 print("There were no messages... Continuing")
             else:
