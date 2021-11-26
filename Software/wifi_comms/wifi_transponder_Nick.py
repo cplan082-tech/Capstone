@@ -72,11 +72,11 @@ dest_path = os.path.realpath("../wifi_comms/Memory/")
 
 #if MAC flag is set to 1, then the path corresponds to the MAC path, if 0, then the Pi path
 if MAC ==1:
-    path = MACPath
+    path_nick = MACPath
     FlagPath = MACFlagPath
     
 else:
-    path = TransponderPath
+    path_nick = TransponderPath
     FlagPath = TransponderPath
 
     #These GPIOs check the Py switch if it is activated or now, disabling it.
@@ -105,7 +105,7 @@ if Nick_Clive==0:
         return mydict
 
     # Extraction of initialization parameters
-    wifi_params = wifi_param_extract(path.realpath('../../../wifi_params.csv'))
+    wifi_params = wifi_param_extract(paths.realpath('../../../wifi_params.csv'))
     
     IP_src = wifi_params["IP_src"] #"10.0.0.198"
     IP_dest = wifi_params["IP_dest"]#"10.0.0.112"
@@ -117,7 +117,7 @@ if Nick_Clive==0:
     ToolFile=src_filename
     ToolPath=src_path
     TransponderPath=dest_path
-    path= dest_path
+    path_nick= dest_path
     FlagPath= dest_path
     
 
@@ -155,7 +155,7 @@ def Retreive():
         os.system('echo 0 | sudo dd status=none of=/sys/class/leds/led0/brightness') # led off
         time.sleep(0.1)
 
-    output = pexpect.run("scp pi@"+ IP_Tool +":"+ ToolFile + " "+ path, events={'(?i)password':""+ password +"\n"})
+    output = pexpect.run("scp pi@"+ IP_Tool +":"+ ToolFile + " "+ path_nick, events={'(?i)password':""+ password +"\n"})
     print("\nThe output of ssh command: \n%s" %output.decode("utf-8"))
     time.sleep(1)
     print("Tool memory file retreived")
@@ -249,7 +249,7 @@ def Send():
 #Grab timer csv file and bring it to the transponder, then delete the file
 def Timer():
     print("Grabing timer csv file from the Hub")
-    output = pexpect.run("scp " + hub + "@"+ IP_MAC +":"+ MACTimerPath +"/" + Timer_name + " "+ path, events={'(?i)password':""+ password_hub +"\n"})
+    output = pexpect.run("scp " + hub + "@"+ IP_MAC +":"+ MACTimerPath +"/" + Timer_name + " "+ path_nick, events={'(?i)password':""+ password_hub +"\n"})
     print("\n %s" %output.decode("utf-8"))
     time.sleep(1)
     print("Deleting the timer csv file from the Hub")
