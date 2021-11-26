@@ -128,6 +128,7 @@ if Nick_Clive==0:
     IP_MAC="10.0.0.159"
     MACPath=HubTimerPath
     MACTimerPath=HubTimerPath
+    password_hub=password
     
 
 
