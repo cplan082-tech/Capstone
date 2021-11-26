@@ -31,13 +31,15 @@ IP_Tool="192.168.0.29"
 IP_Transponder="192.168.0.28"
 IP_MAC="192.168.0.17"
 
-#Clive IPs
-
-
 #The name of your devices?
 tool="pi"
 transponder="pi"
 hub="christelledube"
+
+#Clive name of your devices?
+tool_clive="Tool"
+transponder_clive="pi"
+hub_clive="pi"
 
 #What minium signal power do you want? less than -60dBm is very weak
 Signal_Power= '-70'
@@ -119,6 +121,9 @@ if Nick_Clive==0:
     TransponderPath=dest_path
     path_nick= dest_path
     FlagPath= dest_path
+    tool=tool_clive
+    transponder=transponder_clive
+    hub=hub_clive
     
 
 
@@ -131,7 +136,7 @@ def flag():
     file = pathlib.Path(FlagPath +"/flag.csv") #Checks if the flag file exists
     if file.exists ():
         print("Flag file found")
-        output = pexpect.run("scp " + FlagPath +"/flag.csv pi@"+ IP_Tool +":"+ ToolPath, events={'(?i)password':""+ password +"\n"})
+        output = pexpect.run("scp " + FlagPath +"/flag.csv " + tool +"@"+ IP_Tool +":"+ ToolPath, events={'(?i)password':""+ password +"\n"})
         print("\n %s" %output.decode("utf-8"))
         time.sleep(1)
         os.remove(FlagPath + "/flag.csv")
@@ -155,7 +160,7 @@ def Retreive():
         os.system('echo 0 | sudo dd status=none of=/sys/class/leds/led0/brightness') # led off
         time.sleep(0.1)
 
-    output = pexpect.run("scp pi@"+ IP_Tool +":"+ ToolFile + " "+ path_nick, events={'(?i)password':""+ password +"\n"})
+    output = pexpect.run("scp " + tool +"@"+ IP_Tool +":"+ ToolFile + " "+ path_nick, events={'(?i)password':""+ password +"\n"})
     print("\nThe output of ssh command: \n%s" %output.decode("utf-8"))
     time.sleep(1)
     print("Tool memory file retreived")
@@ -192,7 +197,7 @@ def ConnectionTest(i):
         else:
             print("Wireless conections enabled")
  
-    output = pexpect.run("ssh pi@" + IP_Tool +" 'ls "+ ToolPath +" '", events={'(?i)password':""+ password +"\n"})
+    output = pexpect.run("ssh " + tool +"@" + IP_Tool +" 'ls "+ ToolPath +" '", events={'(?i)password':""+ password +"\n"})
     #print("\nThe output of ssh command: \n%s" %output.decode("utf-8"))
     #os.system("nick")
     print("\nConnection established\n")
