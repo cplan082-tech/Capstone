@@ -213,11 +213,12 @@ def ConnectionTest(i):
 ##
 ##    flag()
 ##
-##    Retreive()
-    
-    Send()
-
     Timer()
+    # Retreive()
+    
+    # Send()
+
+    
 
 #Check Wifi Connection Strength in dBm
 def SignalStrength():

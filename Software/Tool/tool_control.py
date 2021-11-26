@@ -43,7 +43,7 @@ temp_data_pin = 14  # GPIO14 (pin 8) on pi
 
 enable = False # Allows script to know if tool needs to be re-enabled once timer is refilled
 interupt_flag = False
-timer_time = 10 # Time the tool can opperate independantly of transponder
+timer_time = 30 # Time the tool can opperate independantly of transponder
 data_collect_time_delay = 1 # seconds
 
 
