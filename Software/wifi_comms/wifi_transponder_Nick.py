@@ -125,6 +125,9 @@ if Nick_Clive==0:
     transponder=transponder_clive
     hub=hub_clive
     ToolFile = ""+Clive_tool_folder+""+ Memory_name+""
+    IP_MAC="10.0.0.159"
+    MACPath=HubTimerPath
+    MACTimerPath=HubTimerPath
     
 
 
@@ -204,12 +207,12 @@ def ConnectionTest(i):
     print("\nConnection established\n")
     time.sleep(1)
 
-
-    SignalStrength()
-
-    flag()
-
-    Retreive()
+##
+##    SignalStrength()
+##
+##    flag()
+##
+##    Retreive()
     
     Send()
 
