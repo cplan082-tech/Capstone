@@ -115,8 +115,7 @@ if Nick_Clive==0:
     Memory_name=Clive_tool_memory
     IP_Tool=IP_src
     IP_Transponder=IP_dest
-    Password = wifi_params["Password"]
-    ToolFile=src_filename
+    password = wifi_params["Password"]
     ToolPath=src_path
     TransponderPath=dest_path
     path_nick= dest_path
@@ -124,6 +123,7 @@ if Nick_Clive==0:
     tool=tool_clive
     transponder=transponder_clive
     hub=hub_clive
+    ToolFile = "/home/pi/Documents/tooldump/"+ Memory_name
     
 
 
