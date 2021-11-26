@@ -53,7 +53,7 @@ $EndComp
 Wire Wire Line
 	5200 3350 5200 3400
 Wire Wire Line
-	5200 3400 4950 3400
+	5200 3400 5050 3400
 Wire Wire Line
 	4950 3500 5200 3500
 Wire Wire Line
@@ -61,4 +61,18 @@ Wire Wire Line
 Wire Wire Line
 	4950 3600 5200 3600
 Connection ~ 5200 3600
+$Comp
+L power:PWR_FLAG #FLG02
+U 1 1 61A59848
+P 5050 3400
+F 0 "#FLG02" H 5050 3475 50  0001 C CNN
+F 1 "PWR_FLAG" H 5050 3573 50  0000 C CNN
+F 2 "" H 5050 3400 50  0001 C CNN
+F 3 "~" H 5050 3400 50  0001 C CNN
+	1    5050 3400
+	1    0    0    -1  
+$EndComp
+Connection ~ 5050 3400
+Wire Wire Line
+	5050 3400 4950 3400
 $EndSCHEMATC

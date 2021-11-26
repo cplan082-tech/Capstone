@@ -314,8 +314,6 @@ Text Label 3400 2850 0    50   ~ 0
 3.3V_LED
 Wire Wire Line
 	7000 2000 7100 2000
-Text Label 3600 2750 0    50   ~ 0
-Tool_In_Use
 Text Label 4100 2250 0    50   ~ 0
 GPIO3_SCL1
 Text Label 4100 2550 0    50   ~ 0
@@ -560,7 +558,7 @@ Wire Wire Line
 Text GLabel 2750 2650 0    50   BiDi ~ 0
 GPIO27_GEN2
 Text GLabel 2050 2750 0    50   BiDi ~ 0
-GPIO22_GEN3
+Time_of_use
 Wire Wire Line
 	5050 2650 2750 2650
 $Comp

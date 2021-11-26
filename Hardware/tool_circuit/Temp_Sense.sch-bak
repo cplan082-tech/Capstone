@@ -18,7 +18,7 @@ L Connector:Conn_01x03_Female J2
 U 1 1 614AEC17
 P 5700 3500
 F 0 "J2" H 5728 3526 50  0000 L CNN
-F 1 "Conn_01x03_Female" H 5728 3435 50  0000 L CNN
+F 1 "Temp_Sense" H 5728 3435 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 5700 3500 50  0001 C CNN
 F 3 "~" H 5700 3500 50  0001 C CNN
 	1    5700 3500
