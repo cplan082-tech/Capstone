@@ -14,13 +14,13 @@ print("Automatic Transponder Script Running \n")
 time.sleep(2)
 
 #Nick or Clive testing? 1 = Nick, 0 = Clive
-Nick_Clive=1
+Nick_Clive=0
 
 #Nick use only : Are you testing in full setup mode (i.e. Pi hub, zero transponder, zero tool) ? 1 = Yes
 Full_test_mode=0
 
 #Are you testing on your computer or your Pi? 1 for computer, 0 for Pi
-MAC=1
+MAC=0
 
 #What is your pi password?
 password ='nick'
@@ -105,7 +105,7 @@ if Nick_Clive==0:
         return mydict
 
     # Extraction of initialization parameters
-    wifi_params = wifi_param_extract(paths.realpath('../../../wifi_params.csv'))
+    wifi_params = wifi_param_extract(path.realpath('../../../wifi_params.csv'))
     
     IP_src = wifi_params["IP_src"] #"10.0.0.198"
     IP_dest = wifi_params["IP_dest"]#"10.0.0.112"
