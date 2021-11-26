@@ -10,11 +10,12 @@ sys.path.append(os.path.realpath('../functional_scripts'))
 import signal
 import csv_manipulation as csvm
 
-path_memory = "/home/pi/Hub/Memory/HubMemory/"
+# path_memory = "/home/pi/Hub/Memory/HubMemory/"
 path_enable_flag = os.path.realpath('../wifi_comms/Memory/flag.csv')
+path_memory = path_enable_flag
 filename_sensor_data_bank = "Tool_Memory_acumulator.csv"
 filename_sensor_data_bank_input = "Tool_Memory.csv"
-filename_enable_timer_input = "enable_timer_input.csv"
+filename_enable_timer_input = "Update_Timer.csv"
 
 # We just want to create a flag csv, we don't care what's in it
 # FOR TESTING
