@@ -48,8 +48,9 @@ Signal_Power= '-70'
 Memory_name="Hub_Memory.csv"
 Timer_name="Update_Timer.csv"
 
-#Clive tool memory file name
+#Clive tool memory file name and Directory
 Clive_tool_memory="Tool_Memory.csv"
+Clive_tool_folder="/home/Tool/Documents/tooldump/"
 
 #Set these path parameters for testing purposes:
 # dest_filename = Memory_name
@@ -123,7 +124,7 @@ if Nick_Clive==0:
     tool=tool_clive
     transponder=transponder_clive
     hub=hub_clive
-    ToolFile = "/home/pi/Documents/tooldump/"+ Memory_name
+    ToolFile = ""+Clive_tool_folder+""+ Memory_name+""
     
 
 
