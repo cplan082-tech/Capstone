@@ -88,7 +88,7 @@ else:
     GPIO.setup(22, GPIO.IN)
     GPIO.setup(4, GPIO.OUT)
     GPIO.output(4, GPIO.HIGH)
-    GPIO.setup(23,GPIO.OUT)
+    GPIO.setup(16,GPIO.OUT)
     
 
 if Full_test_mode==1:
