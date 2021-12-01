@@ -88,7 +88,7 @@ else:
     GPIO.setup(22, GPIO.IN)
     GPIO.setup(4, GPIO.OUT)
     GPIO.output(4, GPIO.HIGH)
-    GPIO.setup( ,GPIO.OUT)
+    GPIO.setup(23,GPIO.OUT)
     
 
 if Full_test_mode==1:
@@ -216,16 +216,16 @@ def ConnectionTest(i):
     print("\nConnection established\n")
     time.sleep(1)
 
-##
-##    SignalStrength()
-##
-##    flag()
-##
+
+    SignalStrength()
+
+    flag()
+
     Timer()
     flag()
-    # Retreive()
+    Retreive()
     
-    # Send()
+    Send()
 
     
 
