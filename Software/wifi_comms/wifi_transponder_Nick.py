@@ -14,21 +14,21 @@ print("Automatic Transponder Script Running \n")
 time.sleep(2)
 
 #Nick or Clive testing? 1 = Nick, 0 = Clive
-Nick_Clive=0
+Nick_Clive=1
 
 #Nick use only : Are you testing in full setup mode (i.e. Pi hub, zero transponder, zero tool) ? 1 = Yes
 Full_test_mode=0
 
 #Are you testing on your computer or your Pi? 1 for computer, 0 for Pi
-MAC=0
+MAC=1
 
 #What is your pi password?
 password ='nick'
 password_hub='xerdark'
 
 #What are the Pi IPs?
-IP_Tool="192.168.0.29"
-IP_Transponder="192.168.0.28"
+IP_Tool="10.193.4.169"
+IP_Transponder="10.193.2.184"
 IP_MAC="192.168.0.17"
 
 #The name of your devices?
@@ -45,7 +45,7 @@ hub_clive="pi"
 Signal_Power= '-70'
 
 #What is the name of the tool memory file that we pass to the transponder?
-Memory_name="Hub_Memory.csv"
+Memory_name="Tool_Memory.csv"
 Timer_name="Update_Timer.csv"
 
 #Clive tool memory file name and Directory
@@ -84,10 +84,12 @@ else:
 
     #These GPIOs check the Py switch if it is activated or now, disabling it.
     import RPi.GPIO as GPIO
-    GPIO.setmode(GPIO.BCM)
+    GPIO.setmode(GPIO.BOARD)
     GPIO.setup(22, GPIO.IN)
     GPIO.setup(4, GPIO.OUT)
     GPIO.output(4, GPIO.HIGH)
+    GPIO.setup( ,GPIO.OUT)
+    
 
 if Full_test_mode==1:
     MACFlagPath=HubFlagPath
@@ -165,10 +167,16 @@ def Retreive():
         os.system('echo 0 | sudo dd status=none of=/sys/class/leds/led0/brightness') # led off
         time.sleep(0.1)
 
+
+
     output = pexpect.run("scp " + tool +"@"+ IP_Tool +":"+ ToolFile + " "+ path_nick, events={'(?i)password':""+ password +"\n"})
     print("\nThe output of ssh command: \n%s" %output.decode("utf-8"))
     time.sleep(1)
     print("Tool memory file retreived")
+
+    GPIO.output(23, 1)
+    time.sleep(3)
+    GPIO.output(23, 0)
 
     #Blink the on board LED green quickly to simulate data transfer
     for j in range(20):
