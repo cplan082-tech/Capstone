@@ -84,7 +84,7 @@ else:
 
     #These GPIOs check the Py switch if it is activated or now, disabling it.
     import RPi.GPIO as GPIO
-##    GPIO.setmode(GPIO.BOARD)
+    GPIO.setmode(GPIO.BOARD)
 ##    GPIO.setup(22, GPIO.IN)
 ##    GPIO.setup(4, GPIO.OUT)
 ##    GPIO.output(4, GPIO.HIGH)
@@ -174,9 +174,12 @@ def Retreive():
     time.sleep(1)
     print("Tool memory file retreived")
 
-    GPIO.output(16, 1)
-    time.sleep(3)
-    GPIO.output(16, 0)
+    i=20
+    for i==0
+        GPIO.output(16, 1)
+        time.sleep(0.2)
+        GPIO.output(16, 0)
+        i=i-1
 
     #Blink the on board LED green quickly to simulate data transfer
     for j in range(20):
@@ -200,7 +203,7 @@ def ConnectionTest(i):
     print("\nRunning ConnectionTest()\n")
     time.sleep(1)
 
-    if MAC==0:
+##    if MAC==0:
     
         #Verifys if the switch is closed which replicates no wireless or WIFI coms. Note that GPIO 22 is BCM, not board for Pi 3 B
 ##        if GPIO.input(22)==1:
@@ -217,12 +220,12 @@ def ConnectionTest(i):
     time.sleep(1)
 
 
-    SignalStrength()
-
-    flag()
-
-    Timer()
-    flag()
+##    SignalStrength()
+##
+##    flag()
+##
+##    Timer()
+##    flag()
     Retreive()
     
     Send()
