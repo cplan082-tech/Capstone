@@ -175,10 +175,11 @@ def Retreive():
     print("Tool memory file retreived")
 
     i=20
-    for i==0
+    while i>0:
         GPIO.output(16, 1)
         time.sleep(0.2)
         GPIO.output(16, 0)
+        time.sleep(0.2)
         i=i-1
 
     #Blink the on board LED green quickly to simulate data transfer
