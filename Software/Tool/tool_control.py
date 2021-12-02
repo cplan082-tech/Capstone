@@ -43,6 +43,10 @@ temp_data_pin = 27  # GPIO27
 led_enable = 24 # GPIO 24
 led_disable = 25 # GPIO 25 
 
+# initializing GPIO pins
+gpio.setmode(gpio.BCM)
+gpio.setup(led_enable, gpio.OUT)
+gpio.setup(led_disable, gpio.OUT)
 gpio.output(led_enable, False) # initialize enable led to off
 gpio.output(led_disable, True) # initialize disable led as on
 
