@@ -42,6 +42,7 @@ sensor = Adafruit_DHT.DHT11
 temp_data_pin = 27  # GPIO27 
 led_enable = 24 # GPIO 24
 led_disable = 25 # GPIO 25 
+
 gpio.output(led_enable, False) # initialize enable led to off
 gpio.output(led_disable, True) # initialize disable led as on
 

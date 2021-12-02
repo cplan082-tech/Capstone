@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 
 # GPIOs
 tool_trig_pin = 22  # GPIO22
-tool_on_led_pin = 26  # GPIO26 (pin 37) on pi
+tool_on_led_pin = 23  # GPIO23
 
 # "Time of use" timer variables
 prev_val = 0

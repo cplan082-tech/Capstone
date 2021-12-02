@@ -1,0 +1,88 @@
+
+
+   ---- Transcoding 'D:\Repos\Capstone\Hardware\tool_circuit\Capstone_gerbers\tool_circuit-B_Mask.gbs' ----   Thu Nov 25 21:32:46 2021
+
+D10   --> D100
+D11   --> D101
+D12   --> D102
+D13   --> D103
+D14   --> D104
+D15   --> D105
+D16   --> D106
+D17   --> D107
+D18   --> D108
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'D:\Repos\Capstone\Hardware\tool_circuit\Capstone_gerbers\tool_circuit-B_SilkS.gbo' ----   Thu Nov 25 21:32:46 2021
+
+D10   --> D109
+D11   --> D110
+D12   --> D111
+D13   --> D112
+D14   --> D113
+D15   --> D114
+D16   --> D115
+D17   --> D116
+D18   --> D117
+D19   --> D118
+D20   --> D119
+D21   --> D120
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'D:\Repos\Capstone\Hardware\tool_circuit\Capstone_gerbers\tool_circuit-Edge_Cuts.gm1' ----   Thu Nov 25 21:32:46 2021
+
+D10   --> D121
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'D:\Repos\Capstone\Hardware\tool_circuit\Capstone_gerbers\tool_circuit-F_Cu.gtl' ----   Thu Nov 25 21:32:46 2021
+
+D14   --> D122
+D15   --> D123
+D16   --> D124
+D17   --> D125
+D18   --> D126
+D19   --> D127
+D20   --> D128
+D21   --> D129
+D22   --> D130
+D23   --> D131
+D24   --> D132
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'D:\Repos\Capstone\Hardware\tool_circuit\Capstone_gerbers\tool_circuit-F_Mask.gts' ----   Thu Nov 25 21:32:46 2021
+
+D10   --> D133
+D11   --> D134
+D12   --> D135
+D13   --> D136
+D14   --> D137
+D15   --> D138
+D16   --> D139
+D17   --> D140
+D18   --> D141
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'D:\Repos\Capstone\Hardware\tool_circuit\Capstone_gerbers\tool_circuit-F_SilkS.gto' ----   Thu Nov 25 21:32:46 2021
+
+D10   --> D142
+D11   --> D143
+D12   --> D144
+D13   --> D145
+D14   --> D146
+D15   --> D147
+D16   --> D148
+D17   --> D149
+D18   --> D150
+D19   --> D151
+D20   --> D152
+D21   --> D153
+D22   --> D154
+D23   --> D155
+D24   --> D156
+D25   --> D157
+-----------------------------------------------------------------
