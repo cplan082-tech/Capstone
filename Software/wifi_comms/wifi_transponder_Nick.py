@@ -23,12 +23,12 @@ Full_test_mode=0
 MAC=0
 
 #What is your pi password?
-password ='nick'
-password_hub='xerdark'
+password ='clive'
+password_hub='clive'
 
 #What are the Pi IPs?
-IP_Tool="10.193.4.169"
-IP_Transponder="10.193.2.184"
+IP_Tool="10.0.0.112"
+IP_Transponder="10.0.0.67"
 IP_MAC="192.168.0.17"
 
 #The name of your devices?
@@ -37,7 +37,7 @@ transponder="pi"
 hub="christelledube"
 
 #Clive name of your devices?
-tool_clive="Tool"
+tool_clive="pi"
 transponder_clive="pi"
 hub_clive="pi"
 
