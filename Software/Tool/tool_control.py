@@ -39,7 +39,12 @@ name_tempHum = "Temp/Humidity"
 sensor = Adafruit_DHT.DHT11
 
 # GPIOs
-temp_data_pin = 14  # GPIO14 (pin 8) on pi
+temp_data_pin = 27  # GPIO27 
+led_enable = 24 # GPIO 24
+led_disable = 25 # GPIO 25 
+gpio.output(led_enable, False) # initialize enable led to off
+gpio.output(led_disable, True) # initialize disable led as on
+
 
 enable = False # Allows script to know if tool needs to be re-enabled once timer is refilled
 interupt_flag = False
@@ -50,6 +55,8 @@ data_collect_time_delay = 1 # seconds
 def enable_timerOut_handler(signum, frame):
     global interupt_flag
     interupt_flag = True    
+    gpio.output(led_enable, False)
+    gpio.output(led_disable, True)
     
 
 signal.signal(signal.SIGALRM, enable_timerOut_handler)
@@ -58,13 +65,15 @@ time_of_use = timedelta()
 
 try:
     while True:
-        # For testing (if statment)
         if os.path.exists(path_flag_csv):
             signal.alarm(timer_time)
             os.remove(path_flag_csv)
+            
             if enable == False:
                 tou.tool_enable(True) # enable tool
                 enable = True   
+                gpio.output(led_enable, True)
+                gpio.output(led_disable, False)
                 
             # If timer is reset, then value of interupt flag should be reset to True
             if interupt_flag == True: 
