@@ -16,8 +16,8 @@ import csv_manipulation as csvm
 # Tool's memory file for sensor data
 import shutil # need this too move "Tool_Memory.csv" to proper location
 csv_file = "Tool_Memory.csv"
-path_memory = "/home/Tool/Documents/tooldump/"
-path_flag_csv = "/home/Tool/Documents/tooldump/flag.csv"
+path_memory = "/home/pi/Documents/tooldump/"
+path_flag_csv = "/home/pi/Documents/tooldump/flag.csv"
 
 
 # Accelerometer Init
@@ -108,7 +108,7 @@ try:
         
         # Timestamp
         stamp = datetime.now()
-        print("hit") # ttesting
+        # print("hit") # ttesting
         
         # Package to be sent to transponder
 #         package = {'temp': temperature,
