@@ -69,5 +69,5 @@ def enable_timer_extract(filename_in):
             writer = csv.writer(outfile)
             timer_val = [rows[0] for rows in reader]
         os.remove('temp.csv')
-        return int(timer_val[0])
+        return int(timer_val)
         
