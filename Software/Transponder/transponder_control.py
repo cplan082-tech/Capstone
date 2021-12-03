@@ -38,7 +38,9 @@ while True:
     # Timer depleted. Disable tool
     if interupt_flag == True:
         interupt_flag = False
-        os.remove(path_enable_flag)
+        
+        if not os.path.exists(path_enable_flag): # Ensures that flag.csv exists before tryign to delete it
+            os.remove(path_enable_flag)
     
     # Checks if new timer value recieved from hub
     if os.path.exists(path_timer + filename_enable_timer_input):
