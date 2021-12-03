@@ -85,10 +85,10 @@ else:
     #These GPIOs check the Py switch if it is activated or now, disabling it.
     import RPi.GPIO as GPIO
     GPIO.setmode(GPIO.BOARD)
-##    GPIO.setup(22, GPIO.IN)
+    GPIO.setup(15, GPIO.IN) # Switch pin (transponder)
 ##    GPIO.setup(4, GPIO.OUT)
 ##    GPIO.output(4, GPIO.HIGH)
-    GPIO.setup(15,GPIO.OUT)
+    GPIO.setup(16,GPIO.OUT)
     
 
 if Full_test_mode==1:
@@ -204,15 +204,15 @@ def ConnectionTest(i):
     print("\nRunning ConnectionTest()\n")
     time.sleep(1)
 
-##    if MAC==0:
+    if MAC==0:
     
         #Verifys if the switch is closed which replicates no wireless or WIFI coms. Note that GPIO 22 is BCM, not board for Pi 3 B
-##        if GPIO.input(22)==1:
-##            print("Wireless connections terminated... Switch is closed. Looping...")
-##            time.sleep(2)
-##            return
-##        else:
-##            print("Wireless conections enabled")
+        if GPIO.input(15)==0:
+            print("Wireless connections terminated... Switch is closed. Looping...")
+            time.sleep(2)
+            return
+        else:
+            print("Wireless conections enabled")
  
     output = pexpect.run("ssh " + tool +"@" + IP_Tool +" 'ls "+ ToolPath +" '", events={'(?i)password':""+ password +"\n"})
     #print("\nThe output of ssh command: \n%s" %output.decode("utf-8"))
@@ -257,7 +257,7 @@ def SignalStrength():
         Wifi = subprocess.check_output(["iwconfig"], shell=True, stderr=subprocess.DEVNULL)
         sentence=str(Wifi)
         s = [float(s) for s in re.findall(r'-?\d+\.?\d*', sentence)]
-        firstnumber = ( "% d" + "dBm.") % s[12]
+        firstnumber = ( "% d" + "dBm.") % s[11]
         print("The Wifi signal power is: " + str(firstnumber))
         time.sleep(3)
 
