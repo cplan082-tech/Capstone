@@ -266,11 +266,11 @@ def Send():
 #Grab timer csv file and bring it to the transponder, then delete the file
 def Timer():
     print("Grabing timer csv file from the Hub")
-    output = pexpect.run("scp " + hub + "@"+ IP_MAC +":"+ MACTimerPath +"/" + Timer_name + " "+ path_nick, events={'(?i)password':""+ password_hub +"\n"})
+    output = pexpect.run("scp " + hub + "@"+ IP_MAC +":"+ HubTimerPath +"/" + Timer_name + " "+ path_nick, events={'(?i)password':""+ password_hub +"\n"})
     print("\n %s" %output.decode("utf-8"))
     time.sleep(1)
     print("Deleting the timer csv file from the Hub")
-    output = pexpect.run("ssh " + hub +"@"+ IP_MAC + " 'rm " + MACTimerPath +"/" + Timer_name + "'", events={'(?i)password':""+ password_hub +"\n"})
+    output = pexpect.run("ssh " + hub +"@"+ IP_MAC + " 'rm " + HubTimerPath +"/" + Timer_name + "'", events={'(?i)password':""+ password_hub +"\n"})
     time.sleep(1)
     
 i=0
