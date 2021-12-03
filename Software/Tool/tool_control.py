@@ -37,6 +37,7 @@ accelerometer_obj.enable_tap_detection(tap_count=1,
 # Temp/Humidity sense Init
 name_tempHum = "Temp/Humidity"
 sensor = Adafruit_DHT.DHT11
+tempHum_enable = True; 
 
 # GPIOs
 temp_data_pin = 27  # GPIO27 
@@ -107,34 +108,38 @@ try:
         accel_motion = accelerometer_obj.events['motion']
         
         # Humidity/Temp data collection
-#         humidity, temperature = Adafruit_DHT.read_retry(sensor, temp_data_pin)
+        if tempHum_enable:
+            humidity, temperature = Adafruit_DHT.read_retry(sensor, temp_data_pin)
         
         # Timestamp
         stamp = datetime.now()
         # print("hit") # ttesting
         
         # Package to be sent to transponder
-#         package = {'temp': temperature,
-#                    'humid': humidity,
-#                    'accel x': accel[0],
-#                    'accel y': accel[1],
-#                    'accel z': accel[2],
-#                    'freefall': accel_freefall,
-#                    'colision': accel_colision,
-#                    'Motion': accel_motion,
-#                    'Time_of_use': time_of_use,
-#                    'date': stamp.date(),
-#                    'Time':stamp.time()}
-        package = {'accel x': accel[0],
-                   'accel y': accel[1],
-                   'accel z': accel[2],
-                   'freefall': accel_freefall,
-                   'colision': accel_colision,
-                   'Motion': accel_motion,
-                   'Time_of_use': time_of_use,
-                   'date': stamp.date(),
-                   'Time':stamp.time()}
-
+        if tempHum_enable:
+            package = {'temp': temperature,
+                        'humid': humidity,
+                        'accel x': accel[0],
+                        'accel y': accel[1],
+                        'accel z': accel[2],
+                        'freefall': accel_freefall,
+                        'colision': accel_colision,
+                        'Motion': accel_motion,
+                        'Time_of_use': time_of_use,
+                        'date': stamp.date(),
+                        'Time':stamp.time()}
+            
+        else:
+            package = {'accel x': accel[0],
+                       'accel y': accel[1],
+                       'accel z': accel[2],
+                       'freefall': accel_freefall,
+                       'colision': accel_colision,
+                       'Motion': accel_motion,
+                       'Time_of_use': time_of_use,
+                       'date': stamp.date(),
+                       'Time':stamp.time()}
+                
         
         csvm.dict_to_csv(package, csv_file)
         
@@ -152,36 +157,31 @@ try:
             csvm.csv_concat(path_memory, csv_file)
             os.remove(path_memory + 'temp.csv')
         
-        # For testing
-# With temp sensor
-#         print('temp :', package['temp'], "\n",
-#               'humidity :', package['humid'], "\n",
-#               'accel x :', package['accel x'], "\n",
-#               'accel y :', package['accel y'], "\n",
-#               'accel z :', package['accel z'], "\n",
-#               "freefall :", package['freefall'], "\n",
-#               "colision :", package['colision'], "\n",
-#               "Motion :", package['Motion'], "\n",
-#               "Time of use :", package['Time_of_use'], "\n",
-#               "date :", package['date'], "\n",
-#               "Time :", package['Time'], "\n",
-#               "==========================================")  # For testing
+        if tempHum_enable:
+            print('temp :', package['temp'], "\n",
+                  'humidity :', package['humid'], "\n",
+                  'accel x :', package['accel x'], "\n",
+                  'accel y :', package['accel y'], "\n",
+                  'accel z :', package['accel z'], "\n",
+                  "freefall :", package['freefall'], "\n",
+                  "colision :", package['colision'], "\n",
+                  "Motion :", package['Motion'], "\n",
+                  "Time of use :", package['Time_of_use'], "\n",
+                  "date :", package['date'], "\n",
+                  "Time :", package['Time'], "\n",
+                  "==========================================")  # For testing
 
-# Without temp sense
-        print('accel x :', package['accel x'], "\n",
-              'accel y :', package['accel y'], "\n",
-              'accel z :', package['accel z'], "\n",
-              "freefall :", package['freefall'], "\n",
-              "colision :", package['colision'], "\n",
-              "Motion :", package['Motion'], "\n",
-              "Time of use :", package['Time_of_use'], "\n",
-              "date :", package['date'], "\n",
-              "Time :", package['Time'], "\n",
-              "==========================================") 
-        
-#         print(time_of_use, csv_file)
-        
-        
+        else:
+            print('accel x :', package['accel x'], "\n",
+                  'accel y :', package['accel y'], "\n",
+                  'accel z :', package['accel z'], "\n",
+                  "freefall :", package['freefall'], "\n",
+                  "colision :", package['colision'], "\n",
+                  "Motion :", package['Motion'], "\n",
+                  "Time of use :", package['Time_of_use'], "\n",
+                  "date :", package['date'], "\n",
+                  "Time :", package['Time'], "\n",
+                  "==========================================")        
         
         
 except:

@@ -17,9 +17,7 @@ filename_sensor_data_bank = "Tool_Memory_acumulator.csv"
 filename_sensor_data_bank_input = "Tool_Memory.csv"
 filename_enable_timer_input = "Update_Timer.csv"
 
-# We just want to create a flag csv, we don't care what's in it
-# FOR TESTING
-# csvm.dict_to_csv({'place': 'holder'}, path_enable_flag) # TODO: remove thisjs
+
 interupt_flag = False
 
 
@@ -43,7 +41,6 @@ while True:
         os.remove(path_enable_flag)
     
     # Checks if new timer value recieved from hub
-
     if os.path.exists(path_memory + filename_enable_timer_input):
         enable_timer_val = csvm.enable_timer_extract(path_memory + filename_enable_timer_input)
         signal.alarm(enable_timer_val)
