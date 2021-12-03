@@ -10,7 +10,7 @@ sys.path.append(os.path.realpath('../functional_scripts'))
 import signal
 import csv_manipulation as csvm
 
-# path_memory = "/home/pi/Hub/Memory/HubMemory/"
+path_timer = "/home/pi/Hub/Memory/HubMemory/"
 path_enable_flag = os.path.realpath('../wifi_comms/Memory/flag.csv')
 path_memory = path_enable_flag
 filename_sensor_data_bank = "Tool_Memory_acumulator.csv"
@@ -41,10 +41,10 @@ while True:
         os.remove(path_enable_flag)
     
     # Checks if new timer value recieved from hub
-    if os.path.exists(path_memory + filename_enable_timer_input):
-        enable_timer_val = csvm.enable_timer_extract(path_memory + filename_enable_timer_input)
+    if os.path.exists(path_timer + filename_enable_timer_input):
+        enable_timer_val = csvm.enable_timer_extract(path_timer + filename_enable_timer_input)
         signal.alarm(enable_timer_val)
-        os.remove(path_memory + filename_enable_timer_input)
+        os.remove(path_timer + filename_enable_timer_input)
         
         if not os.path.exists(path_enable_flag): # Ensures that flag.csv exists
             csvm.dict_to_csv({'place': 'holder'}, path_enable_flag)
