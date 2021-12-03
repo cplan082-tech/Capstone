@@ -183,7 +183,7 @@ def Retreive():
         i=i-1
     
     #########Delete the tool memory, comment out to deactivate:
-    pexpect.run("ssh pi@"+ IP_Tool +" 'rm "+ ToolPath + "/Hub_Memory.csv '", events={'(?i)password':""+ password +"\n"})
+    pexpect.run("ssh pi@"+ IP_Tool +" 'rm "+ ToolPath + "/Tool_Memory.csv '", events={'(?i)password':""+ password +"\n"})
 
 
 #List the amount of data dump files by login through ssh
