@@ -54,7 +54,7 @@ gpio.output(led_disable, False) # initialize disable led as on
 
 enable = False # Allows script to know if tool needs to be re-enabled once timer is refilled
 interupt_flag = False
-timer_time = 5 # Time the tool can opperate independantly of transponder
+timer_time = 20 # Time the tool can opperate independantly of transponder
 data_collect_time_delay = 1 # seconds
 
 
