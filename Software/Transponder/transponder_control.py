@@ -40,7 +40,7 @@ while True:
     if interupt_flag == True:
         interupt_flag = False
         
-        if not os.path.exists(path_enable_flag): # Ensures that flag.csv exists before tryign to delete it
+        if os.path.exists(path_enable_flag): # Ensures that flag.csv exists before tryign to delete it
             os.remove(path_enable_flag)
     
     # Checks if new timer value recieved from hub
