@@ -11,7 +11,7 @@ import shutil
 
 def csv_concat(path, filename_output):
     if os.path.isfile(path + filename_output):
-        os.rename(path + filename_output, path + 'temp.csv')
+        os.rename(path + filename_output, path + '/temp.csv')
         
     interesting_files = glob.glob(path + "*.csv")  
     header_saved = False
@@ -25,7 +25,7 @@ def csv_concat(path, filename_output):
                     header_saved = True
                 for line in fin:
                     fout.write(line)
-    os.remove(path + 'temp.csv')                
+    os.remove(path + '/temp.csv')                
     # shutil.move(filename_output, path)
     
     
