@@ -8,6 +8,7 @@ import os
 import sys
 sys.path.append(os.path.realpath('../functional_scripts'))
 import signal
+import time
 import csv_manipulation as csvm
 
 path_timer = "/home/pi/Hub/Memory/HubMemory/"
@@ -44,6 +45,7 @@ while True:
     
     # Checks if new timer value recieved from hub
     if os.path.exists(path_timer + filename_enable_timer_input):
+        time.sleep(1)
         enable_timer_val = csvm.enable_timer_extract(path_timer + filename_enable_timer_input)
         signal.alarm(enable_timer_val)
         os.remove(path_timer + filename_enable_timer_input)
