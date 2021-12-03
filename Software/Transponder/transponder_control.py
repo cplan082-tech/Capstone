@@ -41,6 +41,7 @@ while True:
         interupt_flag = False
         os.remove(path_enable_flag)
     
+    # Checks if new timer value recieved from hub
     if os.path.exists(path_memory + filename_enable_timer_input):
         enable_timer_val = csvm.enable_timer_extract(path_memory + filename_enable_timer_input)
         signal.alarm(enable_timer_val)
@@ -48,8 +49,4 @@ while True:
         
         if not os.path.exists(path_enable_flag): # Ensures that flag.csv exists
             csvm.dict_to_csv({'place': 'holder'}, path_enable_flag)
-            
-        
-        
-    
         
