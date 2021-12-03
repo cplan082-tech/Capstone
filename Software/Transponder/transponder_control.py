@@ -9,11 +9,12 @@ import sys
 sys.path.append(os.path.realpath('../functional_scripts'))
 import signal
 import time
+import shutil
 import csv_manipulation as csvm
 
 path_timer = "/home/pi/Hub/Memory/HubMemory/"
-path_memory = os.path.realpath('../wifi_comms/Memory')
-path_enable_flag = path_memory + '/flag.csv'
+path_memory = os.path.realpath('../wifi_comms/Memory/')
+path_enable_flag = path_memory + 'flag.csv'
 filename_sensor_data_bank = "Tool_Memory_acumulator.csv"
 filename_sensor_data_bank_input = "Tool_Memory.csv"
 filename_enable_timer_input = "Update_Timer.csv"
@@ -32,7 +33,10 @@ signal.signal(signal.SIGALRM, enable_timerOut_handler)
 while True:
     
     # Checks if any new data has been recieved
-    if os.path.isfile(filename_sensor_data_bank_input):
+    if os.path.exists(path_timer + filename_sensor_data_bank_input):
+        shutil.move(path_timer + filename_sensor_data_bank_input, path_memory + filename_sensor_data_bank_input) # moves new sensor data to where it needs to be
+        os.remove(path_timer + filename_sensor_data_bank_input) # Deletes old copy
+        
         csvm.csv_concat(path_memory, filename_sensor_data_bank) # updates accumulator (data banks)
         os.remove(path_memory + filename_sensor_data_bank_input) # Deletes old data
     

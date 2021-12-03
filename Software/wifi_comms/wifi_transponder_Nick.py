@@ -168,7 +168,7 @@ def Retreive():
         time.sleep(0.1)
 
 
-
+    # Retrives data from tool and places in transponder here: "/home/pi/Hub/Memory/HubMemory"
     output = pexpect.run("scp " + tool +"@"+ IP_Tool +":"+ ToolFile + " "+ path_nick, events={'(?i)password':""+ password +"\n"})
     print("\nThe output of ssh command: \n%s" %output.decode("utf-8"))
     time.sleep(1)
