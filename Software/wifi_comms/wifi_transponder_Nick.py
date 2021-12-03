@@ -218,7 +218,7 @@ def ConnectionTest(i):
 ##
 ##    flag()
 ##
-#     Timer()
+    Timer()
     flag()
     Retreive()
     
