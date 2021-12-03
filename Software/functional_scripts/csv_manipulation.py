@@ -10,12 +10,11 @@ import glob
 import shutil
 
 def csv_concat(path, filename_output):
-    temp = False
-    if os.path.isfile(path + filename_output):
-        os.rename(path + filename_output, path + '/temp.csv')
-        temp = True
+    if os.path.isfile(path + '/' +filename_output):
+        os.rename(path + '/' + filename_output, path + '/temp.csv')
         
-    interesting_files = glob.glob(path + "*.csv")  
+    print(path + "*/.csv")
+    interesting_files = glob.glob(path + "/*.csv")  
     header_saved = False
     
     with open(filename_output,'w') as fout:
@@ -29,7 +28,7 @@ def csv_concat(path, filename_output):
                     fout.write(line)
     
 #     fout.close()
-    if temp:
+    if os.path.isfile(path + '/temp.csv'):
         os.remove(path + '/temp.csv')                
     shutil.move(filename_output, path)
     
@@ -79,5 +78,6 @@ def enable_timer_extract(filename_in):
         return int(timer_val[0])
        
 
-path_memory = os.path.realpath('.')
-csv_concat(path_memory, 'output2.csv')
+# for testing
+# path_memory = os.path.realpath('.')
+# csv_concat(path_memory, 'output2.csv')
