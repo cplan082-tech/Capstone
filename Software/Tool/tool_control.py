@@ -47,21 +47,19 @@ led_disable = 25 # GPIO 25
 gpio.setmode(gpio.BCM)
 gpio.setup(led_enable, gpio.OUT)
 gpio.setup(led_disable, gpio.OUT)
-gpio.output(led_enable, False) # initialize enable led to off
-gpio.output(led_disable, True) # initialize disable led as on
+gpio.output(led_enable, True) # initialize enable led to off
+gpio.output(led_disable, False) # initialize disable led as on
 
 
 enable = False # Allows script to know if tool needs to be re-enabled once timer is refilled
 interupt_flag = False
-timer_time = 30 # Time the tool can opperate independantly of transponder
+timer_time = 5 # Time the tool can opperate independantly of transponder
 data_collect_time_delay = 1 # seconds
 
 
 def enable_timerOut_handler(signum, frame):
     global interupt_flag
     interupt_flag = True    
-    gpio.output(led_enable, False)
-    gpio.output(led_disable, True)
     
 
 signal.signal(signal.SIGALRM, enable_timerOut_handler)
@@ -70,10 +68,12 @@ time_of_use = timedelta()
 
 try:
     while True:
+        # Checks to see if tool is allowed to be enabled
         if os.path.exists(path_flag_csv):
             signal.alarm(timer_time)
             os.remove(path_flag_csv)
             
+            # enables the tool
             if enable == False:
                 tou.tool_enable(True) # enable tool
                 enable = True   
@@ -83,10 +83,13 @@ try:
             # If timer is reset, then value of interupt flag should be reset to True
             if interupt_flag == True: 
                 interupt_flag = False
-                
+        
+        # Disables the tool
         if interupt_flag == True:
             interupt_flag = False
             tou.tool_enable(False) # disable tool
+            gpio.output(led_enable, False)
+            gpio.output(led_disable, True)
             enable = False
             
             
