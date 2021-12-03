@@ -12,8 +12,8 @@ import time
 import csv_manipulation as csvm
 
 path_timer = "/home/pi/Hub/Memory/HubMemory/"
-path_enable_flag = os.path.realpath('../wifi_comms/Memory/flag.csv')
-path_memory = path_enable_flag
+path_memory = os.path.realpath('../wifi_comms/Memory')
+path_enable_flag = path_memory + '/flag.csv'
 filename_sensor_data_bank = "Tool_Memory_acumulator.csv"
 filename_sensor_data_bank_input = "Tool_Memory.csv"
 filename_enable_timer_input = "Update_Timer.csv"
