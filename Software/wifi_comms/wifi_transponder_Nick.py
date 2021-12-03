@@ -181,16 +181,9 @@ def Retreive():
         GPIO.output(16, 0)
         time.sleep(0.2)
         i=i-1
-
-    #Blink the on board LED green quickly to simulate data transfer
-    for j in range(20):
-        os.system('echo 1 | sudo dd status=none of=/sys/class/leds/led0/brightness') # led on
-        time.sleep(0.1)
-        os.system('echo 0 | sudo dd status=none of=/sys/class/leds/led0/brightness') # led off
-        time.sleep(0.1)
     
     #########Delete the tool memory, comment out to deactivate:
-    #pexpect.run("ssh pi@"+ IP_Tool +" 'rm "+ ToolPath + "/Hub_Memory.csv '", events={'(?i)password':""+ Password +"\n"})
+    pexpect.run("ssh pi@"+ IP_Tool +" 'rm "+ ToolPath + "/Hub_Memory.csv '", events={'(?i)password':""+ password +"\n"})
 
 
 #List the amount of data dump files by login through ssh
