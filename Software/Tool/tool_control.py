@@ -152,10 +152,10 @@ try:
         if not os.path.isfile(path_memory + csv_file):
             shutil.move(csv_file, path_memory)
         else:
-            os.rename(csv_file, 'temp.csv')
-            shutil.move('temp.csv', path_memory)
+            os.rename(csv_file, 'temp_tool.csv')
+            shutil.move('temp_tool.csv', path_memory)
             csvm.csv_concat('/home/pi/Documents/tooldump', csv_file)
-            os.remove(path_memory + 'temp.csv')
+            os.remove(path_memory + 'temp_tool.csv')
         
         if tempHum_enable:
             print('temp :', package['temp'], "\n",
