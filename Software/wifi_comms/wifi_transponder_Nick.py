@@ -218,11 +218,10 @@ def ConnectionTest(i):
 ##
 ##    flag()
 ##
-    Timer()
-    flag()
-    # Retreive()
-    
-#     Send()
+    # Timer()
+    # flag()
+    Retreive()
+    Send()
 
     
 
