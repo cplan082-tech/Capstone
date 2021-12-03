@@ -28,7 +28,7 @@ password_hub='clive'
 
 #What are the Pi IPs?
 IP_Tool="10.0.0.112"
-IP_Transponder="10.0.0.67"
+IP_Transponder="10.0.0.159"
 IP_MAC="192.168.0.17"
 
 #The name of your devices?
@@ -88,7 +88,7 @@ else:
 ##    GPIO.setup(22, GPIO.IN)
 ##    GPIO.setup(4, GPIO.OUT)
 ##    GPIO.output(4, GPIO.HIGH)
-    GPIO.setup(16,GPIO.OUT)
+    GPIO.setup(15,GPIO.OUT)
     
 
 if Full_test_mode==1:
@@ -221,15 +221,15 @@ def ConnectionTest(i):
     time.sleep(1)
 
 
-##    SignalStrength()
+    SignalStrength()
 ##
 ##    flag()
 ##
-##    Timer()
-##    flag()
+#     Timer()
+    flag()
     Retreive()
     
-    Send()
+#     Send()
 
     
 

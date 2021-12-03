@@ -36,12 +36,14 @@ while True:
     if os.path.isfile(filename_sensor_data_bank_input):
         csvm.csv_concat(path_memory, filename_sensor_data_bank) # updates accumulator (data banks)
         os.remove(path_memory + filename_sensor_data_bank_input) # Deletes old data
-        
+    
+    # Timer depleted. Disable tool
     if interupt_flag == True:
         interupt_flag = False
         os.remove(path_enable_flag)
     
     # Checks if new timer value recieved from hub
+
     if os.path.exists(path_memory + filename_enable_timer_input):
         enable_timer_val = csvm.enable_timer_extract(path_memory + filename_enable_timer_input)
         signal.alarm(enable_timer_val)
