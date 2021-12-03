@@ -80,7 +80,7 @@ if MAC ==1:
     
 else:
     path_nick = TransponderPath
-    FlagPath = TransponderPath
+    FlagPath = os.path.realpath("../wifi_comms/Memory/")
 
     #These GPIOs check the Py switch if it is activated or now, disabling it.
     import RPi.GPIO as GPIO
