@@ -258,9 +258,9 @@ def Send():
     print("Sending the retreived data too the Hub")
     time.sleep(2)
     output_file ="Tool_Memory_acumulator.csv"
-    if os.path.exists(dest_path + output_file):
-        output = pexpect.run("scp " + dest_path + output_file +" " + hub +"@"+ IP_MAC +":"+ MACPath, events={'(?i)password':""+ password_hub +"\n"})
-        os.remove(dest_path + output_file)
+    if os.path.exists(dest_path +  '/' + output_file):
+        output = pexpect.run("scp " + dest_path + '/' + output_file +" " + hub +"@"+ IP_MAC +":"+ MACPath, events={'(?i)password':""+ password_hub +"\n"})
+        os.remove(dest_path +  '/' + output_file)
         print("\n %s" %output.decode("utf-8"))
         print("Files sent succesfully")
     else:
