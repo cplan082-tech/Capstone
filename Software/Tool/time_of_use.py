@@ -37,12 +37,6 @@ def tool_trig_handler(pin):
             start_time = 0
             accumulator = accumulator + retval
             print(f"retval {retval}")
-            
-#     else:  # else is only for testing
-#         print(f"tool_trig_pin_val: {tool_trig_pin_val}")
-#         print(f"gpio.input(tool_trig_pin): {gpio.input(tool_trig_pin)}")
-#         print(f"prev_val: {prev_val}")
-#         print(f"tool_trig_pin_val: {tool_trig_pin_val}")
     
 
 def tool_enable(enable_new_val):
