@@ -258,9 +258,15 @@ def SignalStrength():
 def Send():
     print("Sending the retreived data too the Hub")
     time.sleep(2)
-    output = pexpect.run("scp " + TransponderPath +"/"+ Memory_name +" " + hub +"@"+ IP_MAC +":"+ MACPath, events={'(?i)password':""+ password_hub +"\n"})
-    print("\n %s" %output.decode("utf-8"))
-    print("Files sent succesfully")
+    output_file ="Tool_Memory_acumulator.csv"
+    if os.path.exists(dest_path + output_file):
+        output = pexpect.run("scp " + dest_path + output_file +" " + hub +"@"+ IP_MAC +":"+ MACPath, events={'(?i)password':""+ password_hub +"\n"})
+        os.remove(dest_path + output_file)
+        print("\n %s" %output.decode("utf-8"))
+        print("Files sent succesfully")
+    else:
+        print('Nothing to send')
+        
     time.sleep(1)
 
 #Grab timer csv file and bring it to the transponder, then delete the file
