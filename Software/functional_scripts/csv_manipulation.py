@@ -13,7 +13,7 @@ def csv_concat(path, filename_output):
     if os.path.isfile(path + '/' +filename_output):
         os.rename(path + '/' + filename_output, path + '/temp.csv')
         
-    print(path + "*/.csv")
+    
     interesting_files = glob.glob(path + "/*.csv")  
     header_saved = False
     
