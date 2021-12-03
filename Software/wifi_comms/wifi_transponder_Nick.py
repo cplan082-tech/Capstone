@@ -29,12 +29,12 @@ password_hub='clive'
 #What are the Pi IPs?
 IP_Tool="10.0.0.112"
 IP_Transponder="10.0.0.67"
-IP_MAC="192.168.0.17"
+IP_MAC="10.0.0.159"
 
 #The name of your devices?
 tool="pi"
 transponder="pi"
-hub="christelledube"
+hub="pi"
 
 #Clive name of your devices?
 tool_clive="pi"
