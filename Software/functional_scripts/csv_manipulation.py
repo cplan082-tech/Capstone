@@ -77,4 +77,7 @@ def enable_timer_extract(filename_in):
             timer_val = [rows[0] for rows in reader]
         os.remove('temp.csv')
         return int(timer_val[0])
-        
+       
+
+path_memory = os.path.realpath('.')
+csv_concat(path_memory, 'output2.csv')
