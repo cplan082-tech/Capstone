@@ -217,6 +217,7 @@ def ConnectionTest(i):
 
     SignalStrength()
 
+
     Timer()
     flag()
     Retreive()
