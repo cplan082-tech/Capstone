@@ -65,6 +65,7 @@ MACFlagPath ="/Users/christelledube/Desktop/PythonScripts/hub_to_tool/Hub/Memory
 MACTimerPath ="/Users/christelledube/Desktop/PythonScripts/hub_to_tool/Hub/Memory"
 HubTimerPath ="/home/pi/Hub/Memory"
 HubFlagPath = "/home/pi/Hub/Memory"
+HubSensorDataPath = "/home/pi/Hub/Memory"
 
 #Clive file names:
 src_filename = "/home/Tool/Documents/tooldump/"+ Memory_name
@@ -260,7 +261,7 @@ def Send():
     output_file ="Tool_Memory_acumulator.csv"
     print(dest_path +  '/' + output_file)
     if os.path.exists(dest_path +  '/' + output_file):
-        output = pexpect.run("scp " + dest_path + '/' + output_file +" " + hub +"@"+ IP_MAC +":"+ MACPath, events={'(?i)password':""+ password_hub +"\n"})
+        output = pexpect.run("scp " + dest_path + '/' + output_file +" " + hub +"@"+ IP_MAC +":"+ HubSensorDataPath, events={'(?i)password':""+ password_hub +"\n"})
         os.remove(dest_path +  '/' + output_file)
         print("\n %s" %output.decode("utf-8"))
         print("Files sent succesfully")
