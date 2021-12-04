@@ -220,8 +220,8 @@ def ConnectionTest(i):
 ##
     Timer()
     flag()
-    # Retreive()
-    # Send()
+    Retreive()
+    Send()
 
     
 
