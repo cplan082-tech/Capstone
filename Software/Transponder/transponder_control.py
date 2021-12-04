@@ -37,6 +37,7 @@ while True:
         shutil.move(path_timer + filename_sensor_data_bank_input, path_memory) # moves new sensor data to where it needs to be
 #         os.remove(path_timer + filename_sensor_data_bank_input) # Deletes old copy
         
+        time.sleep(1)
         csvm.csv_concat(path_memory, filename_sensor_data_bank) # updates accumulator (data banks)
         os.remove(path_memory + "/" + filename_sensor_data_bank_input) # Deletes old data
     
