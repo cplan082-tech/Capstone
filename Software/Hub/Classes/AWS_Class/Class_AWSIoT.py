@@ -30,7 +30,9 @@ received_all_event_timed = threading.Event()
 # Need these paths
 csvFilePathOld = r'Memory/Hub_Memory_Old.csv'
 
-csvFilePath = r'Memory/Hub_Memory.csv'
+
+csvFilePath = r'Memory/Tool_Memory_acumulator.csv'
+#csvFilePath = r'Memory/Hub_Memory.csv'
 csvTmpPath = r'Memory/Tmp/Tmp_Hub_Memory.csv'
 jsonFilePath = r'Memory/Hub_Memory.json'
 

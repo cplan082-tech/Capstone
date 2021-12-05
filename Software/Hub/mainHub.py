@@ -16,7 +16,8 @@ if __name__ == "__main__":
 
     # Variables
     newSensorData = False
-    csvFilePath = r'Memory/Hub_Memory.csv'
+    #csvFilePath = r'Memory/Hub_Memory.csv'
+    csvFilePath = r'Memory/Tool_Memory_acumulator.csv'
     # Initialize Classes
     aws = AWSIoT() # AWS Class
 
