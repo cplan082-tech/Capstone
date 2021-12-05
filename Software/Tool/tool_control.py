@@ -117,28 +117,30 @@ try:
         
         # Package to be sent to transponder
         if tempHum_enable:
-            package = {'temp': temperature,
+            package = {'Transponder_ID':111111,
+                       'Tool_ID':8846877,
+                       'temp': temperature,
                         'humid': humidity,
-                        'accel x': accel[0],
-                        'accel y': accel[1],
-                        'accel z': accel[2],
+                        'x': accel[0],
+                        'y': accel[1],
+                        'z': accel[2],
                         'freefall': accel_freefall,
-                        'colision': accel_colision,
+                        'collision': accel_colision,
                         'Motion': accel_motion,
                         'Time_of_use': time_of_use,
                         'date': stamp.date(),
-                        'Time':stamp.time()}
+                        'time':stamp.time()}
             
         else:
-            package = {'accel x': accel[0],
-                       'accel y': accel[1],
-                       'accel z': accel[2],
+            package = {'x': accel[0],
+                       'y': accel[1],
+                       'z': accel[2],
                        'freefall': accel_freefall,
-                       'colision': accel_colision,
+                       'collision': accel_colision,
                        'Motion': accel_motion,
                        'Time_of_use': time_of_use,
                        'date': stamp.date(),
-                       'Time':stamp.time()}
+                       'time':stamp.time()}
                 
         
         csvm.dict_to_csv(package, csv_file)
@@ -160,27 +162,27 @@ try:
         if tempHum_enable:
             print('temp :', package['temp'], "\n",
                   'humidity :', package['humid'], "\n",
-                  'accel x :', package['accel x'], "\n",
-                  'accel y :', package['accel y'], "\n",
-                  'accel z :', package['accel z'], "\n",
+                  'accel x :', package['x'], "\n",
+                  'accel y :', package['y'], "\n",
+                  'accel z :', package['z'], "\n",
                   "freefall :", package['freefall'], "\n",
-                  "colision :", package['colision'], "\n",
+                  "colision :", package['collision'], "\n",
                   "Motion :", package['Motion'], "\n",
                   "Time of use :", package['Time_of_use'], "\n",
                   "date :", package['date'], "\n",
-                  "Time :", package['Time'], "\n",
+                  "Time :", package['time'], "\n",
                   "==========================================")  # For testing
 
         else:
-            print('accel x :', package['accel x'], "\n",
-                  'accel y :', package['accel y'], "\n",
-                  'accel z :', package['accel z'], "\n",
+            print('accel x :', package['x'], "\n",
+                  'accel y :', package['y'], "\n",
+                  'accel z :', package['z'], "\n",
                   "freefall :", package['freefall'], "\n",
                   "colision :", package['colision'], "\n",
                   "Motion :", package['Motion'], "\n",
                   "Time of use :", package['Time_of_use'], "\n",
                   "date :", package['date'], "\n",
-                  "Time :", package['Time'], "\n",
+                  "Time :", package['time'], "\n",
                   "==========================================")        
         
         

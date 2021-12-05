@@ -3,7 +3,8 @@ from datetime import datetime
 import pandas as pd
 import datetime as datetime2 # I was getting errors without this?
 
-csvFilePath = r'Memory/Hub_Memory.csv'
+# csvFilePath = r'Memory/Hub_Memory.csv'
+csvFilePath = "/home/pi/Hub/Memory/Tool_Memory_acumulator.csv"
 headers = ['Transponder_ID','Tool_ID','temp','humid','x','y','z','freefall','collision','Motion','Time_of_use','date','time']
 
 def is_tool_missing(timeThreshold = 3):
@@ -65,6 +66,7 @@ def make_delta(entry):
 def findTimeSum(path):
     df2 = pd.read_csv(path)
     df = pd.DataFrame(df2)  # initalizes the data
+#     indx = df.loc[df[]]
     time_of_use = df["Time_of_use"].apply(lambda entry: make_delta(entry))  # takes each number in the column "Time_of_use" and converts it to a base 10 number, which is then added to a list
     result = sum(time_of_use, datetime2.timedelta())  # take everything in the list and add it
     print(result)
