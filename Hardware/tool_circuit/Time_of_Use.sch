@@ -42,7 +42,7 @@ Wire Wire Line
 Wire Wire Line
 	5650 3500 5650 4300
 Text GLabel 8350 3850 2    50   BiDi ~ 0
-GPIO22_GEN3
+Time_of_use
 $Comp
 L power:+3.3V #PWR0101
 U 1 1 619EFD57
