@@ -115,6 +115,7 @@ try:
         stamp = datetime.now()
         # print("hit") # ttesting
         
+        
         # Package to be sent to transponder
         if tempHum_enable:
             package = {'Transponder_ID':111111,
@@ -129,7 +130,7 @@ try:
                         'Motion': accel_motion,
                         'Time_of_use': time_of_use,
                         'date': stamp.date(),
-                        'time':stamp.time()}
+                        'time':stamp.time().strftime("%H:%M")}
             
         else:
             package = {'x': accel[0],
