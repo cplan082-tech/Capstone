@@ -10,6 +10,8 @@ import subprocess
 import re
 import csv
 
+sleep_time_unit = 0.1
+
 print("Automatic Transponder Script Running \n")
 time.sleep(2)
 
@@ -140,19 +142,19 @@ if Nick_Clive==0:
 def flag():
     print("Flag verification function running")
 
-    time.sleep (2)
+    time.sleep(sleep_time_unit) # 2
     file = pathlib.Path(FlagPath +"/flag.csv") #Checks if the flag file exists
     if file.exists ():
         print("Flag file found")
         output = pexpect.run("scp " + FlagPath +"/flag.csv " + tool +"@"+ IP_Tool +":"+ ToolPath, events={'(?i)password':""+ password +"\n"})
         print("\n %s" %output.decode("utf-8"))
-        time.sleep(1)
+        time.sleep(sleep_time_unit) # 1
         # os.remove(FlagPath + "/flag.csv")
         print("Flag file deleted\n")
     else:
         print("No flag file found\n")
 
-    time.sleep(1)
+    time.sleep(sleep_time_unit) # 1
 
 
 #This function scp's into the tool and grabs all the tool data dumps and brings it to the hub deleting all other copies
@@ -164,23 +166,23 @@ def Retreive():
     #Blink the on board LED green quickly to simulate data transfer
     for j in range(20):
         os.system('echo 1 | sudo dd status=none of=/sys/class/leds/led0/brightness') # led on
-        time.sleep(0.1)
+        time.sleep(sleep_time_unit) # 0.1
         os.system('echo 0 | sudo dd status=none of=/sys/class/leds/led0/brightness') # led off
-        time.sleep(0.1)
+        time.sleep(sleep_time_unit) # 0.1
 
 
     # Retrives data from tool and places in transponder here: "/home/pi/Hub/Memory/HubMemory"
     output = pexpect.run("scp " + tool +"@"+ IP_Tool +":"+ ToolFile + " "+ path_nick, events={'(?i)password':""+ password +"\n"})
     print("\nThe output of ssh command: \n%s" %output.decode("utf-8"))
-    time.sleep(1)
+    time.sleep(sleep_time_unit) # 1
     print("Tool memory file retreived")
 
     i=20
     while i>0:
         GPIO.output(16, 1)
-        time.sleep(0.2)
+        time.sleep(sleep_time_unit) # 0.2
         GPIO.output(16, 0)
-        time.sleep(0.2)
+        time.sleep(sleep_time_unit) # 0.2
         i=i-1
     
     #########Delete the tool memory, comment out to deactivate:
@@ -192,18 +194,18 @@ def ConnectionTest(i):
 
     if i >1:
         print("Script continues to loop indefinetely while away from the Hub")
-        time.sleep(3)
+        time.sleep(sleep_time_unit) # 3
     
 
     print("\nRunning ConnectionTest()\n")
-    time.sleep(1)
+    time.sleep(sleep_time_unit) # 1
 
     if MAC==0:
     
         #Verifys if the switch is closed which replicates no wireless or WIFI coms. Note that GPIO 22 is BCM, not board for Pi 3 B
         if GPIO.input(15)==0:
             print("Wireless connections terminated... Switch is closed. Looping...")
-            time.sleep(2)
+            time.sleep(sleep_time_unit) #2
             return
         else:
             print("Wireless conections enabled")
@@ -212,7 +214,7 @@ def ConnectionTest(i):
     #print("\nThe output of ssh command: \n%s" %output.decode("utf-8"))
     #os.system("nick")
     print("\nConnection established\n")
-    time.sleep(1)
+    time.sleep(sleep_time_unit) # 1
 
 
     SignalStrength()
@@ -229,20 +231,20 @@ def ConnectionTest(i):
 def SignalStrength():
     print("Verifying signal strength")
 
-    time.sleep(2)
+    time.sleep(sleep_time_unit) # 2
     if MAC ==1:
         Wifi = subprocess.check_output(["/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I"], shell=True, stderr=subprocess.DEVNULL)
         sentence=str(Wifi)
         s = [float(s) for s in re.findall(r'-?\d+\.?\d*', sentence)]
         firstnumber = ( "% d" + "dBm.") % s[0]
         print("The Wifi signal power is: " + str(firstnumber))
-        time.sleep(3)
+        time.sleep(sleep_time_unit) # 3
        
 
         #Check if Wifi signal is strong enough
         if s[0] < float(Signal_Power):
             print("Wifi signal is to weak, cannot transfer data")
-            time.sleep(3)
+            time.sleep(sleep_time_unit) # 3
             quit()
     else:
         Wifi=[]
@@ -251,12 +253,12 @@ def SignalStrength():
         s = [float(s) for s in re.findall(r'-?\d+\.?\d*', sentence)]
         firstnumber = ( "% d" + "dBm.") % s[11]
         print("The Wifi signal power is: " + str(firstnumber))
-        time.sleep(3)
+        time.sleep(sleep_time_unit) # 3
 
 #Send the tool data to the MAC
 def Send():
     print("Sending the retreived data too the Hub")
-    time.sleep(2)
+    time.sleep(sleep_time_unit) # 2
     output_file ="Tool_Memory_acumulator.csv"
     print('hit')
     print(dest_path +  '/' + output_file)
@@ -268,17 +270,17 @@ def Send():
     else:
         print('Nothing to send')
         
-    time.sleep(1)
+    time.sleep(sleep_time_unit) #1
 
 #Grab timer csv file and bring it to the transponder, then delete the file
 def Timer():
     print("Grabing timer csv file from the Hub")
     output = pexpect.run("scp " + hub + "@"+ IP_MAC +":"+ HubTimerPath +"/" + Timer_name + " "+ path_nick, events={'(?i)password':""+ password_hub +"\n"})
     print("\n %s" %output.decode("utf-8"))
-    time.sleep(1)
+    time.sleep(sleep_time_unit) #1
     print("Deleting the timer csv file from the Hub")
     output = pexpect.run("ssh " + hub +"@"+ IP_MAC + " 'rm " + HubTimerPath +"/" + Timer_name + "'", events={'(?i)password':""+ password_hub +"\n"})
-    time.sleep(1)
+    time.sleep(sleep_time_unit) #1
     
 i=0
 while True:
