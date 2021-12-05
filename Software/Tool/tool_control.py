@@ -115,6 +115,7 @@ try:
         stamp = datetime.now()
         # print("hit") # ttesting
         
+        
         # Package to be sent to transponder
         if tempHum_enable:
             package = {'Transponder_ID':111111,
