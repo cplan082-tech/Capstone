@@ -27,9 +27,9 @@ password ='clive'
 password_hub='clive'
 
 #What are the Pi IPs?
-IP_Tool="10.0.0.112"
-IP_Transponder="10.0.0.67"
-IP_MAC="10.0.0.159"
+IP_Tool="192.168.0.22"
+IP_Transponder="192.168.0.21"
+IP_MAC="192.168.0.20"
 
 #The name of your devices?
 tool="pi"
