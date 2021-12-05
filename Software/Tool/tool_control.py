@@ -129,7 +129,7 @@ try:
                         'Motion': accel_motion,
                         'Time_of_use': time_of_use,
                         'date': stamp.date(),
-                        'time':stamp.time()}
+                        'time':stamp.time().strftime("%H:%M")}
             
         else:
             package = {'x': accel[0],
