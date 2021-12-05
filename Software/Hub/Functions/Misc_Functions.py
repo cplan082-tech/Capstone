@@ -60,13 +60,14 @@ def is_tool_missing(timeThreshold = 3):
 
 
 def make_delta(entry):
-    m, s = entry.split(':')
+    h, m, s = entry.split(':')
     return datetime2.timedelta(minutes=int(m), seconds=float(s))
 
 def findTimeSum(path):
     df2 = pd.read_csv(path)
     df = pd.DataFrame(df2)  # initalizes the data
-#     indx = df.loc[df[]]
+    indx = df.index[df['Transponder_ID'] == 'holder']
+    df = df.drop(index=indx).reset_index()
     time_of_use = df["Time_of_use"].apply(lambda entry: make_delta(entry))  # takes each number in the column "Time_of_use" and converts it to a base 10 number, which is then added to a list
     result = sum(time_of_use, datetime2.timedelta())  # take everything in the list and add it
     print(result)
