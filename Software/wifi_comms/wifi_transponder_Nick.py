@@ -65,7 +65,7 @@ TransponderPath = "/home/pi/Hub/Memory/HubMemory"
 MACPath ="/Users/christelledube/Desktop/PythonScripts/hub_to_tool/Hub/Memory/HubMemory"
 MACFlagPath ="/Users/christelledube/Desktop/PythonScripts/hub_to_tool/Hub/Memory"
 MACTimerPath ="/Users/christelledube/Desktop/PythonScripts/hub_to_tool/Hub/Memory"
-HubTimerPath ="/home/pi/Hub/Memory"
+HubTimerPath ="/home/pi/repos/Capstone/Software/Hub/Memory"
 HubFlagPath = "/home/pi/Hub/Memory"
 HubSensorDataPath = "/home/pi/Hub/Memory"
 
